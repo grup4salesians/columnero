@@ -78,7 +78,7 @@ background-color:#F0677C;
    HEADER SECTION STYLES
  ============================================================ */
 header {
-    background-color: #4B8EB1;
+    background-color: rgba(240, 85, 85, 0.95);
     color: #fff;
     padding: 10px;
     text-align: right;
@@ -96,7 +96,7 @@ header {
     border-bottom:1px solid black;
      border-right:1px solid black;
     border-left: 1px solid black;
-    background-color: #4bb1b1;
+    background-color: rgb(211, 97, 76);
     
 }
 #iniciarsessio,#registrarse{
@@ -117,7 +117,7 @@ header {
 
 #contingut_home{
     height:500px;
-    background-color: rgba(192, 222, 237, 0.34);
+    background-color: rgba(244, 228, 228, 0.34);
 }
 
 /* =============================================================
@@ -235,7 +235,7 @@ footer {
     padding: 10px;
     color: #fff;
     font-size: 12px;
-    background-color: #4B8EB1;
+    background-color: rgba(240, 85, 85, 0.95);
     border:1px solid black;
 }
 
