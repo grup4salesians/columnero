@@ -7,7 +7,7 @@
         <div class='header'>
             @include('includes.header')
         </div>
-        @yield('content)
+        @yield('content')
         <div class='footer'>
             @include('includes.footer')
         </div>

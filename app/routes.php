@@ -15,3 +15,6 @@ Route::get('/', function()
 {
 	return View::make('pages.home');
 });
+
+Route::get('login', 'AuthController@showLogin'); // Nos mostrará el formulario de login.
+Route::post('login', 'AuthController@postLogin'); // Validamos los datos de inicio de sesión.
