@@ -3,5 +3,5 @@
 Home
 @stop
 @section('content')
-
+hola
 @stop

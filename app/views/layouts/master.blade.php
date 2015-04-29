@@ -4,7 +4,6 @@
         @include('includes.head')
     </head>
     <body>
-        @include('includes.header');
         <div class='header'>
             @include('includes.header')
         </div>
