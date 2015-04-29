@@ -17,11 +17,8 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-            $data['header'] = "Home header";
-            $data['title'] = "Daw trello Grup 4";
-            $data['description'] = "Benvinguts";
             
-		return View::make('home',$data);
+		return View::make('home');
 	}
 
 }

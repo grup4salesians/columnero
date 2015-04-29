@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')
+Home
+@stop
 @section('content')
-<h2>{{ $header }}</h2>
+hola
 @stop
