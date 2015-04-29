@@ -8,11 +8,9 @@
         <![endif]-->
     <title>Free Responsive Admin Theme - ZONTAL</title>
     <!-- BOOTSTRAP CORE STYLE  -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONT AWESOME ICONS  -->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- CUSTOM STYLE  -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    {{ HTML::style('css/bootstrap.css'); }}
+    {{ HTML::style('css/style.css'); }}
+    {{ HTML::style('css/font-awesome.css'); }}
      <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
