@@ -3,5 +3,8 @@
 Home
 @stop
 @section('content')
-hola
+<div id="contingut_home">
+    
+</div>
+
 @stop

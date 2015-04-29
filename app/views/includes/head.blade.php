@@ -8,6 +8,7 @@
         <![endif]-->
     <title>Free Responsive Admin Theme - ZONTAL</title>
     <!-- BOOTSTRAP CORE STYLE  -->
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     {{ HTML::style('css/bootstrap.css'); }}
     {{ HTML::style('css/style.css'); }}
     {{ HTML::style('css/font-awesome.css'); }}

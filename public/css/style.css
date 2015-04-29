@@ -78,12 +78,47 @@ background-color:#F0677C;
    HEADER SECTION STYLES
  ============================================================ */
 header {
-    background-color: #F0677C;
+    background-color: #4B8EB1;
     color: #fff;
     padding: 10px;
     text-align: right;
+    border-top:1px solid black;
+    border-right:1px solid black;
+    border-left: 1px solid black;
+}
+.hoverguay{
+    
 }
 
+.header_login{
+    width:100%;
+    height: 70px;
+    border-bottom:1px solid black;
+     border-right:1px solid black;
+    border-left: 1px solid black;
+    background-color: #4bb1b1;
+    
+}
+#iniciarsessio,#registrarse{
+    float:right;
+    margin-right:30px;
+    width: 100px;
+    padding:3px;
+    padding-top:6px;
+    cursor:pointer;
+   
+    
+}
+#iniciarsessio:hover,#registrarse:hover{
+     background-color: #4B8EB1;
+     color:white;
+     
+}
+
+#contingut_home{
+    height:500px;
+    background-color: rgba(192, 222, 237, 0.34);
+}
 
 /* =============================================================
    LOGO SECTION STYLES
@@ -200,7 +235,8 @@ footer {
     padding: 10px;
     color: #fff;
     font-size: 12px;
-    background-color: #C36464;
+    background-color: #4B8EB1;
+    border:1px solid black;
 }
 
     footer a, footer a:hover {
