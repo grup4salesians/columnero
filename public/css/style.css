@@ -106,11 +106,12 @@ header {
     padding:3px;
     padding-top:6px;
     cursor:pointer;
+    font-weight:bold;
    
     
 }
 #iniciarsessio:hover,#registrarse:hover{
-     background-color: #4B8EB1;
+    
      color:white;
      
 }
