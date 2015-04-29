@@ -1,0 +1,19 @@
+{
+  "name": "columnero",
+  "version": "0.0.0",
+  "homepage": "https://github.com/grup4salesians/columnero",
+  "authors": [
+    "vektrom <kenzo_aku@hotmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ng-tags-input": "~2.3.0"
+  }
+}
