@@ -36,40 +36,37 @@
             </div>
             <div class="col-md-6">
                 <div class="alert alert-info">
-                    This is a free bootstrap admin template with basic pages you need to craft your project. 
-                    Use this template for free to use for personal and commercial use.
+                    Aquesta es una pagina gratuita de Columner! Esperem que disfrutis de la teva estancia!.
                     <br />
-                    <strong> Some of its features are given below :</strong>
+                    <strong> Algunes de les caracteristiques del columner s'esmenten aquí a baix :</strong>
                     <ul>
                         <li>
-                            Responsive Design Framework Used
+                           Columnes propies per a cada usuari.
                         </li>
                         <li>
-                            Easy to use and customize
+                           ¡Fácil d'utilitzar i costumitzar!
                         </li>
                         <li>
-                            Font awesome icons included
+                            Inclueix els millors com a favorits!
                         </li>
-                        <li>
-                            Clean and light code used.
-                        </li>
+                      
                     </ul>
 
                 </div>
                 <div class="alert alert-success">
-                    <strong> Instructions To Use:</strong>
+                    <strong> Instruccions d'ús:</strong>
                     <ul>
                         <li>
-                            Lorem ipsum dolor sit amet ipsum dolor sit ame
+                            Registra't a la página
                         </li>
                         <li>
-                            Aamet ipsum dolor sit ame
+                            Crea una nova columna
                         </li>
                         <li>
-                            Lorem ipsum dolor sit amet ipsum dolor
+                            Modifica la teva columna amb el que vulguis
                         </li>
                         <li>
-                            Cpsum dolor sit ame
+                            Guarda!
                         </li>
                     </ul>
 
