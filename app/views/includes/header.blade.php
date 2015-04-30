@@ -1,9 +1,16 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                
+                 <div class="col-md-12">
+                     <div class="logo">
+                   {{ HTML::image('images/DC_Logo.png', 'Logo', array('class' => 'logo')) }}
+                  
+                    </div>
                     <strong class="hoverguay">DawColumner - El teu espai per descobrir i compartir!</strong>
                 </div>
+                
+                
             </div>
         </div>
     </header>
