@@ -20,6 +20,12 @@
         font-size:30px;
         display:block;  
     }
+    #cerrarsession a:hover{
+        color:white;
+    }
+    #usuario a:hover{
+        color:white;
+    }
 
 </style>
 
@@ -27,8 +33,9 @@
     <?php if (Auth::check()) { //COMPRUEBA SI HAY USUARIO CONECTADO, SI LO HAY, INDICA UN MENÚ NUEVO Y UN CERRAR SESIÓN?> 
    
             <div id='cerrarsession'>
+                   <a tabindex="-1" href="<?php echo Config::get('constants.BaseUrl') ?>public/logout"> 
                   <span class="glyphicon glyphicon-lock iconosHeader">
-                <a tabindex="-1" href="<?php echo Config::get('constants.BaseUrl') ?>public/logout"> 
+             
                     </span>
                     Tancar Sessió
                 </a>
@@ -36,10 +43,10 @@
             </div>
     
      <div id='usuario'> 
-         <span class="glyphicon glyphicon-user iconosHeader"></span>
+         
         
                 <a id="dLabel" href="#" data-toggle="dropdown" aria-haspopup="true" role="button" style="float:right;display: inline-block;">
-                   
+                   <span class="glyphicon glyphicon-user iconosHeader"></span>
                     <?php echo Auth::user()->getFullNameAttribute(); ?> <span class="caret"></span>
                     <div class="hidden_area"> 
                     <ul>
