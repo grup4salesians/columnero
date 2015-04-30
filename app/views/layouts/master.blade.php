@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>@yield('title','Default Content')</title>
+        <title>@yield('title','Index')</title>
         @include('includes.head')
     </head>
     <body>
