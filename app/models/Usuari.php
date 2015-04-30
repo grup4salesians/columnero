@@ -26,7 +26,6 @@ class Usuari extends Eloquent implements UserInterface, RemindableInterface {
         return static::lists('nom', 'id');
     }
 
-
     public function getAuthIdentifier() {
         return $this->id;
     }

@@ -10,12 +10,7 @@
                 @if(Session::has('mensaje_error'))
                     <div class="alert alert-danger">{{ Session::get('mensaje_error') }}</div>
                 @endif
-                
-               <?php
-                $u = Usuari::where('id', 2)->get();
-                echo $u[0]->nom;
-?>
-                
+                        
                 
                 {{ Form::open(array('url' => '/login')) }}
                 <div>
