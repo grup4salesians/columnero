@@ -98,6 +98,15 @@ header {
     background-color: rgb(211, 97, 76);
     
 }
+.Registre_TextBox{
+    width:100%;
+    float:right;
+}
+.body_registre{
+    width:100%;
+    height:auto;
+    background-color:rgba(217, 83, 79, 0.07);
+}
 
 #iniciarsessio,#registrarse{
     float:right;
