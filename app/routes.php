@@ -21,6 +21,6 @@ Route::post('login', 'AuthController@postLogin'); // Validamos los datos de inic
 Route::get('logout','AuthController@logOut'); // Desloguea.
 //--------------------
 //PAGINA DE REGISTRO---
-Route::get('registro', 'HomeController@ShowRegistro'); // Nos mostrará el formulario de registro.
-Route::post('registro', 'HomeController@PostRegistro'); // Nos registrará en la pagina a través de la función PostRegistro de HomeController.
+Route::get('registro', 'RegistreController@showFormulari'); // Nos mostrará el formulario de registro.
+Route::post('registro', 'RegistreController@postRegistre'); // Nos registrará en la pagina a través de la función PostRegistro de HomeController.
 //--------------------
