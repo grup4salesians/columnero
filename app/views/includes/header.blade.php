@@ -43,7 +43,7 @@
         <div id='registrarse'> 
             <a tabindex="-1" href="<?php echo Config::get('constants.BaseUrl') ?>public/registro">
                 <span class="glyphicon glyphicon-user iconosHeader"></span>
-                Iniciar Sessió
+                Registre
             </a>
         </div>
         <div id='iniciarsessio'> 
