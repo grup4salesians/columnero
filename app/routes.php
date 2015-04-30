@@ -18,3 +18,4 @@ Route::get('/', function()
 
 Route::get('login', 'AuthController@showLogin'); // Nos mostrará el formulario de login.
 Route::post('login', 'AuthController@postLogin'); // Validamos los datos de inicio de sesión.
+Route::get('registro', 'HomeController@ShowRegistro'); // Nos mostrará el formulario de registro.

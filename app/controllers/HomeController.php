@@ -20,5 +20,10 @@ class HomeController extends BaseController {
             
 		return View::make('home');
 	}
+        public function showRegistro()
+	{
+            
+		return View::make('pages.registro');
+	}
 
 }
