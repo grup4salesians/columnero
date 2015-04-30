@@ -115,7 +115,7 @@ header {
     background-color:rgba(217, 83, 79, 0.07);
 }
 
-#iniciarsessio,#registrarse{
+#iniciarsessio,#registrarse,#cerrarsession,#usuario{
     float:right;
     margin-right:30px;
     width: 100px;
@@ -126,7 +126,14 @@ header {
    
     
 }
-#iniciarsessio:hover,#registrarse:hover{
+.hidden_area{
+   display:none;
+}
+.hidden_area:hover {
+    display:block;
+    color:red;
+}
+#iniciarsessio:hover,#registrarse:hover,#cerrarsession:hover,#usuario:hover{
     
      color:white;
      
