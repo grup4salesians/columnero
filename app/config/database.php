@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'josep-portatil',
+			'host'      => 'jona-pc',
 			'database'  => 'dawtrello',
-			'username'  => 'root',
-			'password'  => 'Arroba2011',
+			'username'  => 'jona',
+			'password'  => '12345',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
