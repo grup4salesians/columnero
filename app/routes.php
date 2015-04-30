@@ -18,9 +18,13 @@ Route::get('/', function()
 //LOGIN & LOGOUT ----------
 Route::get('login', 'AuthController@showLogin'); // Nos mostrará el formulario de login.
 Route::post('login', 'AuthController@postLogin'); // Validamos los datos de inicio de sesión.
-Route::get('logout','AuthController@logOut'); // Desloguea.
+
 //--------------------
 //PAGINA DE REGISTRO---
 Route::get('registro', 'RegistreController@showFormulari'); // Nos mostrará el formulario de registro.
 Route::post('registro', 'RegistreController@postRegistre'); // Nos registrará en la pagina a través de la función PostRegistro de HomeController.
 //--------------------
+
+Route::group(array('before' => 'auth'), function() {
+    Route::get('logout', 'AuthController@logOut'); // Esta ruta nos servirá para cerrar sesión.
+});
