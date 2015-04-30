@@ -28,11 +28,12 @@ class AuthController extends BaseController {
     public function postLogin()
     {
         // Guardamos en un arreglo los datos del usuario.
+        
         $userdata = array(
             'email' => Input::get('email'),
-            'password'=> Input::get('contrasenya')
+            'password'=> Input::get('password')
         );
-        
+         
         if(Auth::attempt($userdata, Input::get('rememberme', 0))) { // De ser datos válidos nos mandara a la bienvenida
             return Redirect::to('/');
             

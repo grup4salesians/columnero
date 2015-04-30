@@ -18,8 +18,8 @@
                     {{ Form::text('email', Input::old('email'),array('class' => 'form-control')) }}
                 </div>
                 <div >
-                    {{ Form::label('contraseña', 'Contrasenya') }}
-                    {{ Form::password('contrasenya',array('class' => 'form-control')); }}
+                    {{ Form::label('password', 'Password') }}
+                    {{ Form::password('password',array('class' => 'form-control')); }}
                 </div>
                 <div class="checkbox">
                     <label> 
