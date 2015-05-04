@@ -19,7 +19,6 @@
     .iconosHeader{
         font-size:30px;
         display:block;  
-<<<<<<< HEAD
          text-decoration: none;
          color: black;
     }
@@ -82,31 +81,22 @@
             document.getElementById("sidebar").style.display = "none";
         }
    </script>
-=======
-    }
-
-</style>
->>>>>>> parent of 79fa152... Merge branch 'master' of https://github.com/grup4salesians/columnero
 
 <div class='header_login' style="text-align:center;"> 
     <?php if (Auth::check()) { //COMPRUEBA SI HAY USUARIO CONECTADO, SI LO HAY, INDICA UN MENÚ NUEVO Y UN CERRAR SESIÓN?> 
    
             <div id='cerrarsession'>
-<<<<<<< HEAD
-                   <a tabindex="-1" href="<?php echo Config::get('constants.BaseUrl') ?>public/logout"> 
-                  <span class="glyphicon glyphicon-lock iconosHeader">
-             
-=======
+
                   <span class="glyphicon glyphicon-lock iconosHeader">
                 <a tabindex="-1" href="<?php echo Config::get('constants.BaseUrl') ?>public/logout"> 
->>>>>>> parent of 79fa152... Merge branch 'master' of https://github.com/grup4salesians/columnero
+
                     </span>
                     Tancar Sessió
                 </a>
 
             </div>
     
-<<<<<<< HEAD
+
      <div id='usuario' onMouseOver="show_sidebar()" onMouseOut="hide_sidebar()">
          
         
@@ -126,7 +116,7 @@
                     </ul>
         </div>      
          
-=======
+
      <div id='usuario'> 
          <span class="glyphicon glyphicon-user iconosHeader"></span>
         
@@ -142,7 +132,6 @@
                         </div>
                 </a>
            
->>>>>>> parent of 79fa152... Merge branch 'master' of https://github.com/grup4salesians/columnero
         </div>
         
     <?php } else {  //NO HAY USUARIO POR LO QUE INDICA EL MENÚ NORMAL, REGISTRO & INICIAR SESSIÓN?>

@@ -20,7 +20,7 @@ class HomeController extends BaseController {
             
 		return View::make('home');
 	}
-<<<<<<< HEAD
+	
         public function ShowNovaNota(){
             return View::make('pages.novanota');
         }
@@ -33,8 +33,5 @@ class HomeController extends BaseController {
         public function ShowPerfil(){
             return View::make('pages.perfil');
         }  
-=======
-    
->>>>>>> parent of 79fa152... Merge branch 'master' of https://github.com/grup4salesians/columnero
 
 }
