@@ -25,7 +25,7 @@ class RegistreController extends BaseController {
             'email' => 'required|email|unique:usuaris',
             'password' => 'required|min:6',
             'contrasenya_confirm' => 'required|same:password',
-            'nick' => 'required|min:1'
+            'nick' => 'required|min:6'
         ];
         $validator = Validator::make($userdata, $rules);
         if ($validator->fails()) {

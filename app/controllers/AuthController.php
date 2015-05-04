@@ -28,19 +28,19 @@ class AuthController extends BaseController {
     public function postLogin()
     {
         // Guardamos en un arreglo los datos del usuario.
-        
         $userdata = array(
-            'email' => Input::get('email'),
+            'correu' => Input::get('correu'),
             'password'=> Input::get('password')
         );
-         
-        if(Auth::attempt($userdata, Input::get('rememberme', 0))) { // De ser datos válidos nos mandara a la bienvenida
+
+        if(Auth::attempt($userdata, Input::get('remember-me', 0)))
+        {
+            // De ser datos válidos nos mandara a la bienvenida
             return Redirect::to('/');
-            
         }
-      // En caso de que la autenticación haya fallado manda un mensaje al formulario de login y también regresamos los valores enviados con withInput().
+        // En caso de que la autenticación haya fallado manda un mensaje al formulario de login y también regresamos los valores enviados con withInput().
         return Redirect::to('login')
-                    ->with('mensaje_error', 'Les teves dades són incorrectes')
+                    ->with('mensaje_error', 'Tus datos son incorrectos')
                     ->withInput();
     }
 
