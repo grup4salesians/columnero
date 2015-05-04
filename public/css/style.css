@@ -91,7 +91,10 @@ header {
     height: 70px;
     background-color: rgb(211, 97, 76);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 79fa152... Merge branch 'master' of https://github.com/grup4salesians/columnero
 .header_login a {
     text-decoration: none;
     color: rgb(71, 44, 44);
@@ -99,7 +102,10 @@ header {
 .header_login a:hover {
     color: rgb(94, 255, 0);
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 79fa152... Merge branch 'master' of https://github.com/grup4salesians/columnero
 .logo{
     width: 60px;
     height: 50px;
@@ -128,7 +134,10 @@ header {
    color: black;
     
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 79fa152... Merge branch 'master' of https://github.com/grup4salesians/columnero
 .hidden_area{
    display:none;
 }
@@ -136,7 +145,10 @@ header {
     display:block;
     color:red;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 79fa152... Merge branch 'master' of https://github.com/grup4salesians/columnero
 #iniciarsessio:hover,#registrarse:hover,#cerrarsession:hover,#usuario:hover{
     
      color:white;
