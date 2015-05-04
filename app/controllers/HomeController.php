@@ -20,6 +20,7 @@ class HomeController extends BaseController {
             
 		return View::make('home');
 	}
+	
         public function ShowNovaNota(){
             return View::make('pages.novanota');
         }
@@ -31,7 +32,6 @@ class HomeController extends BaseController {
         }
         public function ShowPerfil(){
             return View::make('pages.perfil');
-        }
-    
+        }  
 
 }

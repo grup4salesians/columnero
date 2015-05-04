@@ -25,7 +25,15 @@ class RegistreController extends BaseController {
             'email' => 'required|email|unique:usuaris',
             'password' => 'required|min:6',
             'contrasenya_confirm' => 'required|same:password',
+<<<<<<< HEAD
+<<<<<<< HEAD
             'nick' => 'required|min:1'
+=======
+            'nick' => 'required|min:6'
+>>>>>>> parent of 79fa152... Merge branch 'master' of https://github.com/grup4salesians/columnero
+=======
+            'nick' => 'required|min:6'
+>>>>>>> parent of 79fa152... Merge branch 'master' of https://github.com/grup4salesians/columnero
         ];
         $validator = Validator::make($userdata, $rules);
         if ($validator->fails()) {
