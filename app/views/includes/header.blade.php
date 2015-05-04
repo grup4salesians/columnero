@@ -33,8 +33,14 @@
      #registrarse a:hover,#iniciarsessio a:hover,#usuario a:hover,#cerrarsession a:hover{
         color:white;
     }
-   
-
+    #sidebar{
+        display:none;
+    
+    }
+    #sidebar:hover{
+        position:relative;
+        z-index:10;
+    }
     ul, ol {
         list-style:none;
     }
@@ -42,8 +48,10 @@
     .nav {
         width:200px; /*Le establecemos un ancho*/
         display:block;
-        margin:0 auto; /*Centramos automaticamente*/
-        margin-right:20px;
+        margin-top:20px;
+        position:relative;
+     
+ 
     }
 
     .nav > li {
@@ -67,7 +75,7 @@
     }
     .nav li ul {
         display:none;
-        position:absolute;
+        position:relative;
         min-width:140px;
     }
 
@@ -102,7 +110,7 @@
                    <span class="glyphicon glyphicon-user iconosHeader"></span>
                     <?php echo Auth::user()->nick; ?> <span class="caret"></span>
                 </a>
-         <div id="sidebar" style="display:none">
+         <div id="sidebar">
              
         
                     <ul class="nav">
