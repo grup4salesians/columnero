@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title')
-Login
+Perfil
 @stop
 @section('content')
-@include('includes.login')
+Hola
 @stop
