@@ -9,3 +9,4 @@ Thumbs.db
 /nbproject/private/
 /nbproject
 /bower_componets
+app/config/database.php

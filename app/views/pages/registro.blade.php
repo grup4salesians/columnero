@@ -35,7 +35,7 @@ Registre
         </div>
         <div class="form-group">
             {{ Form::label('Nick', 'Nick') }}
-            {{ Form::text('nick', Input::old('nick'),array('class' => 'Registre_TextBox')) }}
+            {{ Form::text('Nick', Input::old('nick'),array('class' => 'Registre_TextBox')) }}
         </div>
         <br>
         {{ Form::submit('Registra\'t!',array('class'=> 'btn btn-success'))}}

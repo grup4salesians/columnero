@@ -1,21 +1,23 @@
 <?php
-
 use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class Usuari extends Eloquent implements UserInterface, RemindableInterface {
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
+class Usuari implements ModelWithImageFieldsInterface, UserInterface, RemindableInterface {
 
     use UserTrait, RemindableTrait;
+    use ModelWithImageOrFileFieldsTrait;
 
     protected $table = "usuaris";
-    protected $fillable = ['nom', 'cognom', 'email', 'contrasenya', 'nick','remember_token'];
+    protected $fillable = ['nom', 'cognom', 'dni', 'email', 'contrasenya', 'nick'];
     
     protected $hidden = array('contrasenya', 'remember_token');
     
     public function scopeDefaultSort($query) {
-        return $query->orderBy('cognom', 'asc');
+        return $query->orderBy('nom', 'asc');
     }
 
     public function getFullNameAttribute() {
@@ -23,11 +25,12 @@ class Usuari extends Eloquent implements UserInterface, RemindableInterface {
     }
 
     public static function getList() {
-        return static::lists('nom', 'id');
+        return static::lists('Nom', 'usuaris_id');
     }
 
+
     public function getAuthIdentifier() {
-        return $this->id;
+        return $this->usuaris_id;
     }
 
     public function getAuthPassword() {
