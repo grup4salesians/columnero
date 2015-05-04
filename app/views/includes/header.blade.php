@@ -95,11 +95,12 @@
 
             </div>
     
-     <div id='usuario' onMouseOver="show_sidebar()" onMouseOut="hide_sidebar()"> 
+     <div id='usuario' onMouseOver="show_sidebar()" onMouseOut="hide_sidebar()">
          
         
                 <a id="dLabel" href="#" data-toggle="dropdown" aria-haspopup="true" role="button" style="float:right;display: inline-block;">
                    <span class="glyphicon glyphicon-user iconosHeader"></span>
+
                     <?php echo Auth::user()->nick; ?> <span class="caret"></span>
                 </a>
          <div id="sidebar" style="display:none">
@@ -115,7 +116,6 @@
          
         </div>
         
-
     <?php } else {  //NO HAY USUARIO POR LO QUE INDICA EL MENÚ NORMAL, REGISTRO & INICIAR SESSIÓN?>
         <div id='registrarse'> 
             <a tabindex="-1" href="<?php echo Config::get('constants.BaseUrl') ?>public/registro">

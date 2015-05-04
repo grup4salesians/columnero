@@ -31,7 +31,6 @@ class HomeController extends BaseController {
         }
         public function ShowPerfil(){
             return View::make('pages.perfil');
-        }
-    
+        }  
 
 }
