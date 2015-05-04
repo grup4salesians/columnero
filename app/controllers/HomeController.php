@@ -20,6 +20,18 @@ class HomeController extends BaseController {
             
 		return View::make('home');
 	}
+        public function ShowNovaNota(){
+            return View::make('pages.novanota');
+        }
+        public function ShowMevesNotes(){
+            return View::make('pages.mevesnotes');
+        }
+        public function ShowPreferits(){
+            return View::make('pages.preferits');
+        }
+        public function ShowPerfil(){
+            return View::make('pages.perfil');
+        }
     
 
 }

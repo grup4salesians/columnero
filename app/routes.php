@@ -25,6 +25,13 @@ Route::get('registro', 'RegistreController@showFormulari'); // Nos mostrará el 
 Route::post('registro', 'RegistreController@postRegistre'); // Nos registrará en la pagina a través de la función PostRegistro de HomeController.
 //--------------------
 
+//MENU DE USUARI----
+Route::get('novanota', 'HomeController@ShowNovaNota'); 
+Route::get('preferits', 'HomeController@ShowPreferits'); 
+Route::get('mevesnotes', 'HomeController@ShowMevesNotes'); 
+Route::get('perfil', 'HomeController@ShowPerfil'); 
+
+
 Route::group(array('before' => 'auth'), function() {
     Route::get('logout', 'AuthController@logOut'); // Esta ruta nos servirá para cerrar sesión.
 });
