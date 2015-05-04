@@ -33,6 +33,9 @@
      #registrarse a:hover,#iniciarsessio a:hover,#usuario a:hover,#cerrarsession a:hover{
         color:white;
     }
+     #registrarse:hover,#iniciarsessio:hover,#usuario:hover,#cerrarsession:hover{
+        color:white;
+    }
     #sidebar{
         display:none;
     
