@@ -4,7 +4,13 @@ Registre
 @stop
 @section('content')
 <div class="body_registre">
+     
     <div class="panel-body" style="width: 390px; margin: auto;background-color:rgba(217, 83, 79, 0.02)">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="page-head-line">Registra't</h4>
+            </div>
+        </div>
         @if ($errors->has())
         <div class="alert alert-danger">
             @foreach ($errors->all() as $error)
@@ -35,7 +41,7 @@ Registre
         </div>
         <div class="form-group">
             {{ Form::label('Nick', 'Nick') }}
-            {{ Form::text('Nick', Input::old('nick'),array('class' => 'Registre_TextBox')) }}
+            {{ Form::text('nick', Input::old('nick'),array('class' => 'Registre_TextBox')) }}
         </div>
         <br>
         {{ Form::submit('Registra\'t!',array('class'=> 'btn btn-success'))}}
