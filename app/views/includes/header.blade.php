@@ -10,7 +10,6 @@
                 <strong class="hoverguay">DawColumner - El teu espai per descobrir i compartir!</strong>
             </div>
 
-
         </div>
     </div>
 </header>
@@ -116,23 +115,6 @@
                     </ul>
         </div>      
          
-
-     <div id='usuario'> 
-         <span class="glyphicon glyphicon-user iconosHeader"></span>
-        
-                <a id="dLabel" href="#" data-toggle="dropdown" aria-haspopup="true" role="button" style="float:right;display: inline-block;">
-                   
-                    <?php echo Auth::user()->getFullNameAttribute(); ?> <span class="caret"></span>
-                    <div class="hidden_area"> 
-                    <ul>
-                        <li>Hola</li>
-                        <li>Halop</li>
-                        <li>Hailop</li>
-                    </ul>
-                        </div>
-                </a>
-           
-        </div>
         
     <?php } else {  //NO HAY USUARIO POR LO QUE INDICA EL MENÚ NORMAL, REGISTRO & INICIAR SESSIÓN?>
         <div id='registrarse'> 
