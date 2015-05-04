@@ -9,6 +9,7 @@ Home
 			@include('includes/columna')
 			@include('includes/columna')
 			@include('includes/columna')
+
 		</div>
 	</div>
 @stop

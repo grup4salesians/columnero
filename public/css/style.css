@@ -372,3 +372,12 @@ footer {
 .btn-google {
     background-color: #c32f10;
 }
+
+/* - */
+.columna.panel-primary {
+    border-color: #C85E4B;
+}
+.columna.panel-primary > .panel-heading {
+    border-color: #C85E4B;
+    background-color: #C85E4B;
+}
