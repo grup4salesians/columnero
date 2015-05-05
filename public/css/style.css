@@ -105,7 +105,6 @@ header {
 #contingut_home{
     height:auto;
     background-color: rgba(244, 228, 228, 0.34);
-    padding: 15px;
     margin: 0 auto;
 }
 
@@ -368,4 +367,27 @@ footer a, footer a:hover {
 .columna.panel-primary > .panel-heading {
     border-color: #D86F5D;
     background-color: #D86F5D;
+}
+#contingut_home {
+    width: 100%;
+    overflow: hidden;
+}
+html, body, #contingut_home > .row-horizon {
+    height: 100%;
+}
+#contingut_home > .row-horizon {
+    overflow-y: scroll !important;
+    margin-right: -32px;
+    padding: 15px;
+}
+
+.header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+.header-space {
+    position: relative;
+    width: 100%;
+    padding-bottom: 60px;
 }

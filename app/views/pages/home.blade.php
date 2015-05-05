@@ -3,6 +3,7 @@
 Home
 @stop
 @section('content')
+<<<<<<< HEAD
 <style>
     .titulsbusqueda{
         margin-left:10px;
@@ -42,7 +43,7 @@ Home
            {{ Form::close() }}
         </div>
     </div>
-    <div class="row">
+    <div class="row row-horizon">
         <?php $nom = Auth::user()->getFullNameAttribute(); ?>
         @include('includes/columna')
         @include('includes/columna')
