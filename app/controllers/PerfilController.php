@@ -27,6 +27,7 @@ class PerfilController extends BaseController {
             
              $rules = [
             'passnueva' => 'required|min:1',
+             'passactual' => 'required|min:1',
             'contrasenya_confirm' => 'required|same:passnueva'
         ];
              
@@ -34,13 +35,18 @@ class PerfilController extends BaseController {
         if ($validator->fails()) {
             return Redirect::back()->withInput()->withErrors($validator);
         }
+        
         $passnueva = Input::get('passnueva');
         $passnuevahash = Hash::make($passnueva);
+        
         $iduser = Auth::user()->id;
         
-       Usuari::where('usuari_id',$iduser)->update(array('contrasenya' => '123'));
+      $affectedrows = Usuari::where('id','=',$iduser)->update(array('contrasenya' => $passnuevahash));
        
-           return View::make('pages.perfil')->with('mensaje_error', 'La teva contrasenya ha sigut actualitzada.');
+       $mensaje = array(
+           'mensaje' => 'La teva contrasenya ha sigut actualitzada.');
+       
+           return View::make('pages.perfil',$mensaje);
         }
 
 }

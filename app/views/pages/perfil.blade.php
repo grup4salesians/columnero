@@ -31,9 +31,13 @@ Perfil
             @endforeach
         </div>
         @endif
-        @if(Session::has('mensaje_error'))
-                    <div class="alert alert-info">{{ Session::get('mensaje_error') }}</div>
-                @endif
+    
+                     <?php
+        if(!(empty(Input::get('mensaje')))){
+            $mensaje = Input::get('mensaje')?>
+           <div class="alert alert-info"><?php echo $mensaje ?></div>
+        <?php } ?>   
+       
             {{ Form::open(array('url' => '/cambiarpass','method' => 'post')) }}
                 <span class="labelperfil">Nom</span>  <br>
                 <input type="text" class="inputperfil" value="<?php echo Auth::user()->nom; ?>" disabled="disabled"><br>
