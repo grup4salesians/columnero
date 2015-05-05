@@ -27,6 +27,9 @@ Route::get('preferits', 'HomeController@ShowPreferits');
 Route::get('mevesnotes', 'HomeController@ShowMevesNotes'); 
 Route::get('perfil', 'HomeController@ShowPerfil'); 
 
+//PERFIL--
+Route::post('cambiarpass','PerfilController@CambiarPass');
+
 //FILTRO HOME----
 
 Route::post('cercarhome', 'HomeController@ShowFiltro');

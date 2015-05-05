@@ -24,7 +24,17 @@ Perfil
                 <h4 class="page-head-line">Perfil</h4>
             </div>
         </div>
-            <form style="margin-bottom:10px;">
+             @if ($errors->has())
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+            {{ $error }}<br>        
+            @endforeach
+        </div>
+        @endif
+        @if(Session::has('mensaje_error'))
+                    <div class="alert alert-info">{{ Session::get('mensaje_error') }}</div>
+                @endif
+            {{ Form::open(array('url' => '/cambiarpass','method' => 'post')) }}
                 <span class="labelperfil">Nom</span>  <br>
                 <input type="text" class="inputperfil" value="<?php echo Auth::user()->nom; ?>" disabled="disabled"><br>
                 <span class="labelperfil">Cognom</span><br>
@@ -34,19 +44,23 @@ Perfil
                 <span class="labelperfil">Email</span> <br>
                 <input type="text" class="inputperfil" value="<?php echo Auth::user()->email; ?>" disabled="disabled"><br>
                 <span class="labelperfil">Nº de posts</span> <br>
-                <input type="text" class="inputperfil" value="0" disabled="disabled"><br><br>
+                <input type="text" class="inputperfil" value=" <?php $querypost = Post::where('usuari_id',Auth::user()->id)->select();
+                echo count($querypost->get());
+                ?>" disabled="disabled"><br><br>
                 <input type="button" class="btn btn-primary" id="butoncambiarpass" value="Cambiar contrasenya" onclick="showdivcontrasenya()"><br>
                 <div id="cambiarpass" style="display:none;">
                     <br>
-                    {{ Form::open(array('url' => '/cambiarpass')) }}
-                    <span class="labelperfil">Contrasenya actual</span> <br>
-                    <input type="password" class="inputperfil"><br>
+                    
+                    <span  class="labelperfil">Contrasenya actual</span> <br>
+                     {{ Form::password('passactual',array('class' => 'inputperfil')); }}<br>
                     <span class="labelperfil">Contrasenya nova</span><br>
-                    <input type="password" class="inputperfil"><br><br>
+                    {{ Form::password('passnueva',array('class' => 'inputperfil')); }}<br>
+                     <span class="labelperfil">Confirmar contrasenya nova</span><br>
+                     {{ Form::password('contrasenya_confirm',array('class' => 'inputperfil')); }}<br><br>
                       {{ Form::submit('Confirmar', array('class' => 'btn btn-success'))}}
                      {{ Form::close() }}
                 </div>
-            </form>
+            
         </div>
    
 </div>
