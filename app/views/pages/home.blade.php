@@ -53,6 +53,7 @@ Home
         @include('includes/columna')
     </div>
 </div>
+@stop
 	<script>
 		$(function() {
 			$('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
