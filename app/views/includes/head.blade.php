@@ -9,8 +9,8 @@
     <title>Columnero grup 4</title>
     <!-- BOOTSTRAP CORE STYLE  -->
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     {{ HTML::style('css/bootstrap.css'); }}
+    {{ HTML::style('css/bootstrap-horizon.css'); }}
     {{ HTML::style('css/style.css'); }}
     {{ HTML::style('css/font-awesome.css'); }}
 </head>

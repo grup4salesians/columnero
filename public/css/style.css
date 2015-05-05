@@ -386,3 +386,14 @@ footer {
     border-color: #D86F5D;
     background-color: #D86F5D;
 }
+#contingut_home {
+    width: 100%;
+    overflow: hidden;
+}
+html, body, #contingut_home > .row-horizon {
+    height: 100%;
+}
+#contingut_home > .row-horizon {
+    overflow-y: scroll !important;
+    margin-right: -32px;
+}

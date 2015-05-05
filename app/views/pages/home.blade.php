@@ -4,7 +4,7 @@ Home
 @stop
 @section('content')
 	<div id="contingut_home">
-		<div class="row">
+		<div class="row row-horizon">
 			<?php $nom = Auth::user()->getFullNameAttribute(); ?>
 			@include('includes/columna')
 			@include('includes/columna')
