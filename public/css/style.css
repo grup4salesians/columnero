@@ -61,16 +61,16 @@ body {
 }
 .login-icon {
     height: 60px;
-width: 60px;
-padding: 13px;
-border-radius: 50%;
-font-size: 30px;
-margin-bottom: 20px;
-color: #fff;
-text-align: center;
-cursor:pointer;
-background-color:#F0677C;
--webkit-border-radius:50%;
+    width: 60px;
+    padding: 13px;
+    border-radius: 50%;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    cursor:pointer;
+    background-color:#F0677C;
+    -webkit-border-radius:50%;
     -moz-border-radius:50%;
 }
 /* =============================================================
@@ -88,7 +88,7 @@ header {
     height: 50px;
     display: inline-block;
     float:left;
-    
+
 }
 .Registre_TextBox{
     width:100%;
@@ -99,13 +99,39 @@ header {
     height:auto;
     background-color:rgba(217, 83, 79, 0.07);
 }
-
+/* =============================================================
+   HOME
+ ============================================================ */
 #contingut_home{
-    min-height:500px;
+    height:auto;
     background-color: rgba(244, 228, 228, 0.34);
     padding: 15px;
     margin: 0 auto;
 }
+
+
+#busqueda_home{
+    min-width:400px;
+    max-width:750px;
+    margin: auto;
+    margin-bottom:30px;
+    height:130px;
+    background-color:#D86F5D;
+    border-top-left-radius: 5px;
+    border-top-right-radius:5px;
+    border:1px solid black;
+}
+
+#ordenar_home{
+    width:80%;
+    margin:auto;
+    margin-top:14px;
+    background-color: #FFF;
+    border:1px solid black;
+    height:100px;
+    border-radius:5px;
+}
+
 
 /* =============================================================
    LOGO SECTION STYLES
@@ -139,42 +165,42 @@ header {
     margin-top: 10px;
 }
 
-    .user-settings-wrapper li {
-        display: inline-block;
-    }
+.user-settings-wrapper li {
+    display: inline-block;
+}
 
-    .user-settings-wrapper .dropdown-settings {
-        width: 200px;
-        padding: 10px;
-    }
+.user-settings-wrapper .dropdown-settings {
+    width: 200px;
+    padding: 10px;
+}
 
-    .user-settings-wrapper .nav > li > a:hover,.user-settings-wrapper .nav > li > a:focus {
-        text-decoration: none;
-        background-color: #C36464!important;
-    }
+.user-settings-wrapper .nav > li > a:hover,.user-settings-wrapper .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #C36464!important;
+}
 
-    .user-settings-wrapper img {
-        height: 64px;
-        width: 64px;
-        border: 1px solid #000000;
-    }
+.user-settings-wrapper img {
+    height: 64px;
+    width: 64px;
+    border: 1px solid #000000;
+}
 
-    .user-settings-wrapper .dropdown-menu {
-        margin: 0px;
-        border-radius: 0px!important;
-        -moz-border-radius: 0px!important;
-        -webkit-border-radius: 0px!important;
-    }
+.user-settings-wrapper .dropdown-menu {
+    margin: 0px;
+    border-radius: 0px!important;
+    -moz-border-radius: 0px!important;
+    -webkit-border-radius: 0px!important;
+}
 
-    .user-settings-wrapper .btn {
-        border-radius: 0px!important;
-        -moz-border-radius: 0px!important;
-        -webkit-border-radius: 0px!important;
-    }
+.user-settings-wrapper .btn {
+    border-radius: 0px!important;
+    -moz-border-radius: 0px!important;
+    -webkit-border-radius: 0px!important;
+}
 
-    .user-settings-wrapper .media-heading {
-        padding-top: 10px;
-    }
+.user-settings-wrapper .media-heading {
+    padding-top: 10px;
+}
 
 /* MENU LINKS SECTION*/
 
@@ -225,10 +251,10 @@ footer {
     background-color: rgba(240, 85, 85, 0.95);
 }
 
-    footer a, footer a:hover {
-        color: #fff;
-        text-decoration: none;
-    }
+footer a, footer a:hover {
+    color: #fff;
+    text-decoration: none;
+}
 
 /*==============================================
     DASHBOARD  STYLES    
@@ -273,9 +299,9 @@ footer {
     margin-bottom: 50px;
 }
 
-    .dashboard-div-wrapper .progress {
-        height: 2px;
-    }
+.dashboard-div-wrapper .progress {
+    height: 2px;
+}
 
 /* NOTICE BOARD */
 
@@ -296,16 +322,16 @@ footer {
     border-bottom: 1px solid #E5E5E5;
 }
 
-    .notice-board li span {
-        margin-right: 10px;
-        border: 1px solid #DBDBDB;
-        padding: 5px;
-    }
+.notice-board li span {
+    margin-right: 10px;
+    border: 1px solid #DBDBDB;
+    padding: 5px;
+}
 
-    .notice-board li a, li a:hover {
-        text-decoration: none;
-        color: #000;
-    }
+.notice-board li a, li a:hover {
+    text-decoration: none;
+    color: #000;
+}
 
 /* SOCIAL BUTTONS */
 .btn-social {
@@ -313,11 +339,11 @@ footer {
     opacity: 0.8;
 }
 
-    .btn-social:hover {
-        color: white;
-        opacity: 1;
-        text-decoration: none;
-    }
+.btn-social:hover {
+    color: white;
+    opacity: 1;
+    text-decoration: none;
+}
 
 .btn-facebook {
     background-color: #3b5998;
