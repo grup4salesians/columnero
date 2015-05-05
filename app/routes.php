@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('pages.home');
-});
 //LOGIN & LOGOUT ----------
 Route::get('login', 'AuthController@showLogin'); // Nos mostrará el formulario de login.
 Route::post('login', 'AuthController@postLogin'); // Validamos los datos de inicio de sesión.
@@ -33,5 +29,9 @@ Route::get('perfil', 'HomeController@ShowPerfil');
 
 
 Route::group(array('before' => 'auth'), function() {
+	Route::get('/', function()
+	{
+		return View::make('pages.home');
+	});
     Route::get('logout', 'AuthController@logOut'); // Esta ruta nos servirá para cerrar sesión.
 });
