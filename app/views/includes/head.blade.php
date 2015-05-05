@@ -1,4 +1,4 @@
-<head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
@@ -13,4 +13,4 @@
     {{ HTML::style('css/bootstrap-horizon.css'); }}
     {{ HTML::style('css/style.css'); }}
     {{ HTML::style('css/font-awesome.css'); }}
-</head>
+
