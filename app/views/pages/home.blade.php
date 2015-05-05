@@ -12,4 +12,13 @@ Home
 			@include('includes/columna')
 		</div>
 	</div>
+
+	<script>
+		$(function() {
+			$('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
+			$(window).on('resize', function() {
+				$('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
+			});
+		});
+	</script>
 @stop
