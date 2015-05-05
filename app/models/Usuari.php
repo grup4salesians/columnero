@@ -32,6 +32,9 @@ class Usuari extends Eloquent implements UserInterface, RemindableInterface {
 
     public function getAuthPassword() {
         return $this->contrasenya;
-        
+    }
+    
+    public function Post(){
+        return $this->hasMany('Post');
     }
 }
