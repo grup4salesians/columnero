@@ -103,7 +103,6 @@ header {
 #contingut_home{
     min-height:500px;
     background-color: rgba(244, 228, 228, 0.34);
-    padding: 15px;
     margin: 0 auto;
 }
 
@@ -353,6 +352,7 @@ html, body, #contingut_home > .row-horizon {
 #contingut_home > .row-horizon {
     overflow-y: scroll !important;
     margin-right: -32px;
+    padding: 15px;
 }
 
 .header {
