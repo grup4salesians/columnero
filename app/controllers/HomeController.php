@@ -37,11 +37,11 @@ class HomeController extends BaseController {
         public function ShowFiltro(){
              $filtrodata = array(
             'millorvalorats' => Input::get('millorvalorats'),
-            'radio' => Input::get('radio'),
+            'radio' => Input::get('radio1'),
             'buscarhome' => Input::get('buscarhome')
         );
              
-            return View::make('pages.home');
+            return $filtrodata;
         }
 
 }
