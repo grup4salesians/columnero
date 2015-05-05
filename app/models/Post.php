@@ -13,4 +13,8 @@ class Post extends Eloquent {
     public static function getList() {
         return static::lists('titol', 'id');
     }
+    
+    public function postcategories(){
+        $this->hasMany("PostCategorie");
+    }
 }

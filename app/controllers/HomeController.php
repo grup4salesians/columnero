@@ -41,6 +41,16 @@ class HomeController extends BaseController {
             'buscarhome' => Input::get('buscarhome')
         );
              
+           $query = DB::table('usuaris')
+        ->join('posts','usuaris.id','=','posts.usuari_id')
+        ->join('postscategories','posts.id','=','postscategories.post_id')
+        ->join('categories','postscategories.categoria_id','=','categories.id')
+        ->where('usuaris.id','=',Auth::user()->id)
+        ->select('postscategories.post_id','posts.titol','posts.comentari','postscategories.categoria_id','categories.nom')
+        ->get();
+
+var_dump($query);  
+             
             return $filtrodata;
         }
 

@@ -11,6 +11,12 @@
 |
 */
 
+//Route::get('/prueba', function()
+//{
+//	return View::make('pages.prueba');
+//});
+
+
 //LOGIN & LOGOUT ----------
 Route::get('login', 'AuthController@showLogin'); // Nos mostrará el formulario de login.
 Route::post('login', 'AuthController@postLogin'); // Validamos los datos de inicio de sesión.
