@@ -113,7 +113,8 @@ header {
     min-width:400px;
     max-width:750px;
     margin: auto;
-    margin-bottom:30px;
+    margin-bottom:15px;
+    margin-top:15px;
     height:130px;
     background-color:#D86F5D;
     border-top-left-radius: 5px;

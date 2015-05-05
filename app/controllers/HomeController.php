@@ -33,5 +33,15 @@ class HomeController extends BaseController {
         public function ShowPerfil(){
             return View::make('pages.perfil');
         }  
+        
+        public function ShowFiltro(){
+             $filtrodata = array(
+            'millorvalorats' => Input::get('millorvalorats'),
+            'radio' => Input::get('radio'),
+            'buscarhome' => Input::get('buscarhome')
+        );
+             
+            return View::make('pages.home');
+        }
 
 }

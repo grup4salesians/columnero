@@ -27,6 +27,9 @@ Route::get('preferits', 'HomeController@ShowPreferits');
 Route::get('mevesnotes', 'HomeController@ShowMevesNotes'); 
 Route::get('perfil', 'HomeController@ShowPerfil'); 
 
+//FILTRO HOME----
+
+Route::post('cercarhome', 'HomeController@ShowFiltro');
 
 Route::group(array('before' => 'auth'), function() {
 	Route::get('/', function()
