@@ -354,3 +354,14 @@ html, body, #contingut_home > .row-horizon {
     overflow-y: scroll !important;
     margin-right: -32px;
 }
+
+.header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+.header-space {
+    position: relative;
+    width: 100%;
+    padding-bottom: 60px;
+}
