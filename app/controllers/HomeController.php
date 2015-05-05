@@ -41,15 +41,20 @@ class HomeController extends BaseController {
             'buscarhome' => Input::get('buscarhome')
         );
              
-           $query = DB::table('usuaris')
+         $varia=['Laravel','Eloquent'];
+
+    $query = DB::table('usuaris')
         ->join('posts','usuaris.id','=','posts.usuari_id')
         ->join('postscategories','posts.id','=','postscategories.post_id')
         ->join('categories','postscategories.categoria_id','=','categories.id')
         ->where('usuaris.id','=',Auth::user()->id)
-        ->select('postscategories.post_id','posts.titol','posts.comentari','postscategories.categoria_id','categories.nom')
+       // ->whereBetween('posts.data',array('2015-05-05 00:00:00','2015-05-05 00:00:00'))    
+        ->whereIn('categories.nom',$varia)    
+        ->select('postscategories.post_id','posts.titol','posts.comentari','posts.data','postscategories.categoria_id','categories.nom')
         ->get();
 
 var_dump($query);  
+
              
             return $filtrodata;
         }
