@@ -29,29 +29,20 @@ Home
 		    }
 		}
 		#show-ordenar_home {
-			height: 28px;
-			text-align: center;
-			background-color: lime;
-			width: 28px;
-			border-radius: 14px;
-			position: fixed;
-			z-index: 1;
-			right: 19px;
-			top: 63px;
+			float: right;
+			color: #444;
 			
 		}
 		#show-ordenar_home:hover {
-			background-color: limegreen;
 			cursor: pointer;
 		}
 	</style>
 	<div id="contingut_home">
 	    <div class="row row-horizon">
-	    	<div id="show-ordenar_home">
-	    		*
-	    	</div>
+	    	
 		    <div id='busqueda_home' style="display: none;">
 		        <div id='ordenar_home'>
+		        <i id="show-ordenar_home" class="fa fa-times"></i>
 		             {{ Form::open(array('url' => '/cercarhome')) }}
 		                <fieldset>
 		                    <legend>Ordenar per</legend>
@@ -77,7 +68,7 @@ Home
 			$(window).on('resize', function() {
 				$('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
 			});
-			$('#show-ordenar_home').on('click', function() {
+			$(document).on('click', '#show-ordenar_home', function() {
 				$('#busqueda_home').stop().slideToggle();
 			});
 		});

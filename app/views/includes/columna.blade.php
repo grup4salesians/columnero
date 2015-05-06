@@ -2,6 +2,7 @@
     <div class="panel columna panel-primary">
         <div class="panel-heading">
             {{ $nom }}
+            <i id="show-ordenar_home" class="fa fa-cog fa-2x"></i>
         </div>
 <?php $categoria="Laravel" ?>
         <div class="panel-body">
