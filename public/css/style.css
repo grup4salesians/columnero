@@ -425,6 +425,9 @@ html, body, #contingut_home > .row-horizon {
 #show-ordenar_home:hover {
     cursor: pointer;
 }
+.fa.fa-1x {
+    font-size: 1.25em
+}
 @media screen and (max-width: 770px) {
     #ordenar_home{
         width:90%;
