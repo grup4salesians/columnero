@@ -11,7 +11,7 @@
                     ->join('posts','usuaris.id','=','posts.usuari_id')
                     ->join('postscategories','posts.id','=','postscategories.post_id')
                     ->join('categories','postscategories.categoria_id','=','categories.id')
-                    ->where('usuaris.id','=',Auth::user()->id)
+                    //->where('usuaris.id','=',Auth::user()->id)
                     ->where('categories.nom',$categoria)    
                     ->select('postscategories.post_id','posts.titol','posts.comentari','posts.data','postscategories.categoria_id','categories.nom','usuaris.nick')
                     ->get();
