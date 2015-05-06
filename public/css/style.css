@@ -389,7 +389,8 @@ html, body, #contingut_home > .row-horizon {
 }
 #contingut_home > .row-horizon {
     overflow-y: scroll !important;
-    margin-right: -32px;
+    /*margin-right: -32px;*/
+    margin-right: 0;
     padding: 15px;
 }
 
