@@ -64,11 +64,23 @@ Home
 		           {{ Form::close() }}
 		        </div>
 		    </div>
-	        <?php $nom = Auth::user()->getFullNameAttribute(); ?>
+	        <?php $nom = Auth::user()->getFullNameAttribute(); 
+                $queryCategories = DB::table('categories')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
+                    ->join('categoriesusuaris','categories.id','=','categoriesusuaris.categories_id')
+                    ->join('usuaris','categoriesusuaris.usuaris_id','=','usuaris.id')
+                    ->where('usuaris.id',Auth::user()->id)
+                    ->whereNotNull('categoriesusuaris.mostrar')
+                    ->orderBy('categoriesusuaris.mostrar')
+                    ->select('categories.nom')
+                    ->get();
+                
+                for($j=0;$j<count($queryCategories);$j++){
+                    $categoria =$queryCategories[$j]->nom;
+                ?>
 	        @include('includes/columna')
-	        @include('includes/columna')
-	        @include('includes/columna')
-	        @include('includes/columna')
+                <?php  
+                    } 
+                ?>
 	    </div>
 	</div>
 	<script>
