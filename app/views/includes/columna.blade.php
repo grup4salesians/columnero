@@ -1,10 +1,10 @@
 <div class="col-md-4">
     <div class="panel columna panel-primary">
         <div class="panel-heading">
-            {{ $nom }}
             <i id="show-ordenar_home" class="fa fa-cog fa-2x"></i>
+            {{ $categoria }}
         </div>
-<?php $categoria="Laravel" ?>
+
         <div class="panel-body">
             <?php   //Select que coge todos las notas del usuario y el tag
                 $query = DB::table('usuaris')

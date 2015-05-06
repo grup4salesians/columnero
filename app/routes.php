@@ -37,8 +37,11 @@ Route::get('perfil', 'HomeController@ShowPerfil');
 Route::post('cambiarpass','PerfilController@CambiarPass');
 Route::get('usuari/{nickname}',array('nickname' => 'nickname', 'uses' =>'PerfilController@ShowUser'));
 
-//FILTRO HOME----
+//NOTES PUBLIQUES
+Route::get('publiques','PubliquesController@ShowPubliques');
+Route::post('cercarpubliques','PubliquesController@GetPubliques');
 
+//FILTRO HOME----
 Route::post('cercarhome', 'HomeController@ShowFiltro');
 
 Route::group(array('before' => 'auth'), function() {
