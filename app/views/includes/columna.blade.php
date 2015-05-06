@@ -1,7 +1,7 @@
 <div class="col-md-4">
     <div class="panel columna panel-primary">
         <div class="panel-heading">
-            <i id="show-ordenar_home" class="fa fa-sort fa-1x"></i>
+            <i id="show-ordenar_home" class="fa fa-cog fa-1x"></i>
             {{ $categoria }}
         </div>
 
