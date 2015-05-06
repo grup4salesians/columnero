@@ -8,13 +8,13 @@
                         <div class="col-md-12">
                             <div class="navbar-collapse collapse ">
                                 <ul id="menu-top" class="nav navbar-nav navbar-right">
-                                    <li><a id="index" href="../public">Index</a></li>
-                                    <li><a id="novanota" href="novanota">Nova nota</a></li>
-                                    <li><a href="preferits">Preferits</a></li>
-                                    <li><a href="mevesnotes">Les meves notes</a></li>
-                                    <li><a href="perfil" title="<?php echo Auth::user()->nick; ?>">Perfil</a></li>
-                                    <li><a href="publiques">Notes públiques</a></li>
-                                    <li><a href="logout">Tancar sessió</a></li>      
+                                    <li><a id="index" href="<?php echo Config::get('constants.BaseUrl'); ?>public">Index</a></li>
+                                    <li><a id="novanota" href="<?php echo Config::get('constants.BaseUrl'); ?>public/novanota">Nova nota</a></li>
+                                    <li><a href="<?php echo Config::get('constants.BaseUrl'); ?>public/preferits">Preferits</a></li>
+                                    <li><a href="<?php echo Config::get('constants.BaseUrl'); ?>public/mevesnotes">Les meves notes</a></li>
+                                    <li><a href="<?php echo Config::get('constants.BaseUrl'); ?>public/perfil" title="<?php echo Auth::user()->nick; ?>">Perfil</a></li>
+                                    <li><a href="<?php echo Config::get('constants.BaseUrl'); ?>public/publiques">Notes públiques</a></li>
+                                    <li><a href="<?php echo Config::get('constants.BaseUrl'); ?>public/logout">Tancar sessió</a></li>      
                                 </ul>
                             </div>
                         </div>

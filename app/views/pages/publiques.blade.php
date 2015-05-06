@@ -48,7 +48,7 @@ Home
 	<div id="contingut_home">
 	    <div class="row row-horizon">
 	    	<div id="show-ordenar_home">
-	    		*
+	    		^
 	    	</div>
 		    <div id='busqueda_home' style="display: none;">
 		        <div id='ordenar_home'>
@@ -59,14 +59,14 @@ Home
 		                    <span class='titulsbusqueda'>Tots</span> <input  name="radio1" value="tots" checked="checked" id="filtrocheckbox" type="radio">
 		                    <span class='titulsbusqueda'>Setmana</span> <input name="radio1" value="setmana" id="filtrocheckbox" type="radio">
 		                    <span class='titulsbusqueda'>Mes</span> <input name="radio1" value="mes" id="filtrocheckbox"  type="radio">
-		                     <input name="cercarpubliques" placeholder='tag1,tag2,tag3..' id="cercarpubliques"  type="text">
+		                     <input name="cercarpubliques" placeholder='tag1,tag2,tag3..' id=""  type="text">
 		                    <input type="submit" class="btn btn-default" value="Enviar">
 		                </fieldset>
 		           {{ Form::close() }}
 		        </div>
 		    </div>
 	        <?php $nom = Auth::user()->getFullNameAttribute(); ?>
-	        @include('includes/columna')
+	      
 	    </div>
 	</div>
 	<script>
