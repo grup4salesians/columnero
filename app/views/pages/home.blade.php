@@ -37,7 +37,11 @@ Home
 	        @include('includes/columna')
                 <?php  
                     } 
+                if ($j==0){
+                    holaaa;
+                }
                 ?>
+                
 	    </div>
 	</div>
 	<script>
