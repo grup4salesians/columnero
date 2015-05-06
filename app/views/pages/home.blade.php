@@ -3,40 +3,6 @@
 Home
 @stop
 @section('content')
-	<style>
-	    .titulsbusqueda{
-	        margin-left:10px;
-	        font-weight:bold;
-	    }
-	    .btnfiltrar{
-	        float:right;
-	        padding-right:5px;
-	        padding-left:5px;
-	        background-color: blue;
-	        margin-right:5px;
-	    }
-	    @media screen and (max-width: 770px) {
-		    #ordenar_home{
-		        width:90%;
-		       height:130px;
-		    }
-		    #contingut_home{
-		        height:auto;
-		    }
-		    #busqueda_home{
-		        width:100%;
-		        height:160px;
-		    }
-		}
-		#show-ordenar_home {
-			float: right;
-			color: #444;
-			
-		}
-		#show-ordenar_home:hover {
-			cursor: pointer;
-		}
-	</style>
 	<div id="contingut_home">
 	    <div class="row row-horizon">
 	    	
