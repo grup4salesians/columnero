@@ -35,7 +35,7 @@ Route::get('perfil', 'HomeController@ShowPerfil');
 
 //PERFIL--
 Route::post('cambiarpass','PerfilController@CambiarPass');
-Route::get('usuari/{nickname}','PerfilController@ShowUser');
+Route::get('usuari/{nickname}',array('nickname' => 'nickname', 'uses' =>'PerfilController@ShowUser'));
 
 //FILTRO HOME----
 

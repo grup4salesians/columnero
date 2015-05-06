@@ -49,10 +49,13 @@ class PerfilController extends BaseController {
            return View::make('pages.perfil',$mensaje);
         }
         
-        public function ShowUser(){
+        public function ShowUser($nick){
             
-            
-            return View::make('pages.perfil',$userdata);
+          
+           
+       $userdata =   Usuari::where('nick','=',$nick)->get();
+       
+        return View::make('pages.perfilusuari')->with('userdata', $userdata);
         }
 
 }
