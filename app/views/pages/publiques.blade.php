@@ -59,7 +59,7 @@ Home
                     <span class='titulsbusqueda'>Tots</span> <input  name="radio1" value="tots" checked="checked" id="filtrocheckbox" type="radio">
                     <span class='titulsbusqueda'>Setmana</span> <input name="radio1" value="setmana" id="filtrocheckbox" type="radio">
                     <span class='titulsbusqueda'>Mes</span> <input name="radio1" value="mes" id="filtrocheckbox"  type="radio">
-                    <input name="cercarpubliques" placeholder='tag1,tag2,tag3..' id=""  type="text">
+                    <input name="cercarpubliques" placeholder='tag1,tag2,tag3..' id="e"  type="text">
                     <input type="submit" class="btn btn-default" value="Enviar">
                 </fieldset>
                 {{ Form::close() }}
@@ -76,19 +76,32 @@ Home
         } else {
             //PONER QUERY DE ULTIMOS 10 POST.
 
-            $query = DB::table('usuaris')
-                    ->join('posts', 'usuaris.id', '=', 'posts.usuari_id')
-                    ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
-                    ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
-                    // ->whereBetween('posts.data',array('2015-05-05 00:00:00','2015-05-05 00:00:00'))    
-                    //->whereIn('categories.nom',$varia)    
-                    ->select('postscategories.post_id', 'posts.titol', 'posts.comentari', 'posts.data', 'postscategories.categoria_id', 'categories.nom')
+            $query = DB::table('posts')
+                    ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id')
+                    ->where('privat', 1)
+                    ->select('posts.id', 'posts.titol','posts.comentari','usuaris.nick', 'posts.data')
                     ->take(10)
                     ->get();
-            for ($j = 0; $j < count($query); $j++) {
-                $categoria = $query[$j]->nom;
-                ?>
-                @include('includes/columna')
+
+            for ($i = 0; $i < count($query); $i++) {
+                $titolNota = $query[$i]->titol;
+                $comentariNota = $query[$i]->comentari;
+                $nick = $query[$i]->nick;
+
+                $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
+                        ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
+                        ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
+                        ->where('posts.id', $query[$i]->id)
+                        ->select('categories.nom')
+                        ->get();
+                $categories = "";
+                for ($j = 0; $j < count($queryCategories); $j++) {
+                    $categories = $categories . ", " . $queryCategories[$j]->nom;
+                }
+                $categories = substr($categories, 2);
+                ?>   
+
+                @include('includes/nota')
                 <?php
             }
         }

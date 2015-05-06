@@ -28,11 +28,12 @@ Home
                     ->where('usuaris.id',Auth::user()->id)
                     ->whereNotNull('categoriesusuaris.mostrar')
                     ->orderBy('categoriesusuaris.mostrar')
-                    ->select('categories.nom')
+                    ->select('categories.nom','categoriesusuaris.categories_id')
                     ->get();
                 
                 for($j=0;$j<count($queryCategories);$j++){
                     $categoria =$queryCategories[$j]->nom;
+                    $idCategoria = $queryCategories[$j]->categories_id;
                 ?>
 	        @include('includes/columna')
                 <?php  
