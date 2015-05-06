@@ -119,7 +119,7 @@ header {
     background-color:#D86F5D;
     border-top-left-radius: 5px;
     border-top-right-radius:5px;
-    border:1px solid black;
+    padding-top:1px;
 }
 
 #ordenar_home{
@@ -127,8 +127,8 @@ header {
     margin:auto;
     margin-top:14px;
     background-color: #FFF;
-    border:1px solid black;
     height:100px;
+    padding:5px;
     border-radius:5px;
 }
 /* =============================================================

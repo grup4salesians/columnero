@@ -41,12 +41,18 @@ class PerfilController extends BaseController {
         
         $iduser = Auth::user()->id;
         
-      $affectedrows = Usuari::where('id','=',$iduser)->update(array('contrasenya' => $passnuevahash));
+      Usuari::where('id','=',$iduser)->update(array('contrasenya' => $passnuevahash));
        
        $mensaje = array(
            'mensaje' => 'La teva contrasenya ha sigut actualitzada.');
        
            return View::make('pages.perfil',$mensaje);
+        }
+        
+        public function ShowUser(){
+            
+            
+            return View::make('pages.perfil',$userdata);
         }
 
 }

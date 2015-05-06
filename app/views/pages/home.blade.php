@@ -34,7 +34,7 @@ Home
         <div id='ordenar_home'>
              {{ Form::open(array('url' => '/cercarhome')) }}
                 <fieldset>
-                    <legend style='margin-left:5px;'>Ordenar per</legend>
+                    <legend>Ordenar per</legend>
                     <span class='titulsbusqueda'>Millor valorats</span> <input id="millorvalorats" name="millorvalorats" type="checkbox">
                     <span class='titulsbusqueda'>Tots</span> <input  name="radio1" value="tots" checked="checked" id="filtrocheckbox" type="radio">
                     <span class='titulsbusqueda'>Setmana</span> <input name="radio1" value="setmana" id="filtrocheckbox" type="radio">
