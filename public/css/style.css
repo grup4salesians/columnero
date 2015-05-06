@@ -137,10 +137,9 @@ header {
     width:70%;
     text-align:center;
     height:auto;
-    border: 1px solid #D86F5D;
     background-color: white;
     margin:auto;
-    margin-bottom:10px;
+    padding-bottom:10px;
 }
 /* =============================================================
    LOGO SECTION STYLES
