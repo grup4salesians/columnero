@@ -10,6 +10,7 @@
     <!-- BOOTSTRAP CORE STYLE  -->
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     {{ HTML::style('css/bootstrap.css'); }}
+    {{ HTML::script('js/bootstrap.js'); }}
     {{ HTML::style('css/bootstrap-horizon.css'); }}
     {{ HTML::style('css/style.css'); }}
     {{ HTML::style('css/font-awesome.css'); }}

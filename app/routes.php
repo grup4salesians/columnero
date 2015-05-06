@@ -39,7 +39,7 @@ Route::get('usuari/{nickname}',array('nickname' => 'nickname', 'uses' =>'PerfilC
 
 //NOTES PUBLIQUES
 Route::get('publiques','PubliquesController@ShowPubliques');
-Route::post('cercarpubliques','PubliquesController@GetPubliques');
+Route::post('publiques','PubliquesController@PostPubliques');
 
 //FILTRO HOME----
 Route::post('cercarhome', 'HomeController@ShowFiltro');

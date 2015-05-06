@@ -4,12 +4,14 @@ Registre
 @stop
 @section('content')
 <div class="body_registre">
-     
-    <div class="panel-body" style="width: 390px; margin: auto;background-color:rgba(217, 83, 79, 0.02)">
-        <div class="row">
+     <div class="row" style='width:60%;margin:auto;'>
             <div class="col-md-12">
                 <h4 class="page-head-line">Registra't</h4>
             </div>
+        </div>
+    <div class="panel-body" style="width: 390px; margin: auto;background-color:rgba(217, 83, 79, 0.02)">
+        <div class="alert alert-info" style='text-align:center;font-weight:bold;font-size:20px;'>
+            Formulari de registre
         </div>
         @if ($errors->has())
         <div class="alert alert-danger">
