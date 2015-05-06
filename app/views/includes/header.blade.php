@@ -13,6 +13,7 @@
                                     <li><a href="preferits">Preferits</a></li>
                                     <li><a href="mevesnotes">Les meves notes</a></li>
                                     <li><a href="perfil" title="<?php echo Auth::user()->nick; ?>">Perfil</a></li>
+                                    <li><a href="publiques">Notes públiques</a></li>
                                     <li><a href="logout">Tancar sessió</a></li>      
                                 </ul>
                             </div>
