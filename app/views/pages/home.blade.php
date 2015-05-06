@@ -37,9 +37,9 @@ Home
 	        @include('includes/columna')
                 <?php  
                     } 
-                if ($j==0){
-                    holaaa;
-                }
+                    if ($j==0){
+                        echo('<input type="submit" class="btn btn-warning" value="Crear nota">');
+                    }
                 ?>
                 
 	    </div>
