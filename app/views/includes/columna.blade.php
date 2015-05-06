@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-xs-12 col-sm-6 col-md-4 ">
     <div class="panel columna panel-primary">
         <div class="panel-heading">
             <i id="show-ordenar_home" class="fa fa-cog fa-1x"></i>
