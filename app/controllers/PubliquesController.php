@@ -16,16 +16,20 @@ class PubliquesController extends BaseController {
 	*/
 
         
-       public function ShowPubliques(){
-           
-                 $filtrodata = array(
+       public function ShowPubliques(){               
+           return View::make('pages.publiques'); //Mostra la página publiques
+       }
+       
+       public function PostPubliques(){ //Agafa el post de publiques.
+                          $filtrodata = array(
             'millorvalorats' => Input::get('millorvalorats'),
             'radio' => Input::get('radio1'),
             'cercarpubliques' => Input::get('cercarpubliques')
         );
-           
-                 
-           return View::make('pages.publiques')->with(array('filtrodata'=>$filtrodata));
+                       
+                          
+                       
+                    return View::make('pages.publiques')->with('filtrodata',$filtrodata);
        }
 
 }

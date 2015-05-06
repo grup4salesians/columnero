@@ -50,9 +50,9 @@ Home
 	    	<div id="show-ordenar_home">
 	    		^
 	    	</div>
-		    <div id='busqueda_home' style="display: none;">
+		    <div id='busqueda_home'>
 		        <div id='ordenar_home'>
-		             {{ Form::open(array('url' => '/cercarpubliques')) }}
+		             {{ Form::open(array('url' => '/publiques')) }}
 		                <fieldset>
 		                    <legend>Ordenar per</legend>
 		                    <span class='titulsbusqueda'>Millor valorats</span> <input id="millorvalorats" name="millorvalorats" type="checkbox">
@@ -65,8 +65,15 @@ Home
 		           {{ Form::close() }}
 		        </div>
 		    </div>
-	        <?php $nom = Auth::user()->getFullNameAttribute(); ?>
-	      
+	        
+	     <?php 
+            //Filtres son:
+             // $filtrodata['cercarpubliques'];
+             //$filtrodata['millorvalorats'];
+             //$filtrodata['radio1'];
+           
+             
+             ?>
 	    </div>
 	</div>
 	<script>
