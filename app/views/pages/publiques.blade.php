@@ -52,13 +52,14 @@ Home
 	    	</div>
 		    <div id='busqueda_home' style="display: none;">
 		        <div id='ordenar_home'>
-		             {{ Form::open(array('url' => '/cercarhome')) }}
+		             {{ Form::open(array('url' => '/cercarpubliques')) }}
 		                <fieldset>
 		                    <legend>Ordenar per</legend>
 		                    <span class='titulsbusqueda'>Millor valorats</span> <input id="millorvalorats" name="millorvalorats" type="checkbox">
 		                    <span class='titulsbusqueda'>Tots</span> <input  name="radio1" value="tots" checked="checked" id="filtrocheckbox" type="radio">
 		                    <span class='titulsbusqueda'>Setmana</span> <input name="radio1" value="setmana" id="filtrocheckbox" type="radio">
 		                    <span class='titulsbusqueda'>Mes</span> <input name="radio1" value="mes" id="filtrocheckbox"  type="radio">
+		                     <input name="cercarpubliques" placeholder='tag1,tag2,tag3..' id="cercarpubliques"  type="text">
 		                    <input type="submit" class="btn btn-default" value="Enviar">
 		                </fieldset>
 		           {{ Form::close() }}

@@ -39,9 +39,9 @@ Route::get('usuari/{nickname}',array('nickname' => 'nickname', 'uses' =>'PerfilC
 
 //NOTES PUBLIQUES
 Route::get('publiques','PubliquesController@ShowPubliques');
+Route::post('cercarpubliques','PubliquesController@GetPubliques');
 
 //FILTRO HOME----
-
 Route::post('cercarhome', 'HomeController@ShowFiltro');
 
 Route::group(array('before' => 'auth'), function() {
