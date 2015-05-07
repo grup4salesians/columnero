@@ -108,6 +108,14 @@ body {
     margin: 0 auto;
 }
 
+   #capnota_home{
+                    width:60%;
+                    min-width:500px;
+                    height:auto;
+                    background-color: rgba(250, 210, 153, 0.56);
+                    margin:auto;
+                    text-align:center;
+                }
 
 #busqueda_home{
     min-width:400px;
