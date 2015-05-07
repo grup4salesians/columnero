@@ -51,3 +51,12 @@ Route::group(array('before' => 'auth'), function() {
 	});
     Route::get('logout', 'AuthController@logOut'); // Esta ruta nos servirá para cerrar sesión.
 });
+//Route::get("/1", function() {
+////    --------------------- SELECCT ALL ----------------------
+//    Route::resource('{query}', 'NovanotaController@selectcategories');
+//    
+//});
+
+
+Route::get('getCategories/{query}', 'NovanotaController@selectcategories');
+ 

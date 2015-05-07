@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<![endif]-->
+    <title>Bootstrap Text Editor</title>
+    <!-- BOOTSTRAP STYLE SHEET -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- REQUIRED ICONS FOR TEXT EDITOR -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- TEXT EDITOR STYLES -->
+    <link href="assets/css/summernote.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Design Bootstrap</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right ">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <!-- NAVBAR CODE END -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>Bootstrap Text Editor</h2>
+                <h6>Crafted by <a href="http://www.designbootstrap.com/">DesignBootstrap.com</a> and using <a href="http://summernote.org/">summernote</a> </h6>
+                <br /> <br />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <!--  START -->
+              <textarea id="text-editor" class="form-control"  ></textarea>
+                 <!--  END -->
+            </div>
+        </div>
+    </div>
+    <!-- REQUIRED SCRIPTS FILES -->
+    <!-- CORE JQUERY FILE -->
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <!-- REQUIRED BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.js"></script>
+      <!-- TEXT EDITOR SCRIPT -->
+    <script src="assets/js/summernote.js"></script>
+     <!-- REQUIRED SCRIPT FOR TEXT EDITOR -->
+    <script>
+        $(document).ready(function () {
+            $('#text-editor').summernote({
+                height: 250,// set height for editor
+            });
+        });
+    </script>
+</body>
+</html>

@@ -28,7 +28,8 @@
                     { text: 'tags' }
                 ];
                 $scope.loadTags = function(query) {
-                     return $http.get('/tags?query=' + query);
+                    //return $http.get('/tags?query=' + query);
+                    return $http-get('api/v1/getCategories?query=' + query);
                 };
             });
     </script>
@@ -51,7 +52,7 @@
                     { text: 'tags' }
                 ];
                 $scope.loadTags = function(query) {
-                     return $http.get('/tags?query=' + query);
+                     return $http.get('getCategories/' + query);
                 };
             });
     </script>
