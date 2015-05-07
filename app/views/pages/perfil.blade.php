@@ -87,7 +87,7 @@ Perfil
                 </div>
                 <div class="row"> 
                     <div class="labelperfil">Confirmar contrasenya nova</div>
-                    {{ Form::password('contrasenya_confirm',array('class' => 'inputperfil form-control')); }}
+                    {{ Form::password('contrasenya_confirm',array('class' => 'inputperfil form-control')); }}<br>
                     {{ Form::submit('Confirmar', array('class' => 'btn btn-success'))}}
                     {{ Form::close() }}
                 </div>
