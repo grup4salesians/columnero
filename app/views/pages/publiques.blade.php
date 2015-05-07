@@ -100,8 +100,9 @@ Home
                 }
                 $categories = substr($categories, 2);
                 ?>   
-
-                @include('includes/nota')
+                <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
+                    @include('includes/nota')
+                </div>
                 <?php
             }
         }

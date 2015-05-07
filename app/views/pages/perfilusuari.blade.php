@@ -5,48 +5,61 @@ Perfil Usuari
 @section('content')
 <style>
     .inputperfil{
-        width:30%;
+        width:65%;
         font-size:20px;
         text-align:center;
-
     }
     .labelperfil{
         font-size:20px;
         text-align:left;
-        width:50px;
+        width: 160px;  
+        float: left;
     }
-    .margin{
-        margin-bottom:30px;
+    #PerfilUsuari_Dades{
+        width: 58%;
+        margin: auto;
+    }
+    .row{  
+        margin-bottom: 7px;
+        margin-left: 0;
     }
 </style>
 <div id="contingut_home">
 
 
     <div id="Bloque_inside_perfil"><br>
-        <div class="row margin">
+        <div class="row">
             <div class="col-md-12">
                 <h4 class="page-head-line">Perfil Usuari -<?php echo $userdata[0]->nick ?>-</h4>
             </div>
         </div>
-        <div class="row margin">
-            <span class="labelperfil">Nom</span> 
-            <input type="text" class="inputperfil" value="<?php echo $userdata[0]->nom ?>" disabled="disabled">
+
+
+        <div id="PerfilUsuari_Dades">
+            <div class="row">
+                <div class="labelperfil">Nom</div>  
+                <input type="text" class="inputperfil form-control" value="<?php echo $userdata[0]->nom ?>" disabled="disabled">
+            </div>
+            <div class="row">
+                <div class="labelperfil">Cognom</div>
+                <input type="text" class="inputperfil form-control" value="<?php echo $userdata[0]->cognom; ?>" disabled="disabled">
+            </div>
+            <div class="row">
+                <div class="labelperfil">Nick</div> 
+                <input type="text" class="inputperfil form-control" value="<?php echo $userdata[0]->nick; ?>" disabled="disabled">
+            </div>
+            <div class="row">
+                <div class="labelperfil">Email</div> 
+                <input type="text" class="inputperfil form-control" value="<?php echo $userdata[0]->email; ?>" disabled="disabled">
+            </div>
+            <div class="row">
+                <div class="labelperfil">Nº de posts</div> 
+                <input type="text" class="inputperfil form-control" value=" <?php
+                       $querypost = Post::where('usuari_id', $userdata[0]->id)->select();
+                       echo count($querypost->get());
+                       ?>" disabled="disabled">    
+            </div>
         </div>
-        <div class="row margin"><span class="labelperfil">Cognom</span>
-            <input type="text" class="inputperfil" value="<?php echo $userdata[0]->cognom; ?>" disabled="disabled"></div>
-
-        <div class="row margin"><span class="labelperfil">Nick</span> 
-            <input type="text" class="inputperfil" value="<?php echo $userdata[0]->nick; ?>" disabled="disabled"></div>
-
-        <div class="row margin"> <span class="labelperfil">Email</span> 
-            <input type="text" class="inputperfil" value="<?php echo $userdata[0]->email; ?>" disabled="disabled"></div>
-
-        <div class="row margin"> <span class="labelperfil">Nº de posts</span> 
-            <input type="text" class="inputperfil" value=" <?php
-                   $querypost = Post::where('usuari_id', $userdata[0]->id)->select();
-                   echo count($querypost->get());
-                   ?>" disabled="disabled">  </div>
-
     </div>
 </div>
 
