@@ -99,7 +99,7 @@ Nova nota
             <textarea id="TextoNota" name="TextoNota"></textarea>
         </div>
         <br>
-        {{ Form::submit('Crear nova nota',array('class'=> 'btn btn-info','id'=>'BtnSubmitNovaNota'))}}
+        {{ Form::submit('Crear nova nota',array('class'=> 'btn btn-info','id'=>'BtnSubmitNovaNota','style'=>'margin-top: 15px'))}}
         {{ Form::close() }}
         <br>
     </div>
