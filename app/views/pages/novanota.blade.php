@@ -38,27 +38,28 @@ Perfil Usuari
                 <h4 class="page-head-line">Nova Nota</h4>
             </div>
         </div>
-        <div class="pads">
-            <p>Títol</p>
-            <input id="" type="text">
-        </div>
-        <div class="pads">
-            <p>Categories</p>
-            <!-- ngTagsInput -->
-            <div class="tagsinput" ng-app="myApp" ng-controller="MyCtrl">
-                <tags-input ng-model="tags">
-                    <auto-complete source="loadTags($query)"></auto-complete>
-                </tags-input>
+
+    {{ Form::open(array('url' => '/Novanota')) }}
+            <div class="pads">
+                <p>Títol</p>
+                <input id="Titol" name="Titol" type="text">
             </div>
-            
-        </div>
-        <div class="pads">
-            <p>Contingut</p>
-            <!-- TinyMCE -->
-            <form method="post">
-                <textarea></textarea>
-            </form>
-        </div>
+            <div class="pads">
+                <p>Categories</p>
+                <!-- ngTagsInput -->
+                <div class="tagsinput" ng-app="myApp" ng-controller="MyCtrl">
+                    <tags-input ng-model="tags">
+                        <auto-complete id="ListadoTags" Name="ListadoTags" source="loadTags($query)"></auto-complete>
+                    </tags-input>
+                </div>
+            </div>
+            <div class="pads">
+                <p>Contingut</p>
+                <!-- TinyMCE -->
+                <textarea id="TextoNota" name="TextoNota"></textarea>
+            </div>
+    {{ Form::submit('Crear nova nota',array('class'=> 'btn btn-info'))}}
+    {{ Form::close() }}
     </div>
 </div>
 @stop
