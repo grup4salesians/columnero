@@ -1,0 +1,107 @@
+#contingut_home{
+    height:auto !important;
+    /*background-color: rgba(244, 228, 228, 0.34) !important;*/
+    margin: 0 auto !important;
+}
+
+#capnota_home{
+    width:60% !important;
+    min-width:500px !important;
+    height:auto !important;
+    background-color: rgba(250, 210, 153, 0.56) !important;
+    margin:auto !important;
+    text-align:center !important;
+}
+
+#busqueda_home{
+    min-width:400px !important;
+    max-width:750px !important;
+    margin: auto !important;
+    margin-bottom:15px !important;
+    border-top-left-radius: 5px !important;
+    border-top-right-radius:5px !important;
+    padding-top:1px !important;
+}
+
+#ordenar_home{
+    width:80% !important;
+    margin:auto !important;
+    background-color: #FFF !important;
+    height:100px !important;
+    padding:5px !important;
+    border-radius:5px !important;
+    border: solid 1px rgb(152, 152, 152) !important;
+}
+
+
+/***************/
+.columna.panel-primary {
+    border-color: #D86F5D !important;
+}
+.columna.panel-primary > .panel-heading {
+    border-color: #D86F5D !important;
+    background-color: #D86F5D !important;
+}
+#contingut_home {
+    width: 100% !important;
+    overflow: hidden !important;
+}
+html, body, #contingut_home > .row-horizon {
+    height: 100% !important;
+}
+#contingut_home > .row-horizon {
+    overflow-y: scroll !important !important;
+    /*margin-right: -32px;*/
+    margin: 0 !important;
+    padding: 15px !important;
+}
+
+.row-horizon > * {
+    padding-left: 0 !important;
+}
+.header {
+    position: fixed !important;
+    z-index: 1 !important;
+    width: 100% !important;
+}
+.header-space {
+    position: relative !important;
+    width: 100% !important;
+    padding-bottom: 44px !important;
+}
+
+.titulsbusqueda{
+    margin-left:10px !important;
+    font-weight:bold !important;
+}
+.btnfiltrar{
+    float:right !important;
+    padding-right:5px !important;
+    padding-left:5px !important;
+    background-color: blue !important;
+    margin-right:5px !important;
+}
+#show-ordenar_home {
+    float: right !important;
+    color: #545454 !important;
+    !important 
+}
+#show-ordenar_home:hover {
+    cursor: pointer !important;
+}
+.fa.fa-1x {
+    font-size: 1.25e !importantm
+}
+@media screen and (max-width: 770px) {
+    #ordenar_home{
+        width:90% !important;
+       height:130px !important;
+    }
+    #contingut_home{
+        height:auto !important;
+    }
+    #busqueda_home{
+        width:100% !important;
+        height:160px !important;
+    }
+}
