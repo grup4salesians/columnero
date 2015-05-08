@@ -123,10 +123,11 @@ Nova nota
         $("#BtnSubmitNovaNota").click(function () {
             var textoFinal = "";
             $("#ListadoTags").find("span").each(function () {
-                textoFinal = textoFinal + "|" + $(this).text();
-            })
-            textoFinal = textoFinal.substr(1);
-            $("#ListadoTagsOculto").val() = textoFinal;
+                if ($(this).text() !== "Add a tag") {
+                    textoFinal = textoFinal + $(this).text() +"|";
+                }
+            });
+            $("#ListadoTagsOculto").val(textoFinal);
         });
     });
 </script>

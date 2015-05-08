@@ -10,12 +10,12 @@ class NovanotaController extends BaseController {
         
          $notadata = array(
             'titol' => Input::get('Titol'),
-            'ListadoTags' => Input::get('ListadoTagsOculto'),
+           // 'ListadoTags' => Input::get('ListadoTagsOculto'),
             'TextoNota' => Input::get('TextoNota')
         );
         $rules = [
             'titol' => 'required|min:1',
-            'ListadoTags' => 'required|min:1',
+           // 'ListadoTags' => 'required|min:1',
             'TextoNota' => 'required|min:1'
         ];
         $validator = Validator::make($notadata, $rules);
@@ -37,16 +37,16 @@ class NovanotaController extends BaseController {
         
         $idPost = $PostNuevo->id;
                 
-        $ArrayTags = explode('|',$ListadoTags);
+        $ArrayTags = explode("|",$ListadoTags);
         
-        for($i=0;count($ArrayTags)-1;$i++){
+        for($i=0;$i<count($ArrayTags);$i++){
             $query = DB::table('categories')
                     ->join('categoriesusuaris','categories.id','=','categoriesusuaris.categories_id')
                     ->where('categoriesusuaris.usuaris_id',$ID_Usuari)
                     ->where('categories.nom',$ArrayTags[$i])
                     ->select('categoriesusuaris.categories_id')
                     ->get();
-            
+            // return Redirect::back()->withInput()->withErrors(Input::get('ListadoTagsOculto'));
             $idCategoria = $query[0]->categories_id;
             if (count($query)==0){ //Si no existe la categoria, inserta en tablas; categories,CategoriesUsuaris
                 $CategoriaNueva = new Categorie();
@@ -66,8 +66,8 @@ class NovanotaController extends BaseController {
             $PostCategoriaNueva->post_id = $idPost;
             
         };
-                        
-        //return Redirect::back()->withInput()->withErrors(Input::get('ListadoTagsOculto'));
+         return Redirect::to('/');                
+       
         
     }
            
