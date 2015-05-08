@@ -5,6 +5,19 @@ class NovanotaController extends BaseController {
     public function ShowNovaNota() {
         return View::make('pages.novanota');
     }
+    
+    public function PostNovaNota(){
+         $variables = array(
+            'Titol' => Input::get('Titol'),
+            'ListadoTags' => Input::get('ListadoTags'),
+            'TexoNota' => Input::get('TextoNota')
+        );
+         
+            return Redirect::back()->withInput()->withErrors(Input::get('ListadoTags'));
+        
+    }
+    
+    
 
     public function selectcategories($query) {
         $categories = Categorie::where("nom", 'LIKE', "%" . $query . "%")->select("nom")->get();

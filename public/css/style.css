@@ -136,6 +136,11 @@ body {
     border-radius:5px;
     border: solid 1px rgb(152, 152, 152);
 }
+#eliminarnota{
+    height: 100px;
+    text-align:center;
+    padding:10px;
+}
 /* =============================================================
    PERFIl
  ============================================================ */

@@ -38,27 +38,34 @@ Perfil Usuari
                 <h4 class="page-head-line">Nova Nota</h4>
             </div>
         </div>
+        @if ($errors->has())
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+            {{ $error}}<br>        
+            @endforeach
+        </div>
+        @endif
+        {{ Form::open(array('url' => '/novanota')) }}
         <div class="pads">
             <p>Títol</p>
-            <input id="" type="text">
+            <input id="Titol" name="Titol" type="text">
         </div>
         <div class="pads">
             <p>Categories</p>
             <!-- ngTagsInput -->
             <div class="tagsinput" ng-app="myApp" ng-controller="MyCtrl">
                 <tags-input ng-model="tags">
-                    <auto-complete source="loadTags($query)"></auto-complete>
+                    <auto-complete id="ListadoTags" Name="ListadoTags" source="loadTags($query)"></auto-complete>
                 </tags-input>
             </div>
-            
         </div>
         <div class="pads">
             <p>Contingut</p>
             <!-- TinyMCE -->
-            <form method="post">
-                <textarea></textarea>
-            </form>
+            <textarea id="TextoNota" name="TextoNota"></textarea>
         </div>
+        {{ Form::submit('Crear nova nota',array('class'=> 'btn btn-info'))}}
+        {{ Form::close() }}
     </div>
 </div>
 @stop
