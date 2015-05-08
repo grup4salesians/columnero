@@ -32,8 +32,9 @@ Route::group(array('before' => 'auth'), function() {
     });
 
     //MENU DE USUARI----
-    Route::get('novanota', 'HomeController@ShowNovaNota');
+
     Route::get('preferits', 'HomeController@ShowPreferits');
+    Route::get('mevesnotes', 'HomeController@ShowMevesNotes');
     Route::get('perfil', 'HomeController@ShowPerfil');
 
     //PERFIL--
@@ -49,9 +50,8 @@ Route::group(array('before' => 'auth'), function() {
     Route::get('logout', 'AuthController@logOut'); // Esta ruta nos servirá para cerrar sesión.
 
     
-    //NOVES NOTES
-    Route::get('mevesnotes', 'NovanotaController@ShowMevesNotes');
-    Route::post('mevesnotes', 'NovanotaController@PosMevesNotes');
+    Route::get('novanota', 'NovanotaController@ShowNovaNota');
+    Route::post('novanota', 'NovanotaController@PostNovaNota');
     
     Route::get('getCategories/{query}', 'NovanotaController@selectcategories');
 });
