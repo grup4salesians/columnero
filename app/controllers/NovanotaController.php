@@ -43,7 +43,7 @@ class NovanotaController extends BaseController {
             $query = DB::table('categories')
                     ->join('categoriesusuaris','categories.id','=','categoriesusuaris.categories_id')
                     ->where('categoriesusuaris.usuaris_id',$ID_Usuari)
-                    ->where('categories.nom',$titol)
+                    ->where('categories.nom',$ArrayTags[$i])
                     ->select('categoriesusuaris.categories_id')
                     ->get();
             
