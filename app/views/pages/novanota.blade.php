@@ -54,9 +54,10 @@ Perfil Usuari
             <p>Categories</p>
             <!-- ngTagsInput -->
             <div class="tagsinput" ng-app="myApp" ng-controller="MyCtrl">
-                <tags-input ng-model="tags">
-                    <auto-complete id="ListadoTags" Name="ListadoTags" source="loadTags($query)"></auto-complete>
+                <tags-input id="ListadoTags" Name="ListadoTags" ng-model="tags">
+                    <auto-complete  source="loadTags($query)"></auto-complete>
                 </tags-input>
+                <input type="hidden" id="ListadoTagsOculto" name="ListadoTagsOculto" /> 
             </div>
         </div>
         <div class="pads">
@@ -64,9 +65,21 @@ Perfil Usuari
             <!-- TinyMCE -->
             <textarea id="TextoNota" name="TextoNota"></textarea>
         </div>
-        {{ Form::submit('Crear nova nota',array('class'=> 'btn btn-info'))}}
+        {{ Form::submit('Crear nova nota',array('class'=> 'btn btn-info','id'=>'BtnSubmitNovaNota'))}}
         {{ Form::close() }}
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $("#BtnSubmitNovaNota").click(function(){
+            var textoFinal="";
+            $("#ListadoTags").find("span").each(function(){
+                textoFinal = textoFinal+ "|" + $(this).text();
+            })
+            textoFinal = textoFinal.substr(1);
+            $("#ListadoTagsOculto").val() = textoFinal;
+        });    
+    });
+</script>
 @stop
 
