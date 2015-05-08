@@ -137,6 +137,7 @@ Les meves notes
                 $titolNota = $query[$i]->titol;
                 $comentariNota = $query[$i]->comentari;
                 $nick = $query[$i]->nick;
+                $idnota = $query[$i]->id;
 
                 $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
                         ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
@@ -151,7 +152,7 @@ Les meves notes
                 $categories = substr($categories, 2);
                 ?>   
                 <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
-                    @include('includes/nota')
+                    @include('includes/notapersonal')
                 </div>
                 <?php
             } 
