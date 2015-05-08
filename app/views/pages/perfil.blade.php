@@ -105,6 +105,12 @@ Perfil
             document.getElementById("cambiarpass").style.display = "none";
         }
     }
+    $(function () {
+        $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
+        $(window).on('resize', function () {
+            $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
+        });
+       });
 </script>
 
 @stop

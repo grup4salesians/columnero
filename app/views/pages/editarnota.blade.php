@@ -61,7 +61,7 @@ Editar nota
     <div class="contingut">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="page-head-line">Nova Nota</h4>
+                <h4 class="page-head-line">Editar nota</h4>
             </div>
         </div>
         @if ($errors->has())
@@ -74,7 +74,7 @@ Editar nota
        <?php echo Form::open(array('url' => '/editarnota/'.$id.'')) ?>
         <div class="pads">
             <p>Títol</p>
-            <input id="Titol" name="Titol" type="text" value='<?php echo $querypost[0]->titol ?>'>
+            <input id="Titol" name="Titol" type="text" value="<?php echo $querypost[0]->titol ?>">
         </div>
         <div class="pads">
             <p>Categories</p>
