@@ -9,11 +9,11 @@ class NovanotaController extends BaseController {
     public function PostNovaNota(){
          $variables = array(
             'Titol' => Input::get('Titol'),
-            'ListadoTags' => Input::get('ListadoTags'),
+            'ListadoTags' => Input::get('ListadoTagsOculto'),
             'TexoNota' => Input::get('TextoNota')
         );
          
-            return Redirect::back()->withInput()->withErrors(Input::get('ListadoTags'));
+            return Redirect::back()->withInput()->withErrors(Input::get('ListadoTagsOculto'));
         
     }
     
