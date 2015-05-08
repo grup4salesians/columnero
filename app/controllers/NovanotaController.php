@@ -12,13 +12,20 @@ class NovanotaController extends BaseController {
             'ListadoTags' => Input::get('ListadoTagsOculto'),
             'TexoNota' => Input::get('TextoNota')
         );
-         
+        
+        $PostNuevo = new Post();
+        $PostNuevo->titol = Input::get('Titol');
+        $PostNuevo->comentari = Input::get('TextoNota');
+        $PostNuevo->usuari_id = Auth::user()->id;
+        $PostNuevo->data = date("Y-m-d H:i:s");
+        $PostNuevo->save();
+        
+        
+        
             return Redirect::back()->withInput()->withErrors(Input::get('ListadoTagsOculto'));
         
     }
-    
-    
-
+           
     public function selectcategories($query) {
         $categories = Categorie::where("nom", 'LIKE', "%" . $query . "%")->select("nom as text")->get();
         return $categories;
