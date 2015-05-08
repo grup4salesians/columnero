@@ -56,7 +56,8 @@ Route::group(array('before' => 'auth'), function() {
     Route::get('getCategories/{query}', 'NovanotaController@selectcategories');
     
     //MEVES NOTES
-    Route::get('eliminarnota/{id}','NotapersonalController@EliminarNota');
+    Route::get('eliminarnota/{id}',array('id' => 'id', 'uses' =>'NotapersonalController@EliminarNota'));
+    Route::get('editarnota/{id}',array('id' => 'id', 'uses' =>'NotapersonalController@EditarNota'));
 });
 //Route::get("/1", function() {
 ////    --------------------- SELECCT ALL ----------------------
