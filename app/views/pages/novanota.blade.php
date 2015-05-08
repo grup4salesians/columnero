@@ -38,34 +38,34 @@ Perfil Usuari
                 <h4 class="page-head-line">Nova Nota</h4>
             </div>
         </div>
- @if ($errors->has())
+        @if ($errors->has())
         <div class="alert alert-danger">
             @foreach ($errors->all() as $error)
-            {{ $error }}<br>        
+            {{ $error}}<br>        
             @endforeach
         </div>
         @endif
-    {{ Form::open(array('url' => '/novanota')) }}
-            <div class="pads">
-                <p>Títol</p>
-                <input id="Titol" name="Titol" type="text">
+        {{ Form::open(array('url' => '/novanota')) }}
+        <div class="pads">
+            <p>Títol</p>
+            <input id="Titol" name="Titol" type="text">
+        </div>
+        <div class="pads">
+            <p>Categories</p>
+            <!-- ngTagsInput -->
+            <div class="tagsinput" ng-app="myApp" ng-controller="MyCtrl">
+                <tags-input ng-model="tags">
+                    <auto-complete id="ListadoTags" Name="ListadoTags" source="loadTags($query)"></auto-complete>
+                </tags-input>
             </div>
-            <div class="pads">
-                <p>Categories</p>
-                <!-- ngTagsInput -->
-                <div class="tagsinput" ng-app="myApp" ng-controller="MyCtrl">
-                    <tags-input ng-model="tags">
-                        <auto-complete id="ListadoTags" Name="ListadoTags" source="loadTags($query)"></auto-complete>
-                    </tags-input>
-                </div>
-            </div>
-            <div class="pads">
-                <p>Contingut</p>
-                <!-- TinyMCE -->
-                <textarea id="TextoNota" name="TextoNota"></textarea>
-            </div>
-    {{ Form::submit('Crear nova nota',array('class'=> 'btn btn-info'))}}
-    {{ Form::close() }}
+        </div>
+        <div class="pads">
+            <p>Contingut</p>
+            <!-- TinyMCE -->
+            <textarea id="TextoNota" name="TextoNota"></textarea>
+        </div>
+        {{ Form::submit('Crear nova nota',array('class'=> 'btn btn-info'))}}
+        {{ Form::close() }}
     </div>
 </div>
 @stop
