@@ -59,6 +59,10 @@ Perfil Usuari
                        echo count($querypost->get());
                        ?>" disabled="disabled">    
             </div>
+            <?php if(count($querypost) != 0){
+            echo '<a href="'.Config::get('constants.BaseUrl').'public/vernotas/'.$userdata[0]->nick.'"> <button class="btn btn-default">Veure les notes de '.$userdata[0]->nick.'</button></a>';
+            }
+?>
         </div>
     </div>
 </div>

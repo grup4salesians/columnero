@@ -31,5 +31,10 @@ class PubliquesController extends BaseController {
                        
                     return View::make('pages.publiques')->with('filtrodata',$filtrodata);
        }
+       public function ShowNotesPubliques($nick)
+       {
+           
+           return View::make('pages.notasusuaripublic')->with('nick',$nick);
+       }
 
 }
