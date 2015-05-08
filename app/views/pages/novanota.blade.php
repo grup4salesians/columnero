@@ -4,6 +4,7 @@ Perfil Usuari
 @stop
 @section('content')
 
+<!-- ngTagsInput -->
 <script type="text/javascript" src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/angular/angular.min.js"></script>
 <script type="text/javascript" src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/ng-tags-input/ng-tags-input.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/ng-tags-input/ng-tags-input.min.css"/>
@@ -21,12 +22,32 @@ Perfil Usuari
         };
     });
 </script>
-<script src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/tinymce/tinymce.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-    tinymce.init({
-        selector: "textarea"
+<!-- ----------- -->
+
+<!-- Bootstrap Text Editor -->
+<!-- BOOTSTRAP STYLE SHEET -->
+<!--<link href="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/text-editor/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>-->
+ <!-- REQUIRED ICONS FOR TEXT EDITOR -->
+<!--<link href="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/text-editor/assets/css/font-awesome.css" rel="stylesheet" type="text/css"/>-->
+<!-- TEXT EDITOR STYLES -->
+<link href="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/text-editor/assets/css/summernote.css" rel="stylesheet" type="text/css"/>
+
+<!-- REQUIRED SCRIPTS FILES -->
+<!-- CORE JQUERY FILE -->
+<!--<script src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/text-editor/assets/js/jquery-1.11.1.js" type="text/javascript"></script>-->
+<!-- REQUIRED BOOTSTRAP SCRIPTS -->
+<script src="<?php // echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/text-editor/assets/js/bootstrap.js" type="text/javascript"></script>
+  <!-- TEXT EDITOR SCRIPT -->
+<script src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/text-editor/assets/js/summernote.js" type="text/javascript"></script>
+ <!-- REQUIRED SCRIPT FOR TEXT EDITOR -->
+<script>
+    $(document).ready(function () {
+        $('#TextoNota').summernote({
+            height: 250,// set height for editor
+        });
     });
 </script>
+<!-- --------------------- -->
 
 <style>
     .contingut_home {
@@ -54,6 +75,9 @@ Perfil Usuari
     }
     .tagsinput {
         height: 64px;
+    }
+    .note-editor button {
+        height: 30px;
     }
 </style>
 <div class="contingut_home">
