@@ -45,7 +45,7 @@ Perfil Usuari
             @endforeach
         </div>
         @endif
-    {{ Form::open(array('url' => '/Novanota')) }}
+    {{ Form::open(array('url' => '/novanota')) }}
             <div class="pads">
                 <p>Títol</p>
                 <input id="Titol" name="Titol" type="text">
