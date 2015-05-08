@@ -12,6 +12,8 @@ class NovanotaController extends BaseController {
             'ListadoTags' => Input::get('ListadoTags'),
             'TexoNota' => Input::get('TextoNota')
         );
+         
+            return Redirect::back()->withInput()->withErrors($validator);
         
     }
     

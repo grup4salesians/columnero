@@ -38,7 +38,13 @@ Perfil Usuari
                 <h4 class="page-head-line">Nova Nota</h4>
             </div>
         </div>
-
+ @if ($errors->has())
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+            {{ $error }}<br>        
+            @endforeach
+        </div>
+        @endif
     {{ Form::open(array('url' => '/Novanota')) }}
             <div class="pads">
                 <p>Títol</p>
