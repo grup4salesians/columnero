@@ -72,7 +72,11 @@ class NovanotaController extends BaseController {
     }
            
     public function selectcategories($query) {
-        $categories = Categorie::where("nom", 'LIKE', "%" . $query . "%")->select("nom as text")->get();
+        $categories = DB::table('categories')
+                    ->join('categoriesusuaris','categories.id','=','categoriesusuaris.categories_id')
+                    ->where('categoriesusuaris.usuaris_id',Auth::user()->id)
+                    ->where("nom", 'LIKE', "%" . $query . "%")
+                    ->select("nom as text")->get();
         return $categories;
         //return Response::json(array('Error'=>"res",'Viatge'=> "deres"),200);
     }
