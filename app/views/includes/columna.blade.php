@@ -37,6 +37,7 @@
                 $titolNota = $query[$i]->titol;
                 $comentariNota = $query[$i]->comentari;
                 $nick = $query[$i]->nick;
+                $data = $query[$i]->data;
 
                 $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
                         ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')

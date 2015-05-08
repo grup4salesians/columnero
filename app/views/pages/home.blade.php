@@ -105,21 +105,38 @@ Home
             $(search).stop().slideToggle();
         });
 
-        $(document).on('click', "#ordenarTitulo", function sortTitle(e){
+        $(document).on('click', "#busqueda_home button", function sortTitle(e){
         	e.preventDefault();
-        	var idColumn = $(this).closest('#busqueda_home').data('column-id');
-        	var filtre = '.panel.columna.panel-primary[data-column-id="' + idColumn + '"] .panel.panel-default';
-        	var order = '';
-        	if ($(this).hasClass('desc')) {
-        		order = 'desc';
-        		$(this).removeClass('desc');
-        	} else {
-        		order = 'asc';
-        		$(this).addClass('desc');
-        	}
-        	tinysort(filtre, {selector: '.panel-title', order: order});
+        	var $button = $(this),
+        		action = $(this).attr('id');
+			switch(action) {
+				case 'ordenarTitulo':
+					ordenar($button, '.panel-title');
+					break;
+				case 'ordenarFecha':
+					ordenar($button, '.panel-title', 'date');
+					break;
+			}
+        	
         });
     });
+	
+	function ordenar($button, aOrdenar, data) {
+		var idColumn = $button.closest('#busqueda_home').data('column-id');
+        	var filtre = '.panel.columna.panel-primary[data-column-id="' + idColumn + '"] .panel.panel-default';
+        	var order = '';
+        	if ($button.hasClass('desc')) {
+        		order = 'desc';
+        		$button.removeClass('desc');
+        	} else {
+        		order = 'asc';
+        		$button.addClass('desc');
+        	}
+        	if (typeof data !== 'undefined')
+        		tinysort(filtre, {data: data, order: order});
+        	else
+        		tinysort(filtre, {selector: aOrdenar, order: order});
+	}
 
 </script>
 @stop

@@ -9,8 +9,8 @@
             <span class='titulsbusqueda'>Tots</span> <input  name="radio1" value="tots" checked="checked" id="filtrocheckbox" type="radio">
             <span class='titulsbusqueda'>Setmana</span> <input name="radio1" value="setmana" id="filtrocheckbox" type="radio">
             <span class='titulsbusqueda'>Mes</span> <input name="radio1" value="mes" id="filtrocheckbox"  type="radio">
-            <button id="ordenarTitulo" class="asc">Ordenar por Títutlo</button>
-            <input type="submit" class="btn btn-default" value="Enviar">
+            <button id="ordenarTitulo">Ordenar por Títutlo</button>
+            <button id="ordenarFecha">Ordenar por Fecha</button>
         </fieldset>
         {{ Form::close() }}
     </div>

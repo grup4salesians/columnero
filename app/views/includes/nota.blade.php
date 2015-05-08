@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default" data-date="{{ $data }}">
     <div class="panel-heading">
         <h4 class="panel-title">
             {{ $titolNota }}
