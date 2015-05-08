@@ -4,39 +4,7 @@ Home
 @stop
 @section('content')
 <style>
-    .dashboard-div-wrapper {
-        border-radius: 5px;
-        text-align: center;
-        padding: 15px;
-        color: #fff;
-        margin-bottom: 50px;
-    }
-    .dashboard-div-icon {
-        height: 75px;
-        width: 75px;
-        border: 2px solid #fff;
-        padding: 20px;
-        border-radius: 50%;
-        -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        font-size: 30px;
-        margin-bottom: 20px;
-        color: #fff;
-    }
-    .linkAlert:hover {
-        text-decoration: none;
-        color: white;
-        cursor: pointer;
-        border-bottom: 2px solid white;
-    }
-    .linkAlert {
-        color: white;
-        font-weight: bold;
-        font-size: 18px;
-    }
-    .bk-clr-two {
-        background-color: rgba(249, 76, 76, 0.86);
-    }
+
 </style>
 <div id="contingut_home">
     <div class="row row-horizon">

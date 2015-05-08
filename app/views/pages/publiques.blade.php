@@ -4,17 +4,6 @@ Home
 @stop
 @section('content')
 <style>
-    .titulsbusqueda{
-        margin-left:10px;
-        font-weight:bold;
-    }
-    .btnfiltrar{
-        float:right;
-        padding-right:5px;
-        padding-left:5px;
-        background-color: blue;
-        margin-right:5px;
-    }
     @media screen and (max-width: 770px) {
         #ordenar_home{
             width:90%;
@@ -27,22 +16,6 @@ Home
             width:100%;
             height:160px;
         }
-    }
-    #show-ordenar_home {
-        height: 28px;
-        text-align: center;
-        background-color: lime;
-        width: 28px;
-        border-radius: 14px;
-        position: fixed;
-        z-index: 1;
-        right: 19px;
-        top: 63px;
-
-    }
-    #show-ordenar_home:hover {
-        background-color: limegreen;
-        cursor: pointer;
     }
 </style>
 <div id="contingut_home">
