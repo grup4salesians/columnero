@@ -49,7 +49,7 @@ Route::group(array('before' => 'auth'), function() {
     Route::post('cercarhome', 'HomeController@ShowFiltro');
     Route::get('logout', 'AuthController@logOut'); // Esta ruta nos servirá para cerrar sesión.
 
-    
+    //NOVA NOTA
     Route::get('novanota', 'NovanotaController@ShowNovaNota');
     Route::post('novanota', 'NovanotaController@PostNovaNota');
     
