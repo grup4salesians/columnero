@@ -61,7 +61,6 @@ Nova nota
         width: 80%;
         text-align: center;
         height: auto;
-        border: 1px solid #D86F5D;
         background-color: white;
         margin: auto;
         margin-bottom: 10px;
@@ -80,7 +79,7 @@ Nova nota
         height: 30px;
     }
 </style>
-<div class="contingut_home">
+<div id="contingut_home" class="contingut_home">
     <div class="contingut">
         <div class="row">
             <div class="col-md-12">
@@ -114,8 +113,10 @@ Nova nota
             <!-- TinyMCE -->
             <textarea id="TextoNota" name="TextoNota"></textarea>
         </div>
+        <br>
         {{ Form::submit('Crear nova nota',array('class'=> 'btn btn-info','id'=>'BtnSubmitNovaNota'))}}
         {{ Form::close() }}
+        <br>
     </div>
 </div>
 <script>

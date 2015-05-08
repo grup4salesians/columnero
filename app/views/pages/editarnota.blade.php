@@ -57,7 +57,7 @@ Editar nota
         height: 64px;
     }
 </style>
-<div class="contingut_home">
+<div id="contingut_home" class="contingut_home">
     <div class="contingut">
         <div class="row">
             <div class="col-md-12">
@@ -101,9 +101,9 @@ Editar nota
             var textoFinal = "";
             $("#ListadoTags").find("span").each(function () {
                 textoFinal = textoFinal + "|" + $(this).text();
-            })
+            });
             textoFinal = textoFinal.substr(1);
-            $("#ListadoTagsOculto").val() = textoFinal;
+            $("#ListadoTagsOculto").val(textoFinal);
         });
     });
 </script>
