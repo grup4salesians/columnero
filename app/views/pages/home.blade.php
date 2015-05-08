@@ -39,23 +39,8 @@ Home
     }
 </style>
 <div id="contingut_home">
-    <div class="row">
+    <div class="row row-horizon">
 
-        <div id='busqueda_home' style="display: none;">
-            <div id='ordenar_home'>
-                <i id="show-ordenar_home" class="fa fa-times"></i>
-                {{ Form::open(array('url' => '/cercarhome')) }}
-                <fieldset>
-                    <legend>Ordenar per</legend>
-                    <span class='titulsbusqueda'>Millor valorats</span> <input id="millorvalorats" name="millorvalorats" type="checkbox">
-                    <span class='titulsbusqueda'>Tots</span> <input  name="radio1" value="tots" checked="checked" id="filtrocheckbox" type="radio">
-                    <span class='titulsbusqueda'>Setmana</span> <input name="radio1" value="setmana" id="filtrocheckbox" type="radio">
-                    <span class='titulsbusqueda'>Mes</span> <input name="radio1" value="mes" id="filtrocheckbox"  type="radio">
-                    <input type="submit" class="btn btn-default" value="Enviar">
-                </fieldset>
-                {{ Form::close() }}
-            </div>
-        </div>
         <?php
         $nom = Auth::user()->getFullNameAttribute();
         $queryCategories = DB::table('categories')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
@@ -113,8 +98,19 @@ Home
         $(window).on('resize', function () {
             $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
         });
-        $(document).on('click', '#show-ordenar_home', function () {
-            $('#busqueda_home').stop().slideToggle();
+        $(document).on('click', '.show-ordenar_home', function () {
+        	var idColumn = $(this).data('column-id');
+        	var search = '#busqueda_home[data-column-id="' + idColumn + '"]';
+        	console.log(search);
+            $(search).stop().slideToggle();
+        });
+
+        $(document).on('click', "#ordenarTitulo", function sortTitle(e){
+        	e.preventDefault();
+        	var idColumn = $(this).closest('#busqueda_home').data('column-id');
+        	var filtre = '.panel.columna.panel-primary[data-column-id="' + idColumn + '"] .panel.panel-default';
+        	alert(filtre);
+        	tinysort(filtre, {selector:'.panel-title'});
         });
     });
 

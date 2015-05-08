@@ -1,11 +1,12 @@
-<div class="col-xs-12 col-sm-6 col-md-4 ">
-    <div class="panel columna panel-primary">
+<div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="panel columna panel-primary" data-column-id="{{ $idCategoria }}">
         <div class="panel-heading">
-            <i id="show-ordenar_home" class="fa fa-cog fa-1x"></i>
+            <i id="show-ordenar_home" class="fa fa-cog fa-1x show-ordenar_home"  data-column-id="{{ $idCategoria }}"></i>
             {{ $categoria }}
         </div>
 
         <div class="panel-body">
+        	@include('includes/columnHomeOptions')
             <?php
             //Select que coge todos las notas del usuario y el tag
 
