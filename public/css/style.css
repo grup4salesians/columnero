@@ -23,6 +23,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 30px;
+    background-color: rgba(244, 228, 228, 0.34);
 }
 
 .set-radius-zero {
@@ -104,14 +105,14 @@ body {
  ============================================================ */
 #contingut_home{
     height:auto;
-    background-color: rgba(244, 228, 228, 0.34);
+    //background-color: rgba(244, 228, 228, 0.34);
     margin: 0 auto;
 }
  .contingut_home {
         width: 100%;
         overflow: hidden;
         height: auto;
-        background-color: rgba(244, 228, 228, 0.34);
+        //background-color: rgba(244, 228, 228, 0.34);
         margin: 0 auto;
     }
     .contingut {
@@ -120,7 +121,7 @@ body {
         height: auto;
         background-color: white;
         margin: auto;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
     }
     
         .dashboard-div-wrapper {
@@ -230,7 +231,8 @@ body {
     height:auto;
     background-color: white;
     margin:auto;
-    padding-bottom:10px;
+    //padding-bottom:10px;
+    padding-bottom: 65px;
 }
 /* =============================================================
    LOGO SECTION STYLES
@@ -348,6 +350,10 @@ footer {
     color: #fff;
     font-size: 12px;
     background-color: rgba(240, 85, 85, 0.95);
+    
+      position: fixed;
+        bottom: 0;
+        width: 100%;
 }
 
 footer a, footer a:hover {
