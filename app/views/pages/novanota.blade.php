@@ -3,6 +3,31 @@
 Perfil Usuari
 @stop
 @section('content')
+
+<script type="text/javascript" src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/angular/angular.min.js"></script>
+<script type="text/javascript" src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/ng-tags-input/ng-tags-input.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/ng-tags-input/ng-tags-input.min.css"/>
+<script>
+    angular.module('myApp', ['ngTagsInput'])
+        .controller('MyCtrl', function ($scope, $http) {
+        $scope.tags = [
+            {text: 'just'},
+            {text: 'some'},
+            {text: 'cool'},
+            {text: 'tags'}
+        ];
+        $scope.loadTags = function (query) {
+            return $http.get('getCategories/' + query);
+        };
+    });
+</script>
+<script src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/tinymce/tinymce.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    tinymce.init({
+        selector: "textarea"
+    });
+</script>
+
 <style>
     .contingut_home {
         width: 100%;
@@ -70,15 +95,15 @@ Perfil Usuari
     </div>
 </div>
 <script>
-    $(document).ready(function() {
-        $("#BtnSubmitNovaNota").click(function(){
-            var textoFinal="";
-            $("#ListadoTags").find("span").each(function(){
-                textoFinal = textoFinal+ "|" + $(this).text();
+    $(document).ready(function () {
+        $("#BtnSubmitNovaNota").click(function () {
+            var textoFinal = "";
+            $("#ListadoTags").find("span").each(function () {
+                textoFinal = textoFinal + "|" + $(this).text();
             })
             textoFinal = textoFinal.substr(1);
             $("#ListadoTagsOculto").val() = textoFinal;
-        });    
+        });
     });
 </script>
 @stop

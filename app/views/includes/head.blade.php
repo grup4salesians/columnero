@@ -16,26 +16,4 @@
     {{ HTML::style('css/style.css'); }}
     {{ HTML::style('css/font-awesome.css'); }}
 
-    <script type="text/javascript" src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/angular/angular.min.js"></script>
-    <script type="text/javascript" src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/ng-tags-input/ng-tags-input.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/ng-tags-input/ng-tags-input.min.css"/>
-    <script>
-        angular.module('myApp', ['ngTagsInput'])
-            .controller('MyCtrl', function($scope, $http) {
-                $scope.tags = [
-                    { text: 'just' },
-                    { text: 'some' },
-                    { text: 'cool' },
-                    { text: 'tags' }
-                ];
-                $scope.loadTags = function(query) {
-                     return $http.get('getCategories/' + query);
-                };
-            });
-    </script>
-    <script src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/tinymce/tinymce.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-    tinymce.init({
-        selector: "textarea"
-     });
-    </script>
+    
