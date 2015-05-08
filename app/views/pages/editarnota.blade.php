@@ -1,12 +1,13 @@
 @extends('layouts.master')
 @section('title')
-Nova nota
+Editar nota
 @stop
 @section('content')
 
 <script type="text/javascript" src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/angular/angular.min.js"></script>
 <script type="text/javascript" src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/ng-tags-input/ng-tags-input.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/ng-tags-input/ng-tags-input.min.css"/>
+<?php $querypost = Post::where('id','=',$id)->get(); ?>
 <script>
     angular.module('myApp', ['ngTagsInput'])
         .controller('MyCtrl', function ($scope, $http) {
@@ -70,10 +71,10 @@ Nova nota
             @endforeach
         </div>
         @endif
-        {{ Form::open(array('url' => '/novanota')) }}
+       <?php echo Form::open(array('url' => '/editarnota/'.$id.'')) ?>
         <div class="pads">
             <p>Títol</p>
-            <input id="Titol" name="Titol" type="text">
+            <input id="Titol" name="Titol" type="text" value='<?php echo $querypost[0]->titol ?>'>
         </div>
         <div class="pads">
             <p>Categories</p>
@@ -88,15 +89,15 @@ Nova nota
         <div class="pads">
             <p>Contingut</p>
             <!-- TinyMCE -->
-            <textarea id="TextoNota" name="TextoNota"></textarea>
+            <textarea id="TextoNota" name="TextoNota"><?php echo $querypost[0]->comentari ?></textarea>
         </div>
-        {{ Form::submit('Crear nova nota',array('class'=> 'btn btn-info','id'=>'BtnSubmitNovaNota'))}}
+        {{ Form::submit('Guardar',array('class'=> 'btn btn-info','id'=>'BtnSubmitEditarNota'))}}
         {{ Form::close() }}
     </div>
 </div>
 <script>
     $(document).ready(function () {
-        $("#BtnSubmitNovaNota").click(function () {
+        $("#BtnSubmitEditarNota").click(function () {
             var textoFinal = "";
             $("#ListadoTags").find("span").each(function () {
                 textoFinal = textoFinal + "|" + $(this).text();
