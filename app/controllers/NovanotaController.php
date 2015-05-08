@@ -46,7 +46,7 @@ class NovanotaController extends BaseController {
                     ->where('categories.nom',$ArrayTags[$i])
                     ->select('categoriesusuaris.categories_id')
                     ->get();
-            // return Redirect::back()->withInput()->withErrors(Input::get('ListadoTagsOculto'));
+            //return Redirect::back()->withInput()->withErrors($query[0]->categories_id);
             $idCategoria = $query[0]->categories_id;
             if (count($query)==0){ //Si no existe la categoria, inserta en tablas; categories,CategoriesUsuaris
                 $CategoriaNueva = new Categorie();
