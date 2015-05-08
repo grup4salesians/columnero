@@ -30,22 +30,6 @@ Editar nota
 </script>
 
 <style>
-    .contingut_home {
-        width: 100%;
-        overflow: hidden;
-        height: auto;
-        background-color: rgba(244, 228, 228, 0.34);
-        margin: 0 auto;
-    }
-    .contingut {
-        width: 80%;
-        text-align: center;
-        height: auto;
-        border: 1px solid #D86F5D;
-        background-color: white;
-        margin: auto;
-        margin-bottom: 10px;
-    }
     .pads {
         padding-left: 10%;
         padding-right: 10%;
@@ -91,8 +75,10 @@ Editar nota
             <!-- TinyMCE -->
             <textarea id="TextoNota" name="TextoNota"><?php echo $querypost[0]->comentari ?></textarea>
         </div>
+        <br>
         {{ Form::submit('Guardar',array('class'=> 'btn btn-info','id'=>'BtnSubmitEditarNota'))}}
         {{ Form::close() }}
+        <br>
     </div>
 </div>
 <script>

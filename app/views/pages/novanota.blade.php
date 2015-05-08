@@ -50,21 +50,6 @@ Nova nota
 <!-- --------------------- -->
 
 <style>
-    .contingut_home {
-        width: 100%;
-        overflow: hidden;
-        height: auto;
-        background-color: rgba(244, 228, 228, 0.34);
-        margin: 0 auto;
-    }
-    .contingut {
-        width: 80%;
-        text-align: center;
-        height: auto;
-        background-color: white;
-        margin: auto;
-        margin-bottom: 10px;
-    }
     .pads {
         padding-left: 10%;
         padding-right: 10%;
