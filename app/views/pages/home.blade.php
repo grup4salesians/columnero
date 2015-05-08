@@ -109,8 +109,15 @@ Home
         	e.preventDefault();
         	var idColumn = $(this).closest('#busqueda_home').data('column-id');
         	var filtre = '.panel.columna.panel-primary[data-column-id="' + idColumn + '"] .panel.panel-default';
-        	alert(filtre);
-        	tinysort(filtre, {selector:'.panel-title'});
+        	var order = '';
+        	if ($(this).hasClass('desc')) {
+        		order = 'desc';
+        		$(this).removeClass('desc');
+        	} else {
+        		order = 'asc';
+        		$(this).addClass('desc');
+        	}
+        	tinysort(filtre, {selector: '.panel-title', order: order});
         });
     });
 
