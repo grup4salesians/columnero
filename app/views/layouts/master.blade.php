@@ -2,6 +2,7 @@
     <head>
         <title>@yield('title','Index')</title>
         @include('includes.head')
+        @yield('head')
     </head>
     <body>
         <div class='header'>

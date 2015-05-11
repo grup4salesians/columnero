@@ -1,5 +1,5 @@
 #contingut_home{
-    height:auto !important;
+    /*height:auto !important;*/
     /*background-color: rgba(244, 228, 228, 0.34) !important;*/
     margin: 0 auto !important;
 }
@@ -90,18 +90,494 @@ html, body, #contingut_home > .row-horizon {
     cursor: pointer !important;
 }
 .fa.fa-1x {
-    font-size: 1.25e !importantm
+    font-size: 1.25em !important
 }
 @media screen and (max-width: 770px) {
     #ordenar_home{
         width:90% !important;
-       height:130px !important;
+        height:130px !important;
     }
     #contingut_home{
-        height:auto !important;
     }
     #busqueda_home{
         width:100% !important;
         height:160px !important;
+    }
+}
+
+
+
+
+/***************************************************************************************************************/
+/***************************************************************************************************************/
+/***************************************************************************************************************/
+/***************************************************************************************************************/
+/***************************************************************************************************************/
+/***************************************************************************************************************/
+/***************************************************************************************************************/
+/***************************************************************************************************************/
+/***************************************************************************************************************/
+/***************************************************************************************************************/
+/***************************************************************************************************************/
+
+/*==============================================================
+    Authour URL: www.designbootstrap.com
+    
+    http://www.designbootstrap.com/
+
+    License: MIT
+
+    http://opensource.org/licenses/MIT
+
+    100% Free To use For Personal And Commercial Use.
+
+    IN EXCHANGE JUST TELL PEOPLE ABOUT THIS WEBSITE
+   
+========================================================  */
+
+
+/* =============================================================
+   GENERAL STYLES
+ ============================================================ */
+
+@import url(http://fonts.googleapis.com/css?family=Roboto); /* FREE GOOGLE FONT */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 30px;
+    background-color: rgba(244, 228, 228, 0.34);
+}
+
+.set-radius-zero {
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
+
+.content-wrapper {
+    margin-top: 40px;
+    min-height: 600px;
+    padding-bottom: 60px;
+}
+
+.page-head-line {
+    font-weight: 900;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #F0677C;
+    text-transform: uppercase;
+    color: #F0677C;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+/*.btn {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+}*/
+
+.progress {
+    height: 8px;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+}
+.login-icon {
+    height: 60px;
+    width: 60px;
+    padding: 13px;
+    border-radius: 50%;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    cursor:pointer;
+    background-color:#F0677C;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+}
+/* =============================================================
+   HEADER SECTION STYLES
+ ============================================================ */
+.header_login {
+    background-color: rgba(240, 85, 85, 0.95);
+    color: #fff;
+    padding: 2px;
+    text-align: right;
+}
+
+.logo{
+    width: 60px;
+    height: 50px;
+    display: inline-block;
+    float:left;
+
+}
+.Registre_TextBox{
+    width:100%;
+    float:right;
+}
+.body_registre{
+    width:100%;
+    height:auto;
+    background-color:rgba(247, 236, 236, 0.07);
+}
+/* =============================================================
+   HOME
+ ============================================================ */
+#contingut_home{
+    height:auto;
+    //background-color: rgba(244, 228, 228, 0.34);
+    margin: 0 auto;
+}
+
+   #capnota_home{
+                    width:60%;
+                    min-width:500px;
+                    height:auto;
+                    background-color: rgba(250, 210, 153, 0.56);
+                    margin:auto;
+                    text-align:center;
+                }
+
+#busqueda_home{
+    min-width:400px;
+    max-width:750px;
+    margin: auto;
+    margin-bottom:15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius:5px;
+    padding-top:1px;
+}
+
+#ordenar_home{
+    width:80%;
+    margin:auto;
+    background-color: #FFF;
+    height:100px;
+    padding:5px;
+    border-radius:5px;
+    border: solid 1px rgb(152, 152, 152);
+}
+#eliminarnota{
+    height: 100px;
+    text-align:center;
+    padding:10px;
+}
+/* =============================================================
+   PERFIl
+ ============================================================ */
+
+
+#Bloque_inside_perfil{
+    width:70%;
+    text-align:center;
+    height:auto;
+    background-color: white;
+    margin:auto;
+    //padding-bottom:10px;
+    padding-bottom: 65px;
+}
+/* =============================================================
+   LOGO SECTION STYLES
+ ============================================================ */
+.left-div {
+    padding-left: 30px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.navbar-brand {
+    width: 250px;
+    padding-top: 30px;
+}
+
+/* USER SETTINGS DIV */
+.user-settings-wrapper .nav > li > a {
+    position: relative;
+    display: block;
+    padding: 15px 18px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    background-color: #F0677C;
+    color: #fff;
+}
+
+.user-settings-wrapper {
+    margin-top: 10px;
+}
+
+.user-settings-wrapper li {
+    display: inline-block;
+}
+
+.user-settings-wrapper .dropdown-settings {
+    width: 200px;
+    padding: 10px;
+}
+
+.user-settings-wrapper .nav > li > a:hover,.user-settings-wrapper .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #C36464!important;
+}
+
+.user-settings-wrapper img {
+    height: 64px;
+    width: 64px;
+    border: 1px solid #000000;
+}
+
+.user-settings-wrapper .dropdown-menu {
+    margin: 0px;
+    border-radius: 0px!important;
+    -moz-border-radius: 0px!important;
+    -webkit-border-radius: 0px!important;
+}
+
+.user-settings-wrapper .btn {
+    border-radius: 0px!important;
+    -moz-border-radius: 0px!important;
+    -webkit-border-radius: 0px!important;
+}
+
+.user-settings-wrapper .media-heading {
+    padding-top: 10px;
+}
+
+/* MENU LINKS SECTION*/
+
+.menu-section {
+    background-color: #3D3D3D;
+}
+
+#menu-top a {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 10px 10px 10px;
+    text-transform: uppercase;
+}
+
+.menu-top-active {
+    background-color: #C36464;
+}
+
+.menu-section .nav > li > a:hover,.menu-section .nav > li > a:focus {
+    background-color: #F0677C!important;
+}
+
+.menu-section .dropdown-menu > li > a:hover,.menu-section .dropdown-menu > li > a:focus {
+    background-color: #F0677C!important;
+}
+
+.navbar-inverse {
+    background-color: #C36464;
+    border-color: transparent;
+}
+
+.navbar-toggle {
+    background-color: #F0677C;
+    border: 1px solid #fff;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+/* =============================================================
+   FOOTER SECTION STYLES
+ ============================================================ */
+footer {
+    padding: 10px;
+    color: #fff;
+    font-size: 12px;
+    background-color: rgba(240, 85, 85, 0.95);
+    
+      position: fixed;
+        bottom: 0;
+        width: 100%;
+}
+
+footer a, footer a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+/*==============================================
+    DASHBOARD  STYLES    
+ =============================================*/
+
+/* DASHBOARD ICONS */
+
+.bk-clr-one {
+    background-color: #B9B739;
+}
+
+.bk-clr-two {
+    background-color: #F94C4C;
+}
+
+.bk-clr-three {
+    background-color: #119c7e;
+}
+
+.bk-clr-four {
+    background-color: #b739b9;
+}
+
+.dashboard-div-icon {
+    height: 75px;
+    width: 75px;
+    border: 2px solid #fff;
+    padding: 20px;
+    border-radius: 50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.dashboard-div-wrapper {
+    border-radius: 5px;
+    text-align: center;
+    padding: 15px;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+.dashboard-div-wrapper .progress {
+    height: 2px;
+}
+
+/* NOTICE BOARD */
+
+
+.notice-board .panel {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+}
+
+.notice-board ul {
+    padding-left: 0px;
+    list-style: none;
+}
+
+.notice-board li {
+    padding: 10px;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.notice-board li span {
+    margin-right: 10px;
+    border: 1px solid #DBDBDB;
+    padding: 5px;
+}
+
+.notice-board li a, li a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+/* SOCIAL BUTTONS */
+.btn-social {
+    color: white;
+    opacity: 0.8;
+}
+
+.btn-social:hover {
+    color: white;
+    opacity: 1;
+    text-decoration: none;
+}
+
+.btn-facebook {
+    background-color: #3b5998;
+}
+
+.btn-twitter {
+    background-color: #00aced;
+}
+
+.btn-linkedin {
+    background-color: #0e76a8;
+}
+
+.btn-google {
+    background-color: #c32f10;
+}
+
+/* - */
+.columna.panel-primary {
+    border-color: #D86F5D;
+}
+.columna.panel-primary > .panel-heading {
+    border-color: #D86F5D;
+    background-color: #D86F5D;
+}
+#contingut_home {
+    width: 100%;
+    overflow: hidden;
+}
+html, body, #contingut_home > .row-horizon {
+    height: 100%;
+}
+#contingut_home > .row-horizon {
+    overflow-y: scroll !important;
+    /*margin-right: -32px;*/
+    margin: 0;
+    padding: 15px;
+}
+
+.row-horizon > * {
+    padding-left: 0;
+}
+.header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+.header-space {
+    position: relative;
+    width: 100%;
+    padding-bottom: 44px;
+}
+
+.titulsbusqueda{
+    margin-left:10px;
+    font-weight:bold;
+}
+.btnfiltrar{
+    float:right;
+    padding-right:5px;
+    padding-left:5px;
+    background-color: blue;
+    margin-right:5px;
+}
+#show-ordenar_home {
+    float: right;
+    color: #545454;
+    
+}
+#show-ordenar_home:hover {
+    cursor: pointer;
+}
+.fa.fa-1x {
+    font-size: 1.25em
+}
+@media screen and (max-width: 770px) {
+    #ordenar_home{
+        width:90%;
+       height:130px;
+    }
+    #contingut_home{
+        height:auto;
+    }
+    #busqueda_home{
+        width:100%;
+        height:160px;
     }
 }

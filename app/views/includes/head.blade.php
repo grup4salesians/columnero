@@ -15,6 +15,5 @@
     {{ HTML::style('css/bootstrap-horizon.css'); }}
     {{ HTML::style('css/style.css'); }}
     {{ HTML::style('css/font-awesome.css'); }}
-    {{ HTML::style('css/home.css'); }}
 
     

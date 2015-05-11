@@ -1,11 +1,13 @@
-@extends('layouts.master')
+@extends('layouts.home-master')
 @section('title')
 Home
 @stop
+@section('head')
+@parent
+    {{ HTML::style('css/home.css'); }}
+@stop
 @section('content')
-<style>
 
-</style>
 <div id="contingut_home">
     <div class="row row-horizon">
 
