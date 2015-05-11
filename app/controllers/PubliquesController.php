@@ -26,10 +26,10 @@ class PubliquesController extends BaseController {
             'radio' => Input::get('radio1'),
             'cercarpubliques' => Input::get('cercarpubliques')
         );
-                       
+                      $tags = explode(',',Input::get('cercarpubliques'));
                           
                        
-                    return View::make('pages.publiques')->with('filtrodata',$filtrodata);
+                    return View::make('pages.publiques')->with('filtrodata',$filtrodata)->with('tags',$tags);
        }
        public function ShowNotesPubliques($nick)
        {

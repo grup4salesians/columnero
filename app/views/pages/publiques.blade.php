@@ -45,16 +45,55 @@ Home
         //$filtrodata['millorvalorats'];
         //$filtrodata['radio1'];
         if (!(empty($filtrodata))) {
-            
+
+            $queryfiltro = DB::table('posts')
+                    ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id')
+                    ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
+                    ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
+                    ->where('posts.privat', 0)
+                    ->whereIn('categories.nom', $tags)
+                    ->select('posts.id', 'posts.titol', 'posts.comentari', 'usuaris.nick', 'posts.data')
+                    ->paginate(10);
+
+            for ($i = 0; $i < count($queryfiltro); $i++) {
+                $titolNota = $queryfiltro[$i]->titol;
+                $comentariNota = $queryfiltro[$i]->comentari;
+                $nick = $queryfiltro[$i]->nick;
+                $data = $queryfiltro[$i]->data;
+
+                $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
+                        ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
+                        ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
+                        ->where('posts.id', $queryfiltro[$i]->id)
+                        ->select('categories.nom')
+                        ->paginate(10);
+                $categories = "";
+                for ($j = 0; $j < count($queryCategories); $j++) {
+                    $categories = $categories . ',' . $queryCategories[$j]->nom;
+                }
+                $categories = substr($categories, 1);
+                ?>
+                <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
+                    @include('includes/nota')
+                </div>
+        <br>
+        <?php echo $queryfiltro->links(); ?>
+                <?php
+            }
+            ?>
+
+
+
+        <?php
         } else {
-            //PONER QUERY DE ULTIMOS 10 POST.
+            //PONER QUERY DE ULTIMOS 10 POST por defecto que sean públicos.
 
             $query = DB::table('posts')
                     ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id')
-                    ->where('privat', 1)
-                    ->select('posts.id', 'posts.titol','posts.comentari','usuaris.nick', 'posts.data')
+                    ->where('privat', 0)
+                    ->select('posts.id', 'posts.titol', 'posts.comentari', 'usuaris.nick', 'posts.data')
                     ->take(10)
-                    ->get();
+                    ->paginate(10);
 
             for ($i = 0; $i < count($query); $i++) {
                 $titolNota = $query[$i]->titol;
@@ -66,7 +105,7 @@ Home
                         ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
                         ->where('posts.id', $query[$i]->id)
                         ->select('categories.nom')
-                        ->get();
+                        ->paginate(10);
                 $categories = "";
                 for ($j = 0; $j < count($queryCategories); $j++) {
                     $categories = $categories . ", " . $queryCategories[$j]->nom;
@@ -75,7 +114,9 @@ Home
                 ?>   
                 <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
                     @include('includes/nota')
-                </div>
+                </div>     
+        <?php echo $query->links(); ?>
+
                 <?php
             }
         }

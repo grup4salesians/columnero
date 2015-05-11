@@ -1,7 +1,7 @@
 <?php
 
 
-class PostCategorie extends Eloquent {
+class CategoriesUsuari extends Eloquent {
 
     protected $table = "categoriesusuaris";
     protected $fillable = ['categories_id', 'usuaris_id','mostrar'];
@@ -14,7 +14,7 @@ class PostCategorie extends Eloquent {
         return static::lists('id');
     }
     
-    public function Post(){
+    public function Categorie(){
        return $this->belongsTo('Categorie','categories_id');
     }
 }
