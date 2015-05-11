@@ -528,6 +528,9 @@ html, body, #contingut_home > .row-horizon {
 .row-horizon > * {
     padding-left: 0;
 }
+.row-horizon .panel-body img {
+    max-width: 100%;
+}
 .header {
     position: fixed;
     z-index: 1;
