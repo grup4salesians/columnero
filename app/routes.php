@@ -48,6 +48,10 @@ Route::group(array('before' => 'auth'), function() {
     //FILTRO HOME----
     Route::post('cercarhome', 'HomeController@ShowFiltro');
     Route::get('logout', 'AuthController@logOut'); // Esta ruta nos servirá para cerrar sesión.
+    
+    //FAVORITOS
+    Route::get('afegir/{id}', array('id' => 'id', 'uses' => 'FavoritosController@SetFavorito'));
+    Route::get('treure/{id}', array('id' => 'id', 'uses' => 'FavoritosController@DeleteFavorito'));
 
     //NOVA NOTA
     Route::get('novanota', 'NovanotaController@ShowNovaNota');
@@ -59,6 +63,7 @@ Route::group(array('before' => 'auth'), function() {
     Route::get('eliminarnota/{id}',array('id' => 'id', 'uses' =>'NotapersonalController@EliminarNota'));
     Route::get('editarnota/{id}',array('id' => 'id', 'uses' =>'NotapersonalController@EditarNota'));
     Route::post('editarnota/{id}',array('id' => 'id', 'uses' =>'NotapersonalController@PostEditarNota'));
+    Route::post('mevesnotes','NotapersonalController@ShowMevesNotes');
     
     //NOTES USUARIS
     

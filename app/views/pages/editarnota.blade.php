@@ -11,14 +11,17 @@ Editar nota
 <?php  $querycat = DB::table('categories')
                     ->join('categoriesusuaris', 'categories.id', '=', 'categoriesusuaris.categories_id')
                     ->where('categoriesusuaris.usuaris_id', Auth::user()->id)
-                    ->select('categories.nom')
-                    ->get(); ?>
+                    ->select('categories.nom as text')
+                    ->get(); 
+
+
+?>
+
 <script>
     angular.module('myApp', ['ngTagsInput'])
         .controller('MyCtrl', function ($scope, $http) {
-        $scope.tags = [
-  {text: '<?php echo $querycat[0]->nom ?>'},
-        ];
+         var Categories = <?php echo(json_encode($querycat));  ?>;
+        $scope.tags = Categories;
         $scope.loadTags = function (query) {
             return $http.get('getCategories/' + query);
         };
