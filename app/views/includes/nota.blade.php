@@ -9,10 +9,10 @@
             {{ $comentariNota }}
         </div>
     </div>
-    <div class="panel-footer" style="background-color: #F9F9F9;">
+    <div class="panel-footer autor" style="background-color: #F9F9F9;">
         <a href="<?php echo Config::get('constants.BaseUrl'); ?>public/usuari/{{ $nick }}">{{ $nick }}</a>
     </div>
-    <div class="panel-footer">
+    <div class="panel-footer categories">
         {{$categories}}
     </div>
 </div>

@@ -5,8 +5,9 @@
             {{ $categoria }}
         </div>
 
-        <div class="panel-body">
+        <div id="column-{{ $idCategoria }}" class="panel-body">
         	@include('includes/columnHomeOptions')
+        	<ul class="list">
             <?php
             //Select que coge todos las notas del usuario y el tag
 
@@ -56,6 +57,16 @@
                 <?php
             }
             ?>
+            </ul>
         </div>
     </div>
 </div> 
+
+<script>
+	var options = {
+      valueNames: [ 'panel-title', 'panel-body' ],
+      indexAsync: true
+    };
+
+    var userList = new List('column8', options);
+</script>
