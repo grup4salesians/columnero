@@ -66,12 +66,17 @@ Home
     $(function () {
         $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
         $(window).on('resize', function () {
+            console.log();
+            console.log('all: ' + $(window).height());
+            console.log('header: ' + $('.header').height());
+            console.log('footer: ' + $('footer').height());
+            console.log('row: ' + $('.row-horizon').height());
             $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
         });
         $(document).on('click', '.show-ordenar_home', function () {
-        	var idColumn = $(this).data('column-id');
-        	var search = '#busqueda_home[data-column-id="' + idColumn + '"]';
-        	console.log(search);
+            var idColumn = $(this).data('column-id');
+            var search = '#busqueda_home[data-column-id="' + idColumn + '"]';
+            console.log(search);
             $(search).stop().slideToggle();
         });
 
