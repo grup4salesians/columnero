@@ -42,40 +42,43 @@ class NotapersonalController extends BaseController {
         $tags = Input::get('ListadoTagsOculto');
         
         PostCategorie::where('post_id', '=', $id)->delete();
-        Post::where('usuari_id', '=', $id)->update(array('comentari' => $textonota, 'titol', $titol));
+        Post::where('usuari_id', '=', Auth::user()->id)->where('id','=',$id)->update(array('comentari' => $textonota, 'titol' => $titol));
         
-        $ArrayTags = explode('|', $tags);
+         
+        $ArrayTags = explode("|",$tags);
         
-        $contador = count($ArrayTags);
-        
-        for ($i = 0; $i < $contador; $i++) {
+        for($i=0;$i<count($ArrayTags)-1;$i++){
             $query = DB::table('categories')
-                    ->join('categoriesusuaris', 'categories.id', '=', 'categoriesusuaris.categories_id')
-                    ->where('categoriesusuaris.usuaris_id', Auth::user()->id)
-                    ->where('categories.nom', $tags[$i])
+                    ->join('categoriesusuaris','categories.id','=','categoriesusuaris.categories_id')
+                    ->where('categoriesusuaris.usuaris_id',Auth::user()->id)
+                    ->where('categories.nom',$ArrayTags[$i])
                     ->select('categoriesusuaris.categories_id')
                     ->get();
-
-            $idCategoria = $query[0]->categories_id;
-            if (count($query) == 0) { //Si no existe la categoria, inserta en tablas; categories,CategoriesUsuaris
+        
+            if (count($query)==0){ //Si no existe la categoria, inserta en tablas; categories,CategoriesUsuaris
                 $CategoriaNueva = new Categorie();
-                $CategoriaNueva->nom = $titol;
+                $CategoriaNueva->nom = $ArrayTags[$i];
                 $CategoriaNueva->save();
-
-                $idCategoria = $CategoriaNueva->id; //Coge la id del que acabamos de insertar
-
+                
+                $idCategoria =  $CategoriaNueva->id; //Coge la id del que acabamos de insertar
+                 
                 $CategoriaUsuarioNueva = new CategoriesUsuari();
                 $CategoriaUsuarioNueva->categories_id = $idCategoria;
-                $CategoriaUsuarioNueva->usuaris_id = $ID_Usuari;
+                $CategoriaUsuarioNueva->usuaris_id = Auth::user()->id;
+                $CategoriaUsuarioNueva->mostrar =0;
                 $CategoriaUsuarioNueva->save();
+            }
+            else{
+                   $idCategoria = $query[0]->categories_id;
             }
 
             $PostCategoriaNueva = new PostCategorie();
-            $PostCategoriaNueva->categoria_id = $idCategoria;
-            $PostCategoriaNueva->post_id = $idPost;
-            $postcategoria = new PostCategorie();
+            $PostCategoriaNueva->categoria_id= $idCategoria;
+            $PostCategoriaNueva->post_id = $id;
+               
+            $PostCategoriaNueva->save();
         }
-        return View::make('pages.mevesnotes');
+        return Redirect::to('mevesnotes');
     }
 
 }
