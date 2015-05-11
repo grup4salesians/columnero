@@ -39,5 +39,13 @@ class FavoritosController extends BaseController {
         Valoracions::where('post_id','=',$id)->where('usuari_id','=',Auth::user()->id)->delete();
         return Redirect::to('publiques');
     }
+    
+    public function ShowFavorito(){
+        
+        $tags = explode(',',Input::get('cercarpubliques'));
+                          
+                       
+                    return View::make('pages.preferits')->with('tags',$tags);
+    }
 
 }

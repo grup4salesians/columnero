@@ -6,11 +6,11 @@ Preferits
 
 <?php
 $queryvaloracions = DB::table('posts')
-        ->join('valoracions','posts.id','=','valoracions.post_id')
-        ->join('usuaris','valoracions.usuari_id','=','usuaris.id')
+        ->join('valoracions', 'posts.id', '=', 'valoracions.post_id')
+        ->join('usuaris', 'valoracions.usuari_id', '=', 'usuaris.id')
         ->where('valoracions.usuari_id', '=', Auth::user()->id)
         ->where('valoracions.favorit', '=', 1)
-        ->select('posts.id','posts.titol','posts.comentari','posts.usuari_id','posts.data','usuaris.nick','posts.data')
+        ->select('posts.id', 'posts.titol', 'posts.comentari', 'posts.usuari_id', 'posts.data', 'usuaris.nick', 'posts.data')
         ->get();
 if (count($queryvaloracions) == 0) {
     ?>
@@ -23,36 +23,98 @@ if (count($queryvaloracions) == 0) {
         </div>
     </div>
     <div class="col-md-4 col-sm-2 col-xs-0">
-    <?php
+        <?php
     } else {
-        for ($i = 0; $i < count($queryvaloracions); $i++) {
-                    $titolNota = $queryvaloracions[$i]->titol;
-                    $comentariNota = $queryvaloracions[$i]->comentari;
-                    $nick = $queryvaloracions[$i]->nick;
-                    $id = $queryvaloracions[$i]->id;
-                    $data = $queryvaloracions[$i]->data;
-                    
+        ?>
 
-                    $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
-                            ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
-                            ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
-                            ->join('valoracions', 'posts.id', '=', 'valoracions.post_id')
-                            ->where('posts.id', $queryvaloracions[$i]->id)
-                            ->where('valoracions.favorit','=', 1)
-                            ->select('categories.nom')
-                            ->paginate(10);
-                    $categories = "";
-                    for ($j = 0; $j < count($queryCategories); $j++) {
-                        $categories = $categories . ", " . $queryCategories[$j]->nom;
-                    }
-                    $categories = substr($categories, 2);
-                    ?>   
-                    <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
-                        @include('includes/nota')
-                    </div>
-                    <?php
+
+        <div id='busqueda_home'>
+            <div id='ordenar_home'>
+                {{ Form::open(array('url' => '/preferits')) }}
+                <fieldset>
+                    <legend>Buscar per</legend>
+                    <input name="cercarpubliques" placeholder='tag1,tag2,tag3..' id="cercarpubliques"  type="text">
+                    <input type="submit" class="btn btn-default" value="Enviar">
+                </fieldset>
+                {{ Form::close() }}
+            </div>
+        </div>
+        <?php
+        if (!(empty($tags))) {
+            
+            
+            $queryfiltro = DB::table('posts')
+                    ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id')
+                    ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
+                    ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
+                    ->join('valoracions', 'posts.id', '=', 'valoracions.post_id')
+                    ->where('posts.privat', 0)
+                    ->where('usuaris.id', '=', Auth::user()->id)
+                    ->where('valoracions.favorit','=',1)
+                    ->whereIn('categories.nom', $tags)
+                    ->select('posts.id', 'posts.titol', 'posts.comentari', 'usuaris.nick', 'posts.data')
+                    ->paginate(10);
+if(count($queryfiltro)==0){
+    echo '<div  style="width:300px;text-align:center;margin:auto;" class="alert alert-info"><h4>No hi ha resultats de recerca</h4></div>';
+}else{
+   for ($i = 0; $i < count($queryfiltro); $i++) {
+                $titolNota = $queryfiltro[$i]->titol;
+                $comentariNota = $queryfiltro[$i]->comentari;
+                $nick = $queryfiltro[$i]->nick;
+                 $id = $queryfiltro[$i]->id;
+                 $data = $queryfiltro[$i]->data;
+
+                $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
+                        ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
+                        ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
+                        ->where('posts.id', $queryfiltro[$i]->id)                       
+                        ->select('categories.nom')
+                        ->paginate(10);
+                $categories = "";
+                for ($j = 0; $j < count($queryCategories); $j++) {
+                    $categories = $categories . ',' . $queryCategories[$j]->nom;
                 }
-                echo $queryCategories->links();
+                $categories = substr($categories, 1);
+                ?>
+                <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
+                    @include('includes/nota')
+                </div>
+
+
+                <?php
+            } 
+}
+               
+        } else {
+            for ($i = 0; $i < count($queryvaloracions); $i++) {
+                $titolNota = $queryvaloracions[$i]->titol;
+                $comentariNota = $queryvaloracions[$i]->comentari;
+                $nick = $queryvaloracions[$i]->nick;
+                $id = $queryvaloracions[$i]->id;
+                $data = $queryvaloracions[$i]->data;
+
+
+                $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
+                        ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
+                        ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
+                        ->join('valoracions', 'posts.id', '=', 'valoracions.post_id')
+                        ->where('posts.id', $queryvaloracions[$i]->id)
+                        ->where('valoracions.favorit', '=', 1)
+                        ->select('categories.nom')
+                        ->paginate(10);
+                $categories = "";
+                for ($j = 0; $j < count($queryCategories); $j++) {
+                    $categories = $categories . ", " . $queryCategories[$j]->nom;
+                }
+                $categories = substr($categories, 2);
+                ?>   
+                <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
+                    @include('includes/nota')
+                </div>
+                <?php
+            }
+            echo $queryCategories->links();
+        }
     }
     ?>
 

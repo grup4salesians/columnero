@@ -54,7 +54,9 @@ Home
                     ->whereIn('categories.nom', $tags)
                     ->select('posts.id', 'posts.titol', 'posts.comentari', 'usuaris.nick', 'posts.data')
                     ->paginate(10);
-
+if(count($queryfiltro)==0){
+    echo '<div  style="width:300px;text-align:center;margin:auto;" class="alert alert-info"><h4>No hi ha resultats de recerca</h4></div>';
+}else{
             for ($i = 0; $i < count($queryfiltro); $i++) {
                 $titolNota = $queryfiltro[$i]->titol;
                 $comentariNota = $queryfiltro[$i]->comentari;
@@ -87,7 +89,7 @@ Home
 
 
         <?php
-        } else {
+        }} else {
             //PONER QUERY DE ULTIMOS 10 POST por defecto que sean públicos.
 
             $query = DB::table('posts')
