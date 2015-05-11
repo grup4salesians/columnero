@@ -33,5 +33,11 @@ class FavoritosController extends BaseController {
         }
         return Redirect::to('publiques'); //Mostra la página publiques
     }
+    
+    public function DeleteFavorito($id)
+    {
+        Valoracions::where('post_id','=',$id)->where('usuari_id','=',Auth::user()->id)->delete();
+        return Redirect::to('publiques');
+    }
 
 }

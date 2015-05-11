@@ -4,7 +4,7 @@ class NotapersonalController extends BaseController {
 
     public function EliminarNota($id) {
         PostCategorie::where('post_id', '=', $id)->delete();
-        Valoracions::where('post_id','=',$id)->delete();
+        Valoracions::where('post_id','=',$id)->where('usuari_id','=',Auth::user()->id)->delete();
         Post::where('id', '=', $id)->delete();
 
         return Redirect::back();

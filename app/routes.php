@@ -51,6 +51,7 @@ Route::group(array('before' => 'auth'), function() {
     
     //FAVORITOS
     Route::get('afegir/{id}', array('id' => 'id', 'uses' => 'FavoritosController@SetFavorito'));
+    Route::get('treure/{id}', array('id' => 'id', 'uses' => 'FavoritosController@DeleteFavorito'));
 
     //NOVA NOTA
     Route::get('novanota', 'NovanotaController@ShowNovaNota');

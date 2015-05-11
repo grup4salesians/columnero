@@ -21,10 +21,10 @@ $queryfavoritos = DB::table('valoracions')
     </div>
     <div class="panel-footer">
         <?php if (count($queryfavoritos) == 0) { ?>
-            {{$categories}} <a href="<?php echo Config::get('constants.BaseUrl'); ?>public/afegir/{{ $id }}" style="text-decoration:none;float:right;margin-right:5px;font-size:20px;color:#86D2B6;" title="Afegir a favorits" class="fa fa-star"></a>
+            {{$categories}} <a href="<?php echo Config::get('constants.BaseUrl'); ?>public/afegir/{{ $id }}" style="text-decoration:none;float:right;margin-right:5px;font-size:20px;color:#86D2B6;" title="Afegir a preferits" class="fa fa-star"></a>
 
         <?php } else { ?>
-            {{$categories}} <a href="<?php echo Config::get('constants.BaseUrl'); ?>public/afegir/{{ $id }}" style="text-decoration:none;float:right;margin-right:5px;font-size:20px;color: gold;" title="Afegir a favorits" class="fa fa-star"></a>
+            {{$categories}} <a href="<?php echo Config::get('constants.BaseUrl'); ?>public/treure/{{ $id }}" style="text-decoration:none;float:right;margin-right:5px;font-size:20px;color: gold;" title="Afegir a preferits" class="fa fa-star"></a>
 
         <?php }
         ?>
