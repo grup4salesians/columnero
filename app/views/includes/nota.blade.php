@@ -13,6 +13,6 @@
         <a href="<?php echo Config::get('constants.BaseUrl'); ?>public/usuari/{{ $nick }}">{{ $nick }}</a>
     </div>
     <div class="panel-footer">
-        {{$categories}}
+        {{$categories}} <a href="<?php echo Config::get('constants.BaseUrl'); ?>public/afegir/{{ $id }}" style="float:right;margin-right:5px;font-size:20px;color:#86D2B6;" title="Afegir a favorits" class="fa fa-star"></a>
     </div>
 </div>
