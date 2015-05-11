@@ -8,15 +8,17 @@ Editar nota
 <script type="text/javascript" src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/ng-tags-input/ng-tags-input.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/ng-tags-input/ng-tags-input.min.css"/>
 <?php $querypost = Post::where('id','=',$id)->get(); ?>
+<?php  $querycat = DB::table('categories')
+                    ->join('categoriesusuaris', 'categories.id', '=', 'categoriesusuaris.categories_id')
+                    ->where('categoriesusuaris.usuaris_id', Auth::user()->id)
+                    ->select('categories.nom')
+                    ->get(); ?>
 <script>
     angular.module('myApp', ['ngTagsInput'])
         .controller('MyCtrl', function ($scope, $http) {
-//        $scope.tags = [
-//            {text: 'just'},
-//            {text: 'some'},
-//            {text: 'cool'},
-//            {text: 'tags'}
-//        ];
+        $scope.tags = [
+  {text: '<?php echo $querycat[0]->nom ?>'},
+        ];
         $scope.loadTags = function (query) {
             return $http.get('getCategories/' + query);
         };
@@ -65,6 +67,7 @@ Editar nota
             <!-- ngTagsInput -->
             <div class="tagsinput" ng-app="myApp" ng-controller="MyCtrl">
                 <tags-input id="ListadoTags" Name="ListadoTags" ng-model="tags">
+                  
                     <auto-complete  source="loadTags($query)"></auto-complete>
                 </tags-input>
                 <input type="hidden" id="ListadoTagsOculto" name="ListadoTagsOculto" /> 

@@ -17,6 +17,10 @@ Home
             height:160px;
         }
     }
+    #ordenar_home{
+        width:250px;
+        height:100px;
+    }
 </style>
 <div id="contingut_home">
     <div class="row row-horizon">
@@ -27,11 +31,7 @@ Home
             <div id='ordenar_home'>
                 {{ Form::open(array('url' => '/publiques')) }}
                 <fieldset>
-                    <legend>Ordenar per</legend>
-                    <span class='titulsbusqueda'>Millor valorats</span> <input id="millorvalorats" name="millorvalorats" type="checkbox">
-                    <span class='titulsbusqueda'>Tots</span> <input  name="radio1" value="tots" checked="checked" id="filtrocheckbox" type="radio">
-                    <span class='titulsbusqueda'>Setmana</span> <input name="radio1" value="setmana" id="filtrocheckbox" type="radio">
-                    <span class='titulsbusqueda'>Mes</span> <input name="radio1" value="mes" id="filtrocheckbox"  type="radio">
+                    <legend>Buscar per</legend>
                     <input name="cercarpubliques" placeholder='tag1,tag2,tag3..' id="e"  type="text">
                     <input type="submit" class="btn btn-default" value="Enviar">
                 </fieldset>
@@ -44,7 +44,7 @@ Home
         // $filtrodata['cercarpubliques'];
         //$filtrodata['millorvalorats'];
         //$filtrodata['radio1'];
-        if (!(empty($filtrodata))) {
+        if (!(empty($tags))) {
 
             $queryfiltro = DB::table('posts')
                     ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id')
@@ -76,10 +76,11 @@ Home
                 <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
                     @include('includes/nota')
                 </div>
-        <br>
-        <?php echo $queryfiltro->links(); ?>
+        
+       
                 <?php
             }
+            echo $queryfiltro->links(); 
             ?>
 
 
@@ -115,10 +116,11 @@ Home
                 <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
                     @include('includes/nota')
                 </div>     
-        <?php echo $query->links(); ?>
+       
 
                 <?php
             }
+             echo $query->links();
         }
         ?>
     </div>
