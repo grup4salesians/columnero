@@ -48,6 +48,9 @@ Route::group(array('before' => 'auth'), function() {
     //FILTRO HOME----
     Route::post('cercarhome', 'HomeController@ShowFiltro');
     Route::get('logout', 'AuthController@logOut'); // Esta ruta nos servirá para cerrar sesión.
+    
+    //FAVORITOS
+    Route::get('afegir/{id}', array('id' => 'id', 'uses' => 'FavoritosController@SetFavorito'));
 
     //NOVA NOTA
     Route::get('novanota', 'NovanotaController@ShowNovaNota');
