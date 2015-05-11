@@ -29,7 +29,7 @@ Notas publiques
             $query = DB::table('posts')
                     ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id')
                     ->where('privat', 1)
-                    ->where('usuari_id','=',$id)
+                    ->where('nick','=',$nick)
                     ->select('posts.id', 'posts.titol','posts.comentari','usuaris.nick', 'posts.data')
                     ->get();
 
