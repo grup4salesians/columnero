@@ -30,14 +30,14 @@ Notas publiques
                     ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id') 
                     ->where('nick','=',$nick)
                     ->select('posts.id', 'posts.titol','posts.comentari','usuaris.nick', 'posts.data')
-                    ->get();        
+                    ->paginate(9);        
             }else{
                  $query = DB::table('posts')
                     ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id') 
                     ->where('privat', 0)
                     ->where('nick','=',$nick)
                     ->select('posts.id', 'posts.titol','posts.comentari','usuaris.nick', 'posts.data')
-                    ->get();
+                    ->paginate(9);
             }
             for ($i = 0; $i < count($query); $i++) {
                 $titolNota = $query[$i]->titol;
@@ -49,7 +49,7 @@ Notas publiques
                         ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
                         ->where('posts.id', $query[$i]->id)
                         ->select('categories.nom')
-                        ->get();
+                       ->paginate(9);
                 $categories = "";
                 for ($j = 0; $j < count($queryCategories); $j++) {
                     $categories = $categories . ", " . $queryCategories[$j]->nom;
@@ -61,6 +61,7 @@ Notas publiques
                 </div>
                 <?php
             }
+            echo $query->links(); 
         }
         ?>
     </div>

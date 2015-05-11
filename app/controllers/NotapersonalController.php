@@ -8,6 +8,13 @@ class NotapersonalController extends BaseController {
 
         return Redirect::back();
     }
+    
+    public function ShowMevesNotes(){
+                $tags = explode(',',Input::get('cercarpubliques'));
+                          
+                       
+                    return View::make('pages.mevesnotes')->with('tags',$tags);
+    }
 
     public function EditarNota($id) {
         return View::make('pages.editarnota')->with('id', $id);

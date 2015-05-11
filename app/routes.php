@@ -59,6 +59,7 @@ Route::group(array('before' => 'auth'), function() {
     Route::get('eliminarnota/{id}',array('id' => 'id', 'uses' =>'NotapersonalController@EliminarNota'));
     Route::get('editarnota/{id}',array('id' => 'id', 'uses' =>'NotapersonalController@EditarNota'));
     Route::post('editarnota/{id}',array('id' => 'id', 'uses' =>'NotapersonalController@PostEditarNota'));
+    Route::post('mevesnotes','NotapersonalController@ShowMevesNotes');
     
     //NOTES USUARIS
     
