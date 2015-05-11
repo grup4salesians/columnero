@@ -25,14 +25,20 @@ Notas publiques
         if (!(empty($filtrodata))) {
             
         } else {
-
-            $query = DB::table('posts')
-                    ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id')
-                    ->where('privat', 1)
+             if(Auth::user()->nick == $nick){
+                $query = DB::table('posts')
+                    ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id') 
+                    ->where('nick','=',$nick)
+                    ->select('posts.id', 'posts.titol','posts.comentari','usuaris.nick', 'posts.data')
+                    ->get();        
+            }else{
+                 $query = DB::table('posts')
+                    ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id') 
+                    ->where('privat', 0)
                     ->where('nick','=',$nick)
                     ->select('posts.id', 'posts.titol','posts.comentari','usuaris.nick', 'posts.data')
                     ->get();
-
+            }
             for ($i = 0; $i < count($query); $i++) {
                 $titolNota = $query[$i]->titol;
                 $comentariNota = $query[$i]->comentari;
