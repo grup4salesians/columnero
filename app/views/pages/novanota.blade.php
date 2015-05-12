@@ -25,30 +25,41 @@ Nova nota
 <!-- ----------- -->
 
 <!-- Bootstrap Text Editor -->
-<!-- BOOTSTRAP STYLE SHEET -->
-<!--<link href="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/text-editor/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>-->
- <!-- REQUIRED ICONS FOR TEXT EDITOR -->
-<!--<link href="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/text-editor/assets/css/font-awesome.css" rel="stylesheet" type="text/css"/>-->
 <!-- TEXT EDITOR STYLES -->
 <link href="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/text-editor/assets/css/summernote.css" rel="stylesheet" type="text/css"/>
 
 <!-- REQUIRED SCRIPTS FILES -->
-<!-- CORE JQUERY FILE -->
-<!--<script src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/text-editor/assets/js/jquery-1.11.1.js" type="text/javascript"></script>-->
-<!-- REQUIRED BOOTSTRAP SCRIPTS -->
-<script src="<?php // echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/text-editor/assets/js/bootstrap.js" type="text/javascript"></script>
-  <!-- TEXT EDITOR SCRIPT -->
+<!-- TEXT EDITOR SCRIPT -->
 <script src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/text-editor/assets/js/summernote.js" type="text/javascript"></script>
- <!-- REQUIRED SCRIPT FOR TEXT EDITOR -->
+<!-- REQUIRED SCRIPT FOR TEXT EDITOR -->
+
+<link href="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/highlight/styles/monokai_sublime.css" rel="stylesheet" type="text/css"/>
+<script src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/highlight/highlight.pack.js" type="text/javascript"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
 <script>
     $(document).ready(function () {
-        $('#TextoNota').summernote({
+        $("#TextoNota").summernote({
             height: 250,// set height for editor
         });
+        
+        $(".note-insert.btn-group").after('<div class="note-highlight btn-group"><button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="highlight" data-hide="true" tabindex="-1" data-original-title="Highlighter"><i class="fa fa-code"></i></button></div>');
+        $("button[data-event='codeview']").children().removeClass("fa-code").addClass("fa-html5");
+        
+        $("button[data-event='highlight']").on("mouseenter", function() {
+            console.log("hola");
+            var pos = $(this).offset();
+            $("#tooltipAPM").css(pos);
+            $("#tooltipAPM").css("display", "block");
+        });
+        
+        
+        $("button[data-event='highlight']").on("mouseleave").css("display", "none");
+        //$(".note-editable").text('<pre><code class="html">...</code></pre>');
     });
 </script>
 <!-- --------------------- -->
-
+<div class="tooltip fade bottom in" role="tooltip" id="tooltipAPM" style="top: 394px; left: 753.484375px; display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Full Screen</div></div>
 <style>
     .pads {
         padding-left: 10%;
@@ -62,6 +73,9 @@ Nova nota
     }
     .note-editor button {
         height: 30px;
+    }
+    .note-editable {
+        background-color: #FFF;
     }
 </style>
 <div id="contingut_home" class="contingut_home">
