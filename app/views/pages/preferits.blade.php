@@ -3,7 +3,12 @@
 Preferits
 @stop
 @section('content')
-
+<style>
+    #ordenar_home{
+        width:300px;
+        height:120px;
+    }
+</style>
 <?php
 $queryvaloracions = DB::table('posts')
         ->join('valoracions', 'posts.id', '=', 'valoracions.post_id')
@@ -47,7 +52,7 @@ if (count($queryvaloracions) == 0) {
                     ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id')
                     ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
                     ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
-                    ->join('valoracions','usuaris.id','=','valoracions.usuari_id')
+                    ->join('valoracions','posts.id','=','valoracions.post_id') 
                     ->where('valoracions.favorit','=',1)
                     ->where('valoracions.usuari_id','=',Auth::user()->id)
                     ->where('posts.privat','=',0)
