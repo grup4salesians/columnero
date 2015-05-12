@@ -77,6 +77,10 @@ Les meves notes
     .bk-clr-two {
         background-color: rgba(249, 76, 76, 0.86);
     }
+    #ordenar_home{
+        width: 300px;
+        height:120px;
+    }
 </style>
 <div id="contingut_home">
     <div class="row row-horizon">

@@ -53,7 +53,7 @@ Home
                     ->where('posts.privat', 0)
                     ->whereIn('categories.nom', $tags)
                     ->select('posts.id', 'posts.titol', 'posts.comentari', 'usuaris.nick', 'posts.data')
-                    ->paginate(10);
+                    ->paginate(9);
 if(count($queryfiltro)==0){
     echo '<div  style="width:300px;text-align:center;margin:auto;" class="alert alert-info"><h4>No hi ha resultats de recerca</h4></div>';
 }else{
@@ -69,7 +69,7 @@ if(count($queryfiltro)==0){
                         ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
                         ->where('posts.id', $queryfiltro[$i]->id)
                         ->select('categories.nom')
-                        ->paginate(10);
+                        ->get();
                 $categories = "";
                 for ($j = 0; $j < count($queryCategories); $j++) {
                     $categories = $categories . ',' . $queryCategories[$j]->nom;
@@ -97,7 +97,7 @@ if(count($queryfiltro)==0){
                     ->where('privat', 0)
                     ->select('posts.id', 'posts.titol', 'posts.comentari', 'usuaris.nick', 'posts.data')
                     ->take(10)
-                    ->paginate(10);
+                    ->paginate(9);
 
             for ($i = 0; $i < count($query); $i++) {
                 $titolNota = $query[$i]->titol;
@@ -110,7 +110,7 @@ if(count($queryfiltro)==0){
                         ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
                         ->where('posts.id', $query[$i]->id)
                         ->select('categories.nom')
-                        ->paginate(10);
+                         ->get();
                 $categories = "";
                 for ($j = 0; $j < count($queryCategories); $j++) {
                     $categories = $categories . ", " . $queryCategories[$j]->nom;
@@ -123,9 +123,11 @@ if(count($queryfiltro)==0){
        
 
                 <?php
-            }
-             echo $query->links();
-        }
+            }?>
+              <div style="width:100%;float:left;display:inline-block;text-align:center;padding-bottom:10px;">
+             <?php echo $query->links(); ?>
+            </div>
+      <?php  }
         ?>
     </div>
 </div>

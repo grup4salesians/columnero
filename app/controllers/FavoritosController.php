@@ -31,7 +31,7 @@ class FavoritosController extends BaseController {
             $Favoritonuevo->favorit = 1;
             $Favoritonuevo->save();
         }
-        return Redirect::to('publiques'); //Mostra la página publiques
+        return Redirect::to('preferits'); //Mostra la página publiques
     }
     
     public function DeleteFavorito($id)
