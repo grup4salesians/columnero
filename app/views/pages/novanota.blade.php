@@ -114,7 +114,7 @@ Nova nota
         </div>
        
         <div class="pads">
-        {{ Form::submit('Crear nova nota',array('class'=> 'btn btn-info','id'=>'BtnSubmitNovaNota','style'=>'margin-top: 15px'))}}
+        {{ Form::submit('Crear nova nota',array('class'=> 'btn btn-info BtnSubmitNovaNota_EditarNota','id'=>'BtnSubmitNovaNota'))}}
         </div>
         {{ Form::close() }}
         <br>
