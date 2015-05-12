@@ -68,7 +68,7 @@ Nova nota
     <div class="contingut">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="page-head-line">Nova Nota</h4>
+                <h4 class="page-head-line pads">Nova Nota</h4>
             </div>
         </div>
         @if ($errors->has())
