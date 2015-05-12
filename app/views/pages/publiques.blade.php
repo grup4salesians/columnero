@@ -21,6 +21,11 @@ Home
         width:250px;
         height:100px;
     }
+    .item{
+       float: left!important;
+  display: block!important;
+  min-height: 232px;
+    }
 </style>
 <div id="contingut_home">
     <div class="row row-horizon">
@@ -73,7 +78,7 @@ if(count($queryfiltro)==0){
                 }
                 $categories = substr($categories, 1);
                 ?>
-                <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
+                <div class="col-xs-12 col-sm-5 col-md-4 item">
                     @include('includes/nota')
                 </div>
         
@@ -118,7 +123,7 @@ if(count($queryfiltro)==0){
                 }
                 $categories = substr($categories, 2);
                 ?>   
-                <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
+                <div class="col-xs-12 col-sm-5 col-md-4 item">
                     @include('includes/nota')
                 </div>     
        
