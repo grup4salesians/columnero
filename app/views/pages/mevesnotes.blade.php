@@ -85,7 +85,15 @@ Les meves notes
 <div id="contingut_home">
     <div class="row row-horizon">
         <div id='busqueda_home'>
-            <div id='ordenar_home'>
+           
+        </div>
+
+        <?php
+        if (!(empty($tags))) {
+            
+            ?>
+        
+         <div id='ordenar_home'>
                 {{ Form::open(array('url' => '/mevesnotes')) }}
                 <fieldset>
                     <legend>Buscar per</legend>
@@ -94,10 +102,7 @@ Les meves notes
                 </fieldset>
                 {{ Form::close() }}
             </div>
-        </div>
-
         <?php
-        if (!(empty($tags))) {
 
             $queryfiltro = DB::table('posts')
                     ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id')
@@ -111,6 +116,20 @@ Les meves notes
 if(count($queryfiltro)==0){
     echo '<div  style="width:300px;text-align:center;margin:auto;" class="alert alert-info"><h4>No hi ha resultats de recerca</h4></div>';
 }else{
+    
+       ?>
+        
+         <div id='ordenar_home'>
+                {{ Form::open(array('url' => '/mevesnotes')) }}
+                <fieldset>
+                    <legend>Buscar per</legend>
+                    <input name="cercarpubliques" placeholder='tag1,tag2,tag3..' id="cercarpubliques"  type="text">
+                    <input type="submit" class="btn btn-default" value="Enviar">
+                </fieldset>
+                {{ Form::close() }}
+            </div>
+        <?php
+        
             for ($i = 0; $i < count($queryfiltro); $i++) {
                 $titolNota = $queryfiltro[$i]->titol;
                 $comentariNota = $queryfiltro[$i]->comentari;
