@@ -24,9 +24,6 @@ Home
 </style>
 <div id="contingut_home">
     <div class="row row-horizon">
-        <div id="show-ordenar_home">
-            ^
-        </div>
         <div id='busqueda_home'>
             <div id='ordenar_home'>
                 {{ Form::open(array('url' => '/publiques')) }}
@@ -83,7 +80,11 @@ if(count($queryfiltro)==0){
        
                 <?php
             }
-            echo $queryfiltro->links(); 
+           ?>
+              <div style="width:100%;float:left;display:inline-block;text-align:center;padding-bottom:10px;">
+             <?php echo $queryfiltro->links(); ?>
+            </div>
+      <?php
             ?>
 
 

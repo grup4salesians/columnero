@@ -84,9 +84,6 @@ Les meves notes
 </style>
 <div id="contingut_home">
     <div class="row row-horizon">
-        <div id="show-ordenar_home">
-            ^
-        </div>
         <div id='busqueda_home'>
             <div id='ordenar_home'>
                 {{ Form::open(array('url' => '/mevesnotes')) }}
