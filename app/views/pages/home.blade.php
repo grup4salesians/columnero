@@ -73,14 +73,14 @@ Home
             console.log('row: ' + $('.row-horizon').height());
             $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
         });
+
         $(document).on('click', '.show-ordenar_home', function () {
             var idColumn = $(this).data('column-id');
             var search = '#busqueda_home[data-column-id="' + idColumn + '"]';
             console.log(search);
             $(search).stop().slideToggle();
-        });
-
-        $(document).on('click', "#busqueda_home button", function sortTitle(e){
+        })
+        .on('click', "#busqueda_home button", function sortTitle(e){
         	e.preventDefault();
         	var $button = $(this),
         		action = $(this).attr('id');
@@ -92,9 +92,23 @@ Home
 					ordenar($button, '.panel-title', 'date');
 					break;
 			}
-        	
         });
+
+        var $columnas = $('div[id^=column-]');
+        $columnas.each(function() {
+            //console.log($(this).find('input[class^=search-]').attr('class'));
+            //console.log($(this).attr('id'));
+            var options = {
+              valueNames: [ 'panel-title', 'panel-body', 'autor', 'categories'],
+              searchClass: $(this).find('input[class^=search-]').attr('class'),
+              indexAsync: true
+            };
+
+            var userList = new List($(this).attr('id'), options);
+        });
+
     });
+
 	
 	function ordenar($button, aOrdenar, data) {
 		var idColumn = $button.closest('#busqueda_home').data('column-id');

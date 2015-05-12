@@ -5,10 +5,7 @@
         {{ Form::open(array('url' => '/cercarhome')) }}
         <fieldset>
             <legend>Ordenar per</legend>
-            <span class='titulsbusqueda'>Millor valorats</span> <input id="millorvalorats" name="millorvalorats" type="checkbox">
-            <span class='titulsbusqueda'>Tots</span> <input  name="radio1" value="tots" checked="checked" id="filtrocheckbox" type="radio">
-            <span class='titulsbusqueda'>Setmana</span> <input name="radio1" value="setmana" id="filtrocheckbox" type="radio">
-            <span class='titulsbusqueda'>Mes</span> <input name="radio1" value="mes" id="filtrocheckbox"  type="radio">
+            <input class="search-{{ $idCategoria }}" placeholder="Search" />
             <button id="ordenarTitulo">Ordenar por Títutlo</button>
             <button id="ordenarFecha">Ordenar por Fecha</button>
         </fieldset>

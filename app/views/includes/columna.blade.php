@@ -5,8 +5,9 @@
             {{ $categoria }}
         </div>
 
-        <div class="panel-body">
+        <div id="column-{{ $idCategoria }}" class="panel-body">
         	@include('includes/columnHomeOptions')
+        	<ul class="list">
             <?php
             //Select que coge todos las notas del usuario y el tag
 
@@ -18,7 +19,7 @@
                     ->where('usuaris.id', '=', Auth::user()->id)
                     //->where('categories.nom',$categoria)    
                     ->where('categories.id', $idCategoria)
-                    ->select('postscategories.post_id', 'posts.titol', 'posts.comentari', 'posts.data', 'postscategories.categoria_id', 'categories.nom', 'usuaris.nick')
+                    ->select('postscategories.post_id', 'posts.titol','posts.id', 'posts.comentari', 'posts.data', 'postscategories.categoria_id', 'categories.nom', 'usuaris.nick')
                     ->get();
             }
             else{
@@ -29,7 +30,7 @@
                     //->where('usuaris.id', '=', Auth::user()->id)
                     //->where('categories.nom',$categoria)    
                     //->where('categories.id', $idCategoria)
-                    ->select('postscategories.post_id', 'posts.titol', 'posts.comentari', 'posts.data', 'postscategories.categoria_id', 'categories.nom', 'usuaris.nick')
+                    ->select('postscategories.post_id', 'posts.titol', 'posts.id','posts.comentari', 'posts.data', 'postscategories.categoria_id', 'categories.nom', 'usuaris.nick')
                     ->get();
             }
 
@@ -38,7 +39,8 @@
                 $comentariNota = $query[$i]->comentari;
                 $nick = $query[$i]->nick;
                 $data = $query[$i]->data;
-
+                $id = $query[$i]->id;
+                        
                 $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
                         ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
                         ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
@@ -56,6 +58,16 @@
                 <?php
             }
             ?>
+            </ul>
         </div>
     </div>
 </div> 
+
+<script>
+	var options = {
+      valueNames: [ 'panel-title', 'panel-body' ],
+      indexAsync: true
+    };
+
+    var userList = new List('column8', options);
+</script>

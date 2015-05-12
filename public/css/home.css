@@ -92,19 +92,11 @@ html, body, #contingut_home > .row-horizon {
 .fa.fa-1x {
     font-size: 1.25em
 }
-@media screen and (max-width: 770px) {
-    #ordenar_home{
-        width:90%;
-        height:130px;
-    }
-    #contingut_home{
-    }
-    #busqueda_home{
-        width:100%;
-        height:160px;
-    }
-}
 
+.panel-body > ul {
+    margin: 0;
+    padding: 0;
+}
 
 
 
@@ -536,6 +528,9 @@ html, body, #contingut_home > .row-horizon {
 .row-horizon > * {
     padding-left: 0;
 }
+.row-horizon .panel-body img {
+    max-width: 100%;
+}
 .header {
     position: fixed;
     z-index: 1;
@@ -571,7 +566,7 @@ html, body, #contingut_home > .row-horizon {
 }
 
 .footer {
-    height: 50px
+    height: 50px;
 }
 @media screen and (max-width: 770px) {
     #ordenar_home{

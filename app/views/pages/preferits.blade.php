@@ -1,75 +1,75 @@
 @extends('layouts.master')
 @section('title')
-Home
+Preferits
 @stop
 @section('content')
-<style>
-    @media screen and (max-width: 770px) {
-        #ordenar_home{
-            width:90%;
-            height:130px;
-        }
-        #contingut_home{
-            height:auto;
-        }
-        #busqueda_home{
-            width:100%;
-            height:160px;
-        }
-    }
-    #ordenar_home{
-        width:250px;
-        height:100px;
-    }
-</style>
-<div id="contingut_home">
-    <div class="row row-horizon">
-        <div id="show-ordenar_home">
-            ^
+
+<?php
+$queryvaloracions = DB::table('posts')
+        ->join('valoracions', 'posts.id', '=', 'valoracions.post_id')
+        ->join('usuaris', 'valoracions.usuari_id', '=', 'usuaris.id')
+        ->where('valoracions.usuari_id', '=', Auth::user()->id)
+        ->where('valoracions.favorit', '=', 1)
+        ->select('posts.id', 'posts.titol', 'posts.comentari', 'posts.usuari_id', 'posts.data', 'usuaris.nick', 'posts.data')
+        ->get();
+if (count($queryvaloracions) == 0) {
+    ?>
+    <div class="col-md-4 col-sm-2 col-xs-0">
+    </div>
+    <div class="col-md-4 col-sm-8 col-xs-12" style="padding-top: 16%;">
+        <div class="dashboard-div-wrapper bk-clr-two">
+            <i class="fa fa-star" style="font-size:30px;"></i>
+            <h5 class="linkAlert">No tens cap favorit!</h5>
         </div>
+    </div>
+    <div class="col-md-4 col-sm-2 col-xs-0">
+        <?php
+    } else {
+        ?>
+
+
         <div id='busqueda_home'>
             <div id='ordenar_home'>
-                {{ Form::open(array('url' => '/publiques')) }}
+                {{ Form::open(array('url' => '/preferits')) }}
                 <fieldset>
                     <legend>Buscar per</legend>
-                    <input name="cercarpubliques" placeholder='tag1,tag2,tag3..' id="e"  type="text">
+                    <input name="cercarpubliques" placeholder='tag1,tag2,tag3..' id="cercarpubliques"  type="text">
                     <input type="submit" class="btn btn-default" value="Enviar">
                 </fieldset>
                 {{ Form::close() }}
             </div>
         </div>
-
         <?php
-        //Filtres son:
-        // $filtrodata['cercarpubliques'];
-        //$filtrodata['millorvalorats'];
-        //$filtrodata['radio1'];
         if (!(empty($tags))) {
-
+            
+            
             $queryfiltro = DB::table('posts')
                     ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id')
                     ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
                     ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
+                    ->join('valoracions', 'posts.id', '=', 'valoracions.post_id')
                     ->where('posts.privat', 0)
+                    ->where('usuaris.id', '=', Auth::user()->id)
+                    ->where('valoracions.favorit','=',1)
                     ->whereIn('categories.nom', $tags)
                     ->select('posts.id', 'posts.titol', 'posts.comentari', 'usuaris.nick', 'posts.data')
-                    ->paginate(9);
+                    ->paginate(10);
 if(count($queryfiltro)==0){
     echo '<div  style="width:300px;text-align:center;margin:auto;" class="alert alert-info"><h4>No hi ha resultats de recerca</h4></div>';
 }else{
-            for ($i = 0; $i < count($queryfiltro); $i++) {
+   for ($i = 0; $i < count($queryfiltro); $i++) {
                 $titolNota = $queryfiltro[$i]->titol;
                 $comentariNota = $queryfiltro[$i]->comentari;
                 $nick = $queryfiltro[$i]->nick;
-                $data = $queryfiltro[$i]->data;
-                $id = $queryfiltro[$i]->id;
+                 $id = $queryfiltro[$i]->id;
+                 $data = $queryfiltro[$i]->data;
 
                 $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
                         ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
                         ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
-                        ->where('posts.id', $queryfiltro[$i]->id)
+                        ->where('posts.id', $queryfiltro[$i]->id)                       
                         ->select('categories.nom')
-                        ->get();
+                        ->paginate(10);
                 $categories = "";
                 for ($j = 0; $j < count($queryCategories); $j++) {
                     $categories = $categories . ',' . $queryCategories[$j]->nom;
@@ -79,38 +79,29 @@ if(count($queryfiltro)==0){
                 <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
                     @include('includes/nota')
                 </div>
-        
-       
+
+
                 <?php
-            }
-            echo $queryfiltro->links(); 
-            ?>
+            } 
+}
+               
+        } else {
+            for ($i = 0; $i < count($queryvaloracions); $i++) {
+                $titolNota = $queryvaloracions[$i]->titol;
+                $comentariNota = $queryvaloracions[$i]->comentari;
+                $nick = $queryvaloracions[$i]->nick;
+                $id = $queryvaloracions[$i]->id;
+                $data = $queryvaloracions[$i]->data;
 
 
-
-        <?php
-        }} else {
-            //PONER QUERY DE ULTIMOS 10 POST por defecto que sean públicos.
-
-            $query = DB::table('posts')
-                    ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id')
-                    ->where('privat', 0)
-                    ->select('posts.id', 'posts.titol', 'posts.comentari', 'usuaris.nick', 'posts.data')
-                    ->take(10)
-                    ->paginate(9);
-
-            for ($i = 0; $i < count($query); $i++) {
-                $titolNota = $query[$i]->titol;
-                $comentariNota = $query[$i]->comentari;
-                $nick = $query[$i]->nick;
-                $data = $query[$i]->data;
-                 $id = $query[$i]->id;
                 $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
                         ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
                         ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
-                        ->where('posts.id', $query[$i]->id)
+                        ->join('valoracions', 'posts.id', '=', 'valoracions.post_id')
+                        ->where('posts.id', $queryvaloracions[$i]->id)
+                        ->where('valoracions.favorit', '=', 1)
                         ->select('categories.nom')
-                         ->get();
+                        ->paginate(10);
                 $categories = "";
                 for ($j = 0; $j < count($queryCategories); $j++) {
                     $categories = $categories . ", " . $queryCategories[$j]->nom;
@@ -119,28 +110,14 @@ if(count($queryfiltro)==0){
                 ?>   
                 <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
                     @include('includes/nota')
-                </div>     
-       
-
+                </div>
                 <?php
-            }?>
-              <div style="width:100%;float:left;display:inline-block;text-align:center;padding-bottom:10px;">
-             <?php echo $query->links(); ?>
-            </div>
-      <?php  }
-        ?>
-    </div>
-</div>
-<script>
-    $(function () {
-        $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
-        $(window).on('resize', function () {
-            $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
-        });
-        $('#show-ordenar_home').on('click', function () {
-            $('#busqueda_home').stop().slideToggle();
-        });
-    });
-</script>
-@stop
+            }
+            echo $queryCategories->links();
+        }
+    }
+    ?>
 
+
+</div>
+@stop

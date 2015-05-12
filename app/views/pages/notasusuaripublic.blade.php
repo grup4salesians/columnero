@@ -21,6 +21,11 @@ Notas publiques
 <div id="contingut_home">
     <div class="row row-horizon">
 
+         <div class="row">
+            <div class="col-md-12">
+                <h4 class="page-head-line">Notes del usuari {{ $nick }}</h4>
+            </div>
+        </div>
         <?php
         if (!(empty($filtrodata))) {
             
@@ -30,20 +35,21 @@ Notas publiques
                     ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id') 
                     ->where('nick','=',$nick)
                     ->select('posts.id', 'posts.titol','posts.comentari','usuaris.nick', 'posts.data')
-                    ->get();        
+                    ->paginate(9);        
             }else{
                  $query = DB::table('posts')
                     ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id') 
                     ->where('privat', 0)
                     ->where('nick','=',$nick)
                     ->select('posts.id', 'posts.titol','posts.comentari','usuaris.nick', 'posts.data')
-                    ->get();
+                    ->paginate(9);
             }
             for ($i = 0; $i < count($query); $i++) {
                 $titolNota = $query[$i]->titol;
                 $comentariNota = $query[$i]->comentari;
                 $nick = $query[$i]->nick;
                 $data = $query[$i]->data;
+                $id = $query[$i]->id;
                 $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
                         ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
                         ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
@@ -60,8 +66,11 @@ Notas publiques
                     @include('includes/nota')
                 </div>
                 <?php
-            }
-        }
+            } ?>
+            <div style="width:100%;float:left;display:inline-block;">
+             <?php echo $query->links(); ?>
+            </div>
+       <?php }
         ?>
     </div>
 </div>

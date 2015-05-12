@@ -7,22 +7,27 @@ Editar nota
 <script type="text/javascript" src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/angular/angular.min.js"></script>
 <script type="text/javascript" src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/ng-tags-input/ng-tags-input.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/ng-tags-input/ng-tags-input.min.css"/>
-<?php $querypost = Post::where('id','=',$id)->get(); ?>
-<?php  $querycat = DB::table('categories')
-                    ->join('categoriesusuaris', 'categories.id', '=', 'categoriesusuaris.categories_id')
-                    ->where('categoriesusuaris.usuaris_id', Auth::user()->id)
-                    ->select('categories.nom')
-                    ->get(); ?>
+<?php $querypost = Post::where('id', '=', $id)->get(); ?>
+<?php
+$querycat = DB::table('categories')
+        ->join('categoriesusuaris', 'categories.id', '=', 'categoriesusuaris.categories_id')
+        ->join('postscategories', 'postscategories.categoria_id', '=', 'categories.id')
+        ->join('posts', 'postscategories.post_id', '=', 'posts.id')
+        ->where('categoriesusuaris.usuaris_id', Auth::user()->id)
+        ->where('posts.id', '=', $id)
+        ->select('categories.nom as text')
+        ->get();
+?>
+
 <script>
     angular.module('myApp', ['ngTagsInput'])
-        .controller('MyCtrl', function ($scope, $http) {
-        $scope.tags = [
-  {text: '<?php echo $querycat[0]->nom ?>'},
-        ];
-        $scope.loadTags = function (query) {
-            return $http.get('getCategories/' + query);
-        };
-    });
+            .controller('MyCtrl', function ($scope, $http) {
+                var Categories = <?php echo(json_encode($querycat)); ?>;
+                $scope.tags = Categories;
+                $scope.loadTags = function (query) {
+                    return $http.get('getCategories/' + query);
+                };
+            });
 </script>
 <script src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/tinymce/tinymce.min.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -57,7 +62,7 @@ Editar nota
             @endforeach
         </div>
         @endif
-       <?php echo Form::open(array('url' => '/editarnota/'.$id.'')) ?>
+<?php echo Form::open(array('url' => '/editarnota/' . $id . '')) ?>
         <div class="pads">
             <p>Títol</p>
             <input id="Titol" name="Titol" type="text" value="<?php echo $querypost[0]->titol ?>">
@@ -67,7 +72,7 @@ Editar nota
             <!-- ngTagsInput -->
             <div class="tagsinput" ng-app="myApp" ng-controller="MyCtrl">
                 <tags-input id="ListadoTags" Name="ListadoTags" ng-model="tags">
-                  
+
                     <auto-complete  source="loadTags($query)"></auto-complete>
                 </tags-input>
                 <input type="hidden" id="ListadoTagsOculto" name="ListadoTagsOculto" /> 

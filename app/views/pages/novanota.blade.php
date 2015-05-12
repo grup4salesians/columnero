@@ -82,7 +82,7 @@ Nova nota
     <div class="contingut">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="page-head-line">Nova Nota</h4>
+                <h4 class="page-head-line pads">Nova Nota</h4>
             </div>
         </div>
         @if ($errors->has())
@@ -112,8 +112,10 @@ Nova nota
             <!-- TinyMCE -->
             <textarea id="TextoNota" name="TextoNota"></textarea>
         </div>
-        <br>
+       
+        <div class="pads">
         {{ Form::submit('Crear nova nota',array('class'=> 'btn btn-info','id'=>'BtnSubmitNovaNota','style'=>'margin-top: 15px'))}}
+        </div>
         {{ Form::close() }}
         <br>
     </div>
