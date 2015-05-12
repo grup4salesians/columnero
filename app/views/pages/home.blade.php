@@ -50,7 +50,7 @@ Home
                         <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                         </div>
                     </div>
-                    <h5><a class="linkAlert" href="<?php Config::get('constants.BaseUrl'); ?>../public/novanota">Crear una nova nota</a></h5>
+                    <h5><a class="linkAlert" style="color:white" href="<?php Config::get('constants.BaseUrl'); ?>../public/novanota">Crear una nova nota</a></h5>
                 </div>
             </div>
             <div class="col-md-4 col-sm-2 col-xs-0">
