@@ -98,8 +98,10 @@ Nova nota
             <!-- TinyMCE -->
             <textarea id="TextoNota" name="TextoNota"></textarea>
         </div>
-        <br>
+       
+        <div class="pads">
         {{ Form::submit('Crear nova nota',array('class'=> 'btn btn-info','id'=>'BtnSubmitNovaNota','style'=>'margin-top: 15px'))}}
+        </div>
         {{ Form::close() }}
         <br>
     </div>

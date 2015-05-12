@@ -388,6 +388,19 @@ footer a, footer a:hover {
     background-color: #c32f10;
 }
 
+/******************* NOVA NOTA ********************/
+
+#BtnSubmitNovaNota{
+    width: 50%;
+    margin: auto;
+    display: block;
+}
+
+/******************* FI NOVA NOTA ********************/
+
+
+
+
 /* - */
 .columna.panel-primary {
     border-color: #D86F5D;
