@@ -137,7 +137,6 @@ if (count($queryvaloracions) == 0) {
                             ->select('categories.nom')
                             ->paginate(10);
                     $categories = "";
-                    echo ("--------------------------------------------".count($queryCategories));
                     for ($j = 0; $j < count($queryCategories); $j++) {
                         $categories = $categories . ", " . $queryCategories[$j]->nom;
                     }
