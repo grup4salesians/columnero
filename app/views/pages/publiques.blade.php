@@ -9,42 +9,6 @@ Home
         -moz-box-sizing: border-box;
         box-sizing: border-box;
     }
-    #ordenar_home{
-        width:250px;
-        height:100px;
-    }
-    .item{ width: 30%; }
-    .grid-sizer {width: 11%; }
-    .item {  float: left;   }
-    @media (min-width: 992px){
-        .item {
-            width: 30%;
-        }
-        .grid-sizer {width: 11%; }
-    }
-
-    @media screen and (max-width: 770px) {
-        #ordenar_home{
-            width:90%;
-            height:130px;
-        }
-        #contingut_home{
-            height:auto;
-        }
-        #busqueda_home{
-            width:100%;
-            height:160px;
-        }
-        .item {
-            width: 44%;
-        }
-        .grid-sizer {width: 10%; }
-    }
-    @media screen and (max-width: 550px) {
-        .item {
-            width: 99%;
-        }
-    }
 </style>
 <script src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/packery/dist/packery.pkgd.min.js" type="text/javascript"></script>
 
@@ -132,7 +96,7 @@ Home
                     ->take(10)
                     ->paginate(9);
             ?>
-            <div class="js-packery" data-packery-options='{ "columnWidth": ".grid-sizer", "rowHeight":60 , "itemSelector": ".item", "percentPosition": true }'>
+            <div class="js-packery" data-packery-options='{ "columnWidth": 90, "rowHeight":60 ,"itemSelector": ".item", "percentPosition": true }'>
                 <div class="grid-sizer"></div> <?php
                 for ($i = 0; $i < count($query); $i++) {
                     $titolNota = $query[$i]->titol;

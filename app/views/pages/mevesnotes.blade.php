@@ -15,19 +15,6 @@ Les meves notes
         background-color: blue;
         margin-right:5px;
     }
-    @media screen and (max-width: 770px) {
-        #ordenar_home{
-            width:90%;
-            height:130px;
-        }
-        #contingut_home{
-            height:auto;
-        }
-        #busqueda_home{
-            width:100%;
-            height:160px;
-        }
-    }
     #show-ordenar_home {
         height: 28px;
         text-align: center;
@@ -85,15 +72,14 @@ Les meves notes
 <div id="contingut_home">
     <div class="row row-horizon">
         <div id='busqueda_home'>
-           
+
         </div>
 
         <?php
         if (!(empty($tags))) {
-            
             ?>
-        
-         <div id='ordenar_home'>
+
+            <div id='ordenar_home'>
                 {{ Form::open(array('url' => '/mevesnotes')) }}
                 <fieldset>
                     <legend>Buscar per</legend>
@@ -102,8 +88,7 @@ Les meves notes
                 </fieldset>
                 {{ Form::close() }}
             </div>
-        <?php
-
+            <?php
             $queryfiltro = DB::table('posts')
                     ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id')
                     ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
@@ -113,52 +98,49 @@ Les meves notes
                     ->whereIn('categories.nom', $tags)
                     ->select('posts.id', 'posts.titol', 'posts.comentari', 'usuaris.nick', 'posts.data')
                     ->paginate(10);
-if(count($queryfiltro)==0){
-    echo '<div  style="width:300px;text-align:center;margin:auto;" class="alert alert-info"><h4>No hi ha resultats de recerca</h4></div>';
-}else{
-    
-       ?>
-        
-         <div id='ordenar_home'>
-                {{ Form::open(array('url' => '/mevesnotes')) }}
-                <fieldset>
-                    <legend>Buscar per</legend>
-                    <input name="cercarpubliques" placeholder='tag1,tag2,tag3..' id="cercarpubliques"  type="text">
-                    <input type="submit" class="btn btn-default" value="Enviar">
-                </fieldset>
-                {{ Form::close() }}
-            </div>
-        <?php
-        
-            for ($i = 0; $i < count($queryfiltro); $i++) {
-                $titolNota = $queryfiltro[$i]->titol;
-                $comentariNota = $queryfiltro[$i]->comentari;
-                $nick = $queryfiltro[$i]->nick;
-                 $idnota = $queryfiltro[$i]->id;
-
-                $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
-                        ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
-                        ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
-                        ->where('posts.id', $queryfiltro[$i]->id)
-                        ->select('categories.nom')
-                        ->paginate(10);
-                $categories = "";
-                for ($j = 0; $j < count($queryCategories); $j++) {
-                    $categories = $categories . ',' . $queryCategories[$j]->nom;
-                }
-                $categories = substr($categories, 1);
+            if (count($queryfiltro) == 0) {
+                echo '<div  style="width:300px;text-align:center;margin:auto;" class="alert alert-info"><h4>No hi ha resultats de recerca</h4></div>';
+            } else {
                 ?>
-                <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
-                    @include('includes/notapersonal')
+
+                <div id='ordenar_home'>
+                    {{ Form::open(array('url' => '/mevesnotes')) }}
+                    <fieldset>
+                        <legend>Buscar per</legend>
+                        <input name="cercarpubliques" placeholder='tag1,tag2,tag3..' id="cercarpubliques"  type="text">
+                        <input type="submit" class="btn btn-default" value="Enviar">
+                    </fieldset>
+                    {{ Form::close() }}
                 </div>
+                <?php
+                for ($i = 0; $i < count($queryfiltro); $i++) {
+                    $titolNota = $queryfiltro[$i]->titol;
+                    $comentariNota = $queryfiltro[$i]->comentari;
+                    $nick = $queryfiltro[$i]->nick;
+                    $idnota = $queryfiltro[$i]->id;
 
-
+                    $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
+                            ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
+                            ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
+                            ->where('posts.id', $queryfiltro[$i]->id)
+                            ->select('categories.nom')
+                            ->paginate(10);
+                    $categories = "";
+                    for ($j = 0; $j < count($queryCategories); $j++) {
+                        $categories = $categories . ',' . $queryCategories[$j]->nom;
+                    }
+                    $categories = substr($categories, 1);
+                    ?>
+                    <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
+                        @include('includes/notapersonal')
+                    </div>
+                    <?php
+                }
+                echo $queryfiltro->links();
+                ?>
                 <?php
             }
-            echo $queryfiltro->links();
-            ?>
-            <?php
-        }} else {
+        } else {
             //PONER QUERY DE ULTIMOS 10 POST.
 
             $query = DB::table('posts')
@@ -185,7 +167,7 @@ if(count($queryfiltro)==0){
                 <div class="col-md-4 col-sm-2 col-xs-0">
 
                 </div>
-            <?php
+                <?php
             } else {
                 for ($i = 0; $i < count($query); $i++) {
                     $titolNota = $query[$i]->titol;
