@@ -7,10 +7,45 @@ Home
     {{ HTML::style('css/home.css'); }}
 @stop
 @section('content')
+<style type="text/css">
+    * {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
+body { font-family: sans-serif; }
+
+.packery {
+  background: #FDD;
+  background: hsla(45, 100%, 40%, 0.2);
+}
+
+/* clearfix */
+
+.item {
+  float: left;
+  background: #C09;
+  border: 4px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.3);
+}
+
+.item:hover {
+  border-color: white;
+  cursor: move;
+}
+
+.item.is-dragging,
+.item.is-positioning-post-drag {
+  border-color: white;
+  background: #09F;
+  z-index: 2;
+}
+
+</style>
 <div id="contingut_home">
     <div class="row row-horizon">
-
+<div class="packery">
         <?php
         $nom = Auth::user()->getFullNameAttribute();
         $queryCategories = DB::table('categories')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
@@ -50,7 +85,7 @@ Home
                         <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                         </div>
                     </div>
-                    <h5><a class="linkAlert" href="<?php Config::get('constants.BaseUrl'); ?>../public/novanota">Crear una nova nota</a></h5>
+                    <h5><a class="linkAlert" style="color:white" href="<?php Config::get('constants.BaseUrl'); ?>../public/novanota">Crear una nova nota</a></h5>
                 </div>
             </div>
             <div class="col-md-4 col-sm-2 col-xs-0">
@@ -59,7 +94,7 @@ Home
            
         <?php } ?>
 
-
+</div>
     </div>
 </div>
 <script>
@@ -107,7 +142,19 @@ Home
             var userList = new List($(this).attr('id'), options);
         });
 
+    var $container = $('.packery').packery({
+        columnWidth: 80,
+        rowHeight: 80
     });
+
+    $container.find('.item').each( function( i, itemElem ) {
+    // make element draggable with Draggabilly
+        var draggie = new Draggabilly( itemElem );
+        // bind Draggabilly events to Packery
+        $container.packery( 'bindDraggabillyEvents', draggie );
+    });
+
+});
 
 	
 	function ordenar($button, aOrdenar, data) {

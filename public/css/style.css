@@ -388,12 +388,13 @@ footer a, footer a:hover {
     background-color: #c32f10;
 }
 
-/******************* NOVA NOTA ********************/
+/******************* NOVA NOTA, EDITAR NOTA ********************/
 
-#BtnSubmitNovaNota{
-    width: 50%;
+.BtnSubmitNovaNota_EditarNota{
+    width: 50%!important;
     margin: auto;
     display: block;
+    margin-top: 15px;
 }
 
 /******************* FI NOVA NOTA ********************/

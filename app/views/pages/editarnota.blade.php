@@ -52,7 +52,7 @@ $querycat = DB::table('categories')
     <div class="contingut">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="page-head-line">Editar nota</h4>
+                <h4 class="page-head-line pads">Editar nota</h4>
             </div>
         </div>
         @if ($errors->has())
@@ -83,8 +83,9 @@ $querycat = DB::table('categories')
             <!-- TinyMCE -->
             <textarea id="TextoNota" name="TextoNota"><?php echo $querypost[0]->comentari ?></textarea>
         </div>
-        <br>
-        {{ Form::submit('Guardar',array('class'=> 'btn btn-info','id'=>'BtnSubmitEditarNota'))}}
+        <div class="pads">
+        {{ Form::submit('Guardar',array('class'=> 'btn btn-info BtnSubmitNovaNota_EditarNota','id'=>'BtnSubmitEditarNota'))}}
+        </div>
         {{ Form::close() }}
         <br>
     </div>
