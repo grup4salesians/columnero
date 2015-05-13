@@ -5,6 +5,7 @@ Home
 @section('head')
 @parent
     {{ HTML::style('css/home.css'); }}
+    {{ HTML::script('assets/vendor/tinysort/dist/packery/js/packery.js'); }}
 @stop
 @section('content')
 
