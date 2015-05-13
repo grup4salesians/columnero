@@ -63,18 +63,13 @@ Home
     $(function () {
         $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
         $(window).on('resize', function () {
-            console.log();
-            console.log('all: ' + $(window).height());
-            console.log('header: ' + $('.header').height());
-            console.log('footer: ' + $('footer').height());
-            console.log('row: ' + $('.row-horizon').height());
             $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
         });
 
         $(document).on('click', '.show-ordenar_home', function () {
             var idColumn = $(this).data('column-id');
             var search = '#busqueda_home[data-column-id="' + idColumn + '"]';
-            console.log(search);
+            //console.log(search);
             $(search).stop().slideToggle();
         })
         .on('click', "#busqueda_home button", function sortTitle(e){
@@ -92,7 +87,7 @@ Home
         });
 
         var $columnas = $('div[id^=column-]');
-        $columnas.each(function() {
+        $columnas.each(function(index) {
             //console.log($(this).find('input[class^=search-]').attr('class'));
             //console.log($(this).attr('id'));
             var options = {
@@ -102,15 +97,42 @@ Home
             };
 
             var userList = new List($(this).attr('id'), options);
+            
+            $(this).data('position', index);
+
         });
 
-    $( "#sortable" ).sortable({
-        stop: function() {
-            //alert();
-        }
-    });
+        $( "#sortable" ).sortable({
+            stop: function() {
+                var $columnas = $('div[id^=column-]'),
+                    categories = '',
+                    positions = '',
+                    url = '';
 
-});
+                $columnas.each(function(index) {
+                    if (index === 0) {
+                        categories = $(this).data('categoria-id');
+                        positions = $(this).data('position');
+                    } else {
+                        categories += '|' + $(this).data('categoria-id');
+                        positions += '|' + $(this).data('position');
+                    }
+                });
+
+                url = 'categories/setpositions/' + categories + '/' + positions;
+
+                $.ajax({
+                    url: url
+                    //context: document.body
+                }).done(function() {
+                    //$( this ).addClass( "done" );
+                    console.log(url);
+                });
+
+            }
+        });
+
+    });
 
 	
 	function ordenar($button, aOrdenar, data) {

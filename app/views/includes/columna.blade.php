@@ -5,7 +5,7 @@
             {{ $categoria }}
         </div>
 
-        <div id="column-{{ $idCategoria }}" class="panel-body">
+        <div id="column-{{ $idCategoria }}" data-categoria-id="{{ $idCategoria }}" data-position class="panel-body">
         	@include('includes/columnHomeOptions')
         	<ul class="list">
             <?php
