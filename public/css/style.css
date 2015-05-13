@@ -472,7 +472,7 @@ html, body, #contingut_home > .row-horizon {
     width:250px;
     height:100px;
 }
-.item{ width: 30%; }
+.item{ width: 30%; margin:0% 1% 0% 1%;}
 .grid-sizer {width: 11%; }
 .item {  float: left;   }
 @media (min-width: 992px){

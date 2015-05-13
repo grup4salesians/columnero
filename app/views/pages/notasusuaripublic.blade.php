@@ -39,7 +39,7 @@ Notas publiques
                         ->paginate(9);
             }
             ?>
-            <div class="js-packery" data-packery-options='{ "columnWidth": 90, "rowHeight":60 ,"itemSelector": ".item", "percentPosition": true }'>
+            <div class="js-packery" data-packery-options='{"rowHeight":60 ,"itemSelector": ".item", "percentPosition": true }'>
                 <div class="grid-sizer"></div>  
 
                 <?php
