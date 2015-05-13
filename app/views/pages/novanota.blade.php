@@ -10,17 +10,17 @@ Nova nota
 <link rel="stylesheet" type="text/css" href="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/ng-tags-input/ng-tags-input.min.css"/>
 <script>
     angular.module('myApp', ['ngTagsInput'])
-        .controller('MyCtrl', function ($scope, $http) {
+            .controller('MyCtrl', function ($scope, $http) {
 //        $scope.tags = [
 //            {text: 'just'},
 //            {text: 'some'},
 //            {text: 'cool'},
 //            {text: 'tags'}
 //        ];
-        $scope.loadTags = function (query) {
-            return $http.get('getCategories/' + query);
-        };
-    });
+                $scope.loadTags = function (query) {
+                    return $http.get('getCategories/' + query);
+                };
+            });
 </script>
 <!-- ----------- -->
 
@@ -39,27 +39,91 @@ Nova nota
 
 <script>
     $(document).ready(function () {
+        /* Initialize text-editor */
         $("#TextoNota").summernote({
-            height: 250,// set height for editor
+            height: 250, // set height for editor
         });
-        
-        $(".note-insert.btn-group").after('<div class="note-highlight btn-group"><button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="highlight" data-hide="true" tabindex="-1" data-original-title="Highlighter"><i class="fa fa-code"></i></button></div>');
+
+        /* Botons al text-editor per al code-highlighter */
+        $(".note-insert.btn-group").after('<div class="note-highlight btn-group">'
+                + '<button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="highlight" data-hide="true" tabindex="-1" data-original-title="Highlighter"><i class="fa fa-code"></i></button>'
+                + '<button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="highlight-paint" data-hide="true" tabindex="-1" data-original-title="Highlighter"><i class="fa fa-paint-brush"></i></button>'
+                + '<button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="highlight-finish" data-hide="true" tabindex="-1" data-original-title="Highlighter"><i class="fa fa-check"></i></button>'
+                + '</div>');
         $("button[data-event='codeview']").children().removeClass("fa-code").addClass("fa-html5");
-        
-        $("button[data-event='highlight']").on("mouseenter", function() {
-            console.log("hola");
-            var pos = $(this).offset();
-            $("#tooltipAPM").css(pos);
-            $("#tooltipAPM").css("display", "block");
+
+        /* Tooltips botons code-highlighter */
+        $("button[data-event='highlight'], button[data-event='highlight-paint'], button[data-event='highlight-finish']")
+                .on("mouseenter", function () {
+                    var pos = $(this).offset();
+                    var tooltip = $("#tooltip-" + $(this).data("event"));
+                    
+                    $(tooltip).css({'top': pos.top + 30, 'left': (pos.left + ($(this).width() / 2)) - (tooltip.width() / 2) + 11});
+                    $(tooltip).css("display", "block");
+
+                    setTimeout(function () {
+                        $(tooltip).css("opacity", "1");
+                    }, 1);
+                })
+                .on("mouseleave", function () {
+                    var tooltip = $("#tooltip-" + $(this).data("event"));
+                    $(tooltip).css("opacity", "0");
+
+                    setTimeout(function () {
+                        $(tooltip).css("display", "none");
+                    }, 200);
+                });
+
+        $("button[data-event='highlight']").on("click", function () {
+            var num = $.now(); 
+            $(".note-editable").append('<pre id="codeblock-' + num + '"><code></code></pre>');
+
+            $('#codeblock-' + num + ' code').each(function (i, block) {
+                hljs.highlightBlock(block);
+            });
+            
+            $('#codeblock-' + num + ' code').append("Paste your code here");
         });
         
-        
-        $("button[data-event='highlight']").on("mouseleave").css("display", "none");
+        $("button[data-event='highlight-paint']").on("click", function () {
+            $('pre code').each(function (i, block) {
+                block.className = "";
+                hljs.highlightBlock(block);
+            });
+        });
+
+        //highlight();
+        function highlight() {
+            $('pre code').removeClass();
+            console.log("res");
+            $('pre code').each(function (i, block) {
+                hljs.highlightBlock(block);
+            });
+
+            setTimeout(function () {
+                highlight();
+            }, 15000);
+        }
+        ;
+
+//        $("pre code").on("keyup", function() {
+//            console.log("res");
+//            setTimeout(function() {
+//               $(this).removeClass();
+//               
+//               $('pre code').each(function(i, block) {
+//                    hljs.highlightBlock(block);
+//                });
+//           }, 50);
+//        });
+        //$("button[data-event='highlight']").on("mouseleave").css("display", "none");
         //$(".note-editable").text('<pre><code class="html">...</code></pre>');
     });
 </script>
 <!-- --------------------- -->
-<div class="tooltip fade bottom in" role="tooltip" id="tooltipAPM" style="top: 394px; left: 753.484375px; display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Full Screen</div></div>
+<div class="tooltip fade bottom in" role="tooltip" id="tooltip-highlight" style="opacity: 0; display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Start Code Block</div></div>
+<div class="tooltip fade bottom in" role="tooltip" id="tooltip-highlight-paint" style="opacity: 0; display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Format Code</div></div>
+<div class="tooltip fade bottom in" role="tooltip" id="tooltip-highlight-finish" style="opacity: 0; display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Confirm Code Block</div></div>
 <style>
     .pads {
         padding-left: 10%;
@@ -76,6 +140,9 @@ Nova nota
     }
     .note-editable {
         background-color: #FFF;
+    }
+    #tooltip-highlight, #tooltip-highlight-paint {
+        transition: opacity 0.2s ease-in-out;
     }
 </style>
 <div id="contingut_home" class="contingut_home">
@@ -112,9 +179,9 @@ Nova nota
             <!-- TinyMCE -->
             <textarea id="TextoNota" name="TextoNota"></textarea>
         </div>
-       
+
         <div class="pads">
-        {{ Form::submit('Crear nova nota',array('class'=> 'btn btn-info','id'=>'BtnSubmitNovaNota','style'=>'margin-top: 15px'))}}
+            {{ Form::submit('Crear nova nota',array('class'=> 'btn btn-info','id'=>'BtnSubmitNovaNota','style'=>'margin-top: 15px'))}}
         </div>
         {{ Form::close() }}
         <br>
@@ -126,7 +193,7 @@ Nova nota
             var textoFinal = "";
             $("#ListadoTags").find("span").each(function () {
                 if ($(this).text() !== "Add a tag") {
-                    textoFinal = textoFinal + $(this).text() +"|";
+                    textoFinal = textoFinal + $(this).text() + "|";
                 }
             });
             $("#ListadoTagsOculto").val(textoFinal);
