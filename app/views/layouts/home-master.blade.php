@@ -11,10 +11,10 @@
             <![endif]-->
             <!-- BOOTSTRAP CORE STYLE  -->
             <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+            {{ HTML::script('assets/vendor/jquery-ui/jquery-ui.js'); }}
             {{ HTML::script('assets/vendor/list.js/dist/list.js'); }}
-            {{ HTML::script('assets/vendor/tinysort/dist/tinysort.min.js'); }}
             {{ HTML::script('assets/vendor/packery/dist/packery.pkgd.min.js'); }}
-            {{ HTML::script('assets/vendor/draggabilly/dist/draggabilly.pkgd.min.js'); }}
+            {{ HTML::script('assets/vendor/tinysort/dist/tinysort.min.js'); }}
             {{ HTML::style('css/bootstrap.css'); }}
             {{ HTML::script('js/bootstrap.js'); }}
             {{ HTML::style('css/bootstrap-horizon.css'); }}

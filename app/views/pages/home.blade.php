@@ -7,45 +7,8 @@ Home
     {{ HTML::style('css/home.css'); }}
 @stop
 @section('content')
-<style type="text/css">
-    * {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body { font-family: sans-serif; }
-
-.packery {
-  background: #FDD;
-  background: hsla(45, 100%, 40%, 0.2);
-}
-
-/* clearfix */
-
-.item {
-  float: left;
-  background: #C09;
-  border: 4px solid #333;
-  border-color: hsla(0, 0%, 0%, 0.3);
-}
-
-.item:hover {
-  border-color: white;
-  cursor: move;
-}
-
-.item.is-dragging,
-.item.is-positioning-post-drag {
-  border-color: white;
-  background: #09F;
-  z-index: 2;
-}
-
-</style>
 <div id="contingut_home">
-    <div class="row row-horizon">
-<div class="packery">
+    <div id="sortable" class="row row-horizon">
         <?php
         $nom = Auth::user()->getFullNameAttribute();
         $queryCategories = DB::table('categories')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
@@ -94,7 +57,6 @@ body { font-family: sans-serif; }
            
         <?php } ?>
 
-</div>
     </div>
 </div>
 <script>
@@ -142,16 +104,10 @@ body { font-family: sans-serif; }
             var userList = new List($(this).attr('id'), options);
         });
 
-    var $container = $('.packery').packery({
-        columnWidth: 80,
-        rowHeight: 80
-    });
-
-    $container.find('.item').each( function( i, itemElem ) {
-    // make element draggable with Draggabilly
-        var draggie = new Draggabilly( itemElem );
-        // bind Draggabilly events to Packery
-        $container.packery( 'bindDraggabillyEvents', draggie );
+    $( "#sortable" ).sortable({
+        stop: function() {
+            //alert();
+        }
     });
 
 });
