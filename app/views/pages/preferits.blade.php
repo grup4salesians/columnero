@@ -112,7 +112,7 @@ if (count($queryvaloracions) == 0) {
             ?>
             <div class="js-packery" data-packery-options='{ "columnWidth": 90, "rowHeight":60 ,"itemSelector": ".item", "percentPosition": true }'>
                 <div class="grid-sizer"></div>
-                <?php
+                <?php     
                 for ($i = 0; $i < count($queryvaloracions); $i++) {
 
                     $macuco = DB::table('posts')
@@ -132,10 +132,12 @@ if (count($queryvaloracions) == 0) {
                             ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
                             ->join('valoracions', 'posts.id', '=', 'valoracions.post_id')
                             ->where('posts.id', $queryvaloracions[$i]->id)
+                            ->where('valoracions.usuari_id',Auth::user()->id)
                             ->where('valoracions.favorit', '=', 1)
                             ->select('categories.nom')
                             ->paginate(10);
                     $categories = "";
+                    echo ("--------------------------------------------".count($queryCategories));
                     for ($j = 0; $j < count($queryCategories); $j++) {
                         $categories = $categories . ", " . $queryCategories[$j]->nom;
                     }
