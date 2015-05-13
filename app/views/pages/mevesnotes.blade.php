@@ -77,7 +77,7 @@ Les meves notes
 <script src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/packery/dist/packery.pkgd.min.js" type="text/javascript"></script>
 
 <div id="contingut_home">
-    <div class="row row-horizon">
+    <div>
         <div id='busqueda_home'>
 
         </div>
@@ -218,10 +218,7 @@ Les meves notes
 </div>
 <script>
 $(function () {
-    $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
-    $(window).on('resize', function () {
-        $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
-    });
+   
     $('#show-ordenar_home').on('click', function () {
         $('#busqueda_home').stop().slideToggle();
     });
