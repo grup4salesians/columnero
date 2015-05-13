@@ -96,7 +96,7 @@ Home
                     ->take(10)
                     ->paginate(9);
             ?>
-            <div class="js-packery" data-packery-options='{ "columnWidth": ".grid-sizer", "rowHeight":60 , "itemSelector": ".item", "percentPosition": true }'>
+            <div class="js-packery" data-packery-options='{ "columnWidth": 90, "rowHeight":60 ,"itemSelector": ".item", "percentPosition": true }'>
                 <div class="grid-sizer"></div> <?php
                 for ($i = 0; $i < count($query); $i++) {
                     $titolNota = $query[$i]->titol;
