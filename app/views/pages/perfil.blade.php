@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master-footerespecial')
 @section('title')
 Perfil
 @stop
