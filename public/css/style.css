@@ -109,14 +109,14 @@ body {
     margin: 0 auto;
 }
 
-   #capnota_home{
-                    width:60%;
-                    min-width:500px;
-                    height:auto;
-                    background-color: rgba(250, 210, 153, 0.56);
-                    margin:auto;
-                    text-align:center;
-                }
+#capnota_home{
+    width:60%;
+    min-width:500px;
+    height:auto;
+    background-color: rgba(250, 210, 153, 0.56);
+    margin:auto;
+    text-align:center;
+}
 
 #busqueda_home{
     min-width:400px;
@@ -272,15 +272,18 @@ footer {
     color: #fff;
     font-size: 12px;
     background-color: rgba(240, 85, 85, 0.95);
-    
-      position: fixed;
-        bottom: 0;
-        width: 100%;
+    width: 100%;
 }
 
 footer a, footer a:hover {
     color: #fff;
     text-decoration: none;
+}
+
+.FooterFixedBottom{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 /*==============================================
@@ -452,7 +455,7 @@ html, body, #contingut_home > .row-horizon {
 #show-ordenar_home {
     float: right;
     color: #545454;
-    
+
 }
 #show-ordenar_home:hover {
     cursor: pointer;
@@ -462,50 +465,25 @@ html, body, #contingut_home > .row-horizon {
 }
 
 /***************** PACKERY --> PUBLIQUES  ***********************/
+.panel-body{
+    white-space: normal;
+}
+#ordenar_home{
+    width:250px;
+    height:100px;
+}
+.item{ 
+    width: 31%; 
+    margin:0% 1% 0% 1%;  
+    float: left; 
+}
+.grid-sizer {width: 11%; }
 
-    #ordenar_home{
-        width:250px;
-        height:100px;
-    }
-    .item{ width: 30%; }
-    .grid-sizer {width: 11%; }
-    .item {  float: left;   }
-    @media (min-width: 992px){
-        .item {
-            width: 30%;
-        }
-        .grid-sizer {width: 11%; }
-    }
-
-    @media screen and (max-width: 770px) {
-        #ordenar_home{
-            width:90%;
-            height:130px;
-        }
-        #contingut_home{
-            height:auto;
-        }
-        #busqueda_home{
-            width:100%;
-            height:160px;
-        }
-        .item {
-            width: 44%;
-        }
-        .grid-sizer {width: 10%; }
-    }
-    @media screen and (max-width: 550px) {
-        .item {
-            width: 99%;
-        }
-    }
-
-/***************** END PACKERY  ***********************/
 
 @media screen and (max-width: 770px) {
     #ordenar_home{
         width:90%;
-       height:130px;
+        height:130px;
     }
     #contingut_home{
         height:auto;
@@ -514,4 +492,16 @@ html, body, #contingut_home > .row-horizon {
         width:100%;
         height:160px;
     }
+    .item {
+        width: 44%;
+    }
+    .grid-sizer {width: 10%; }
 }
+@media screen and (max-width: 550px) {
+    .item {
+        width: 99%;
+    }
+}
+
+/***************** END PACKERY  ***********************/
+

@@ -58,7 +58,7 @@ class NovanotaController extends BaseController {
                 $CategoriaUsuarioNueva = new CategoriesUsuari();
                 $CategoriaUsuarioNueva->categories_id = $idCategoria;
                 $CategoriaUsuarioNueva->usuaris_id = $ID_Usuari;
-                $CategoriaUsuarioNueva->mostrar =0;
+                $CategoriaUsuarioNueva->mostrar =null;
                 $CategoriaUsuarioNueva->save();
             }
             else{

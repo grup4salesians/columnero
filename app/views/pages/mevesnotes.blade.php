@@ -4,6 +4,11 @@ Les meves notes
 @stop
 @section('content')
 <style>
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
     .titulsbusqueda{
         margin-left:10px;
         font-weight:bold;
@@ -69,8 +74,10 @@ Les meves notes
         height:120px;
     }
 </style>
+<script src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/packery/dist/packery.pkgd.min.js" type="text/javascript"></script>
+
 <div id="contingut_home">
-    <div class="row row-horizon">
+    <div>
         <div id='busqueda_home'>
 
         </div>
@@ -112,33 +119,36 @@ Les meves notes
                     </fieldset>
                     {{ Form::close() }}
                 </div>
-                <?php
-                for ($i = 0; $i < count($queryfiltro); $i++) {
-                    $titolNota = $queryfiltro[$i]->titol;
-                    $comentariNota = $queryfiltro[$i]->comentari;
-                    $nick = $queryfiltro[$i]->nick;
-                    $idnota = $queryfiltro[$i]->id;
-
-                    $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
-                            ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
-                            ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
-                            ->where('posts.id', $queryfiltro[$i]->id)
-                            ->select('categories.nom')
-                            ->paginate(10);
-                    $categories = "";
-                    for ($j = 0; $j < count($queryCategories); $j++) {
-                        $categories = $categories . ',' . $queryCategories[$j]->nom;
-                    }
-                    $categories = substr($categories, 1);
-                    ?>
-                    <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
-                        @include('includes/notapersonal')
-                    </div>
+                <div class="js-packery" data-packery-options='{"rowHeight":60 ,"itemSelector": ".item", "percentPosition": true }'>
+                    <div class="grid-sizer"></div>  
                     <?php
-                }
-                echo $queryfiltro->links();
-                ?>
+                    for ($i = 0; $i < count($queryfiltro); $i++) {
+                        $titolNota = $queryfiltro[$i]->titol;
+                        $comentariNota = $queryfiltro[$i]->comentari;
+                        $nick = $queryfiltro[$i]->nick;
+                        $idnota = $queryfiltro[$i]->id;
+
+                        $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
+                                ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
+                                ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
+                                ->where('posts.id', $queryfiltro[$i]->id)
+                                ->select('categories.nom')
+                                ->paginate(10);
+                        $categories = "";
+                        for ($j = 0; $j < count($queryCategories); $j++) {
+                            $categories = $categories . ',' . $queryCategories[$j]->nom;
+                        }
+                        $categories = substr($categories, 1);
+                        ?>
+                        <div class="item">
+                            @include('includes/notapersonal')
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </div>
                 <?php
+                echo $queryfiltro->links();
             }
         } else {
             //PONER QUERY DE ULTIMOS 10 POST.
@@ -167,31 +177,39 @@ Les meves notes
                 <div class="col-md-4 col-sm-2 col-xs-0">
 
                 </div>
+
                 <?php
             } else {
-                for ($i = 0; $i < count($query); $i++) {
-                    $titolNota = $query[$i]->titol;
-                    $comentariNota = $query[$i]->comentari;
-                    $nick = $query[$i]->nick;
-                    $idnota = $query[$i]->id;
-
-                    $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
-                            ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
-                            ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
-                            ->where('posts.id', $query[$i]->id)
-                            ->select('categories.nom')
-                            ->paginate(10);
-                    $categories = "";
-                    for ($j = 0; $j < count($queryCategories); $j++) {
-                        $categories = $categories . ", " . $queryCategories[$j]->nom;
-                    }
-                    $categories = substr($categories, 2);
-                    ?>   
-                    <div class="col-xs-12 col-sm-5 col-md-4" style="float:left; display:block;">
-                        @include('includes/notapersonal')
-                    </div>
+                ?>
+                <div class="js-packery" data-packery-options='{"rowHeight":60 ,"itemSelector": ".item", "percentPosition": true }'>
+                    <div class="grid-sizer"></div>
                     <?php
-                }
+                    for ($i = 0; $i < count($query); $i++) {
+                        $titolNota = $query[$i]->titol;
+                        $comentariNota = $query[$i]->comentari;
+                        $nick = $query[$i]->nick;
+                        $idnota = $query[$i]->id;
+
+                        $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
+                                ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
+                                ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
+                                ->where('posts.id', $query[$i]->id)
+                                ->select('categories.nom')
+                                ->paginate(10);
+                        $categories = "";
+                        for ($j = 0; $j < count($queryCategories); $j++) {
+                            $categories = $categories . ", " . $queryCategories[$j]->nom;
+                        }
+                        $categories = substr($categories, 2);
+                        ?>   
+                        <div class="item">
+                            @include('includes/notapersonal')
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </div>
+                <?php
                 echo $queryCategories->links();
             }
         }
@@ -199,15 +217,12 @@ Les meves notes
     </div>
 </div>
 <script>
-    $(function () {
-        $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
-        $(window).on('resize', function () {
-            $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
-        });
-        $('#show-ordenar_home').on('click', function () {
-            $('#busqueda_home').stop().slideToggle();
-        });
+$(function () {
+   
+    $('#show-ordenar_home').on('click', function () {
+        $('#busqueda_home').stop().slideToggle();
     });
+});
 </script>
 @stop
 

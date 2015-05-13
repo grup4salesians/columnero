@@ -13,11 +13,11 @@ Home
 <script src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/packery/dist/packery.pkgd.min.js" type="text/javascript"></script>
 
 <div id="contingut_home">
-    <div class="row row-horizon">
+    <div>
         <div id='busqueda_home'>
             <div id='ordenar_home'>
                 {{ Form::open(array('url' => '/publiques')) }}
-                
+
                 <fieldset>
                     <legend>Buscar per</legend>
                     <input name="cercarpubliques" placeholder='tag1,tag2,tag3..' id="e"  type="text">
@@ -46,8 +46,9 @@ Home
                 echo '<div  style="width:300px;text-align:center;margin:auto;" class="alert alert-info"><h4>No hi ha resultats de recerca</h4></div>';
             } else {
                 ?>
-                <div class="js-packery" data-packery-options='{ "columnWidth": 90, "rowHeight":60 ,"itemSelector": ".item", "percentPosition": true }'>
-                    <div class="grid-sizer"></div>  <?php
+                <div class="js-packery" data-packery-options='{"rowHeight":60 ,"itemSelector": ".item", "percentPosition": true }'>
+                    <div class="grid-sizer"></div>  
+                    <?php
                     for ($i = 0; $i < count($queryfiltro); $i++) {
                         $titolNota = $queryfiltro[$i]->titol;
                         $comentariNota = $queryfiltro[$i]->comentari;
@@ -96,7 +97,7 @@ Home
                     ->take(10)
                     ->paginate(9);
             ?>
-            <div class="js-packery" data-packery-options='{ "columnWidth": 90, "rowHeight":60 ,"itemSelector": ".item", "percentPosition": true }'>
+            <div class="js-packery" data-packery-options='{"rowHeight":60 ,"itemSelector": ".item", "percentPosition": true }'>
                 <div class="grid-sizer"></div> <?php
                 for ($i = 0; $i < count($query); $i++) {
                     $titolNota = $query[$i]->titol;
@@ -133,10 +134,6 @@ Home
 </div>
 <script>
 $(function () {
-    $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
-    $(window).on('resize', function () {
-        $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
-    });
     $('#show-ordenar_home').on('click', function () {
         $('#busqueda_home').stop().slideToggle();
     });
