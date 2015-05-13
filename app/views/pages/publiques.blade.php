@@ -17,7 +17,7 @@ Home
         <div id='busqueda_home'>
             <div id='ordenar_home'>
                 {{ Form::open(array('url' => '/publiques')) }}
-                
+
                 <fieldset>
                     <legend>Buscar per</legend>
                     <input name="cercarpubliques" placeholder='tag1,tag2,tag3..' id="e"  type="text">
@@ -47,7 +47,8 @@ Home
             } else {
                 ?>
                 <div class="js-packery" data-packery-options='{ "columnWidth": 90, "rowHeight":60 ,"itemSelector": ".item", "percentPosition": true }'>
-                    <div class="grid-sizer"></div>  <?php
+                    <div class="grid-sizer"></div>  
+                    <?php
                     for ($i = 0; $i < count($queryfiltro); $i++) {
                         $titolNota = $queryfiltro[$i]->titol;
                         $comentariNota = $queryfiltro[$i]->comentari;
