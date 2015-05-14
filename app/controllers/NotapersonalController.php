@@ -25,7 +25,9 @@ class NotapersonalController extends BaseController {
         $variables = array(
             'Titol' => Input::get('Titol'),
             'ListadoTags' => Input::get('ListadoTagsOculto'),
-            'TextoNota' => Input::get('TextoNota')
+            'TextoNota' => Input::get('TextoNota'),
+            'optionsRadios' => Input::get('optionsRadios')
+            
         );
         $rules = [
             'Titol' => 'required|min:1',
@@ -40,9 +42,15 @@ class NotapersonalController extends BaseController {
         $textonota = Input::get('TextoNota');
         $titol = Input::get('Titol');
         $tags = Input::get('ListadoTagsOculto');
+       $optionradio = Input::get('optionsRadios');
         
         PostCategorie::where('post_id', '=', $id)->delete();
-        Post::where('usuari_id', '=', Auth::user()->id)->where('id','=',$id)->update(array('comentari' => $textonota, 'titol' => $titol));
+        if($optionradio == 0){
+            Post::where('usuari_id', '=', Auth::user()->id)->where('id','=',$id)->update(array('comentari' => $textonota, 'titol' => $titol, 'privat' => 0)); 
+        }else{
+             Post::where('usuari_id', '=', Auth::user()->id)->where('id','=',$id)->update(array('comentari' => $textonota, 'titol' => $titol, 'privat' => 1));
+        }
+       
         
          
         $ArrayTags = explode("|",$tags);
