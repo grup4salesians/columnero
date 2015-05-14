@@ -62,45 +62,64 @@ $querycat = DB::table('categories')
             @endforeach
         </div>
         @endif
-<?php echo Form::open(array('url' => '/editarnota/' . $id . '')) ?>
+        <?php echo Form::open(array('url' => '/editarnota/' . $id . '')) ?>
         <div class="pads">
             <p>Títol</p>
             <input id="Titol" name="Titol" type="text" value="<?php echo $querypost[0]->titol ?>">
         </div>
-        <div class="pads">
-            <p>Categories</p>
-            <!-- ngTagsInput -->
-            <div class="tagsinput" ng-app="myApp" ng-controller="MyCtrl">
-                <tags-input id="ListadoTags" Name="ListadoTags" ng-model="tags">
+        <div class="pads" >
+            <div style="width: 78%; float: left; position: relative;">
+                <p>Categories</p>
+                <!-- ngTagsInput -->
+                <div class="tagsinput" ng-app="myApp" ng-controller="MyCtrl">
+                    <tags-input id="ListadoTags" Name="ListadoTags" ng-model="tags">
 
-                    <auto-complete  source="loadTags($query)"></auto-complete>
-                </tags-input>
-                <input type="hidden" id="ListadoTagsOculto" name="ListadoTagsOculto" /> 
+                        <auto-complete  source="loadTags($query)"></auto-complete>
+                    </tags-input>
+                    <input type="hidden" id="ListadoTagsOculto" name="ListadoTagsOculto" /> 
+                </div>
             </div>
+            <div style="width: 18%; float: right; position: relative;">
+                <p>Públic</p>
+
+                <div class="radio">
+                    <label>
+                        <input type="radio" id="optionsRadios" name="optionsRadios" value="1" <?php if ($querypost[0]->privat == 0) { ?> checked="checked"<?php } ?> >
+                        Sí
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" id="optionsRadios" name="optionsRadios" value="0" <?php if ($querypost[0]->privat == 1) { ?> checked="checked"<?php } ?> >
+                        No
+                    </label>
+                </div>
+            </div>
+            <div style="clear: both"></div>
         </div>
-        <div class="pads">
-            <p>Contingut</p>
-            <!-- TinyMCE -->
-            <textarea id="TextoNota" name="TextoNota"><?php echo $querypost[0]->comentari ?></textarea>
+            <div class="pads">
+                <p>Contingut</p>
+                <!-- TinyMCE -->
+                <textarea id="TextoNota" name="TextoNota"><?php echo $querypost[0]->comentari ?></textarea>
+            </div>
+            <div class="pads">
+                {{ Form::submit('Guardar',array('class'=> 'btn btn-info BtnSubmitNovaNota_EditarNota','id'=>'BtnSubmitEditarNota'))}}
+            </div>
+            {{ Form::close() }}
+            <br>
         </div>
-        <div class="pads">
-        {{ Form::submit('Guardar',array('class'=> 'btn btn-info BtnSubmitNovaNota_EditarNota','id'=>'BtnSubmitEditarNota'))}}
-        </div>
-        {{ Form::close() }}
-        <br>
     </div>
-</div>
-<script>
-    $(document).ready(function () {
-        $("#BtnSubmitEditarNota").click(function () {
-            var textoFinal = "";
-            $("#ListadoTags").find("span").each(function () {
-                textoFinal = textoFinal + "|" + $(this).text();
+    <script>
+        $(document).ready(function () {
+            $("#BtnSubmitEditarNota").click(function () {
+                var textoFinal = "";
+                $("#ListadoTags").find("span").each(function () {
+                    textoFinal = textoFinal + "|" + $(this).text();
+                });
+                textoFinal = textoFinal.substr(1);
+                $("#ListadoTagsOculto").val(textoFinal);
             });
-            textoFinal = textoFinal.substr(1);
-            $("#ListadoTagsOculto").val(textoFinal);
         });
-    });
-</script>
-@stop
+    </script>
+    @stop
 
