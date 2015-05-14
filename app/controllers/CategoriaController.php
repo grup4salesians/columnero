@@ -10,7 +10,7 @@ class CategoriaController extends BaseController {
             ->update(array('mostrar' => $i));
         }
 
-        return var_dump($categorias) . ' ' . var_dump($positions);
+        return var_dump($categorias);
 
     }
 }

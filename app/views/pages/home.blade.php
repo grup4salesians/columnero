@@ -103,7 +103,7 @@ Home
         });
 
         $( "#sortable" ).sortable({
-            stop: function() {
+            update: function() {
                 var $columnas = $('div[id^=column-]'),
                     categories = '',
                     positions = '',
@@ -112,14 +112,13 @@ Home
                 $columnas.each(function(index) {
                     if (index === 0) {
                         categories = $(this).data('categoria-id');
-                        positions = $(this).data('position');
+                        //positions = $(this).data('position');
                     } else {
                         categories += '|' + $(this).data('categoria-id');
-                        positions += '|' + $(this).data('position');
+                        //positions += '|' + $(this).data('position');
                     }
                 });
-
-                url = 'categories/setpositions/' + categories + '/' + positions;
+                url = 'categories/setpositions/' + categories;
 
                 $.ajax({
                     url: url
