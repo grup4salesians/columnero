@@ -27,6 +27,10 @@
     bottom: 0;
 }
 
+label[for^="chk-"] {
+    margin-left: 5px;
+}
+
 .fa-c1 {
     font-size: 2em;
     text-align: center;

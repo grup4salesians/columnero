@@ -15,7 +15,7 @@ Home
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Administrar Columnas</h4>
+            <h4 class="modal-title" id="myModalLabel">Administrar Columnes</h4>
           </div>
           <div class="modal-body">
             <?php 
@@ -24,23 +24,70 @@ Home
                     ->join('usuaris', 'categoriesusuaris.usuaris_id', '=', 'usuaris.id')
                     ->where('usuaris.id', Auth::user()->id)
                     ->whereNotNull('categoriesusuaris.mostrar')
-                    ->orderBy('categoriesusuaris.mostrar')
+                    ->orderBy('categories.nom')
                     ->select('categories.nom', 'categoriesusuaris.categories_id')
                     ->get();
 
+                $totalRows = count($queryCategories);
+                $dataInColumn = ceil($totalRows / 3);
+                echo "<script>console.log($dataInColumn);</script>";
+                $iColumn = 1;
                 for ($j = 0; $j < count($queryCategories); $j++) {
                     $categoria = $queryCategories[$j]->nom;
                     $idCategoria = $queryCategories[$j]->categories_id;
 
-                    echo Form::checkbox('cbx-'.$idCategoria, $idCategoria);
-                    echo Form::label('cbx-'.$idCategoria, $categoria);
-                    echo '<br />';
+                    if ($iColumn === 1 && $j === 0) {
+                        echo '<div class="col-sm-4 col-xs-12" style="float:">';
+                        echo "<script>console.log('Abro div');</script>";
+                    }
+                    if ($j === $totalRows-1) {
+                        if ($iColumn <= $dataInColumn) {
+                            //echo "<script>console.log($iColumn);</script>";
+                            echo Form::checkbox('chk-'.$idCategoria, $idCategoria, false, array('id' => 'chk-'.$idCategoria));
+                            echo Form::label('chk-'.$idCategoria, $categoria);
+                            echo '<br />';
+                            echo "<script>console.log('Imprimo $iColumn');</script>";
+                            echo "<script>console.log('incremento $iColumn <= $dataInColumn');</script>";
+                            $iColumn++;
+                        } else {
+                            echo '</div>';
+                            echo '<div class="col-sm-4 col-xs-12 style="float: left;">';
+                            echo Form::checkbox('chk-'.$idCategoria, $idCategoria, false, array('id' => 'chk-'.$idCategoria));
+                            echo Form::label('chk-'.$idCategoria, $categoria);
+                            echo '<br />';
+                            $iColumn = 2;
+                            echo "<script>console.log('cierro, abro div y sigue');</script>";
+                        }
+                        echo '</div>';
+                        echo "<script>console.log('cierro dif FINAL');</script>";
+                    } else {
+                        if ($iColumn <= $dataInColumn) {
+                            //echo "<script>console.log($iColumn);</script>";
+                            echo Form::checkbox('chk-'.$idCategoria, $idCategoria, false, array('id' => 'chk-'.$idCategoria));
+                            echo Form::label('chk-'.$idCategoria, $categoria);
+                            echo '<br />';
+                            echo "<script>console.log('Imprimo $iColumn');</script>";
+                            echo "<script>console.log('incremento $iColumn <= $dataInColumn');</script>";
+                            $iColumn++;
+                        } else {
+                            echo '</div>';
+                            echo '<div class="col-sm-4 col-xs-12 style="float: left;">';
+                            echo Form::checkbox('chk-'.$idCategoria, $idCategoria, false, array('id' => 'chk-'.$idCategoria));
+                            echo Form::label('chk-'.$idCategoria, $categoria);
+                            echo '<br />';
+                            $iColumn = 2;
+                            echo "<script>console.log('cierro, abro div y sigue');</script>";
+                        }
+                    }
+
+                    echo "<script>console.log($j);</script>";
                 }
+                echo '<div style="clear: both;"></div>'
             ?>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Tancar</button>
+            <button type="button" class="btn btn-primary">Guardar canvis</button>
           </div>
         </div>
       </div>
