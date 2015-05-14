@@ -602,6 +602,12 @@ html, body, #contingut_home > .row-horizon {
 .footer {
     height: 50px;
 }
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 75% !important;
+    }
+}
 @media screen and (max-width: 770px) {
     #ordenar_home{
         width:90%;
