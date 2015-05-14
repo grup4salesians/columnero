@@ -43,6 +43,7 @@ class NotapersonalController extends BaseController {
     }
 
     public function PostEditarNota($id) {
+        $PostDeleted = 56;
         $variables = array(
             'Titol' => Input::get('Titol'),
             'ListadoTags' => Input::get('ListadoTagsOculto'),
@@ -68,8 +69,10 @@ class NotapersonalController extends BaseController {
         PostCategorie::where('post_id', '=', $id)->delete();
         if ($optionradio == 0) {
             Post::where('usuari_id', '=', Auth::user()->id)->where('id', '=', $id)->update(array('comentari' => $textonota, 'titol' => $titol, 'privat' => 0));
+            
         } else {
             Post::where('usuari_id', '=', Auth::user()->id)->where('id', '=', $id)->update(array('comentari' => $textonota, 'titol' => $titol, 'privat' => 1));
+             Valoracions::where('post_id', '=', $id)->where('usuari_id','<>',Auth::user()->id)->update(array('post_id' => $PostDeleted));
         }
 
 
