@@ -84,13 +84,13 @@ $querycat = DB::table('categories')
 
                 <div class="radio">
                     <label>
-                        <input type="radio" id="optionsRadios" name="optionsRadios" value="1" <?php if ($querypost[0]->privat == 0) { ?> checked="checked"<?php } ?> >
+                        <input type="radio" id="optionsRadios" name="optionsRadios" value="0" <?php if ($querypost[0]->privat == 0) { ?> checked="checked"<?php } ?> >
                         Sí
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" id="optionsRadios" name="optionsRadios" value="0" <?php if ($querypost[0]->privat == 1) { ?> checked="checked"<?php } ?> >
+                        <input type="radio" id="optionsRadios" name="optionsRadios" value="1" <?php if ($querypost[0]->privat == 1) { ?> checked="checked"<?php } ?> >
                         No
                     </label>
                 </div>

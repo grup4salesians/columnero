@@ -19,7 +19,7 @@ $queryfavoritos = DB::table('valoracions')
     <div class="panel-footer autor" style="background-color: #F9F9F9;">
         <a href="<?php echo Config::get('constants.BaseUrl'); ?>public/usuari/{{ $nick }}">{{ $nick }}</a>
     </div>
-    <div class="panel-footer categories">
+    <div class="panel-footer categories" style="min-height:49px;">
         <?php if (count($queryfavoritos) == 0) { ?>
             {{$categories}} <a href="<?php echo Config::get('constants.BaseUrl'); ?>public/afegir/{{ $id }}" style="text-decoration:none;float:right;margin-right:5px;font-size:20px;color:#86D2B6;" title="Afegir a preferits" class="fa fa-star"></a>
 
