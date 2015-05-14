@@ -8,10 +8,47 @@ Home
 @stop
 @section('content')
 <div id="contingut_home">
+    <i id="show-columns" class="fa fa-plus fa-c1" data-toggle="modal" data-target="#myModal"></i>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Administrar Columnas</h4>
+          </div>
+          <div class="modal-body">
+            <?php 
+                $queryCategories = DB::table('categories')  
+                    ->join('categoriesusuaris', 'categories.id', '=', 'categoriesusuaris.categories_id')
+                    ->join('usuaris', 'categoriesusuaris.usuaris_id', '=', 'usuaris.id')
+                    ->where('usuaris.id', Auth::user()->id)
+                    ->whereNotNull('categoriesusuaris.mostrar')
+                    ->orderBy('categoriesusuaris.mostrar')
+                    ->select('categories.nom', 'categoriesusuaris.categories_id')
+                    ->get();
+
+                for ($j = 0; $j < count($queryCategories); $j++) {
+                    $categoria = $queryCategories[$j]->nom;
+                    $idCategoria = $queryCategories[$j]->categories_id;
+
+                    echo Form::checkbox('cbx-'.$idCategoria, $idCategoria);
+                    echo Form::label('cbx-'.$idCategoria, $categoria);
+                    echo '<br />';
+                }
+            ?>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="sortable" class="row row-horizon">
         <?php
         $nom = Auth::user()->getFullNameAttribute();
-        $queryCategories = DB::table('categories')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
+        $queryCategories = DB::table('categories')
                 ->join('categoriesusuaris', 'categories.id', '=', 'categoriesusuaris.categories_id')
                 ->join('usuaris', 'categoriesusuaris.usuaris_id', '=', 'usuaris.id')
                 ->where('usuaris.id', Auth::user()->id)
