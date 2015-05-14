@@ -27,13 +27,14 @@ class NovanotaController extends BaseController {
         $ListadoTags = Input::get('ListadoTagsOculto');
         $TextoNota = Input::get('TextoNota');
         $ID_Usuari = Auth::user()->id;
+        $Public = Input::get('optionsRadios');
         
         $PostNuevo = new Post();
         $PostNuevo->titol = $titol;
         $PostNuevo->comentari = $TextoNota;
         $PostNuevo->usuari_id = $ID_Usuari;
         $PostNuevo->data = date("Y-m-d H:i:s");
-        $PostNuevo->privat = 0;
+        $PostNuevo->privat = $Public;
         $PostNuevo->save();
         
         $idPost = $PostNuevo->id;

@@ -57,7 +57,7 @@ Nova nota
                 .on("mouseenter", function () {
                     var pos = $(this).offset();
                     var tooltip = $("#tooltip-" + $(this).data("event"));
-                    
+
                     $(tooltip).css({'top': pos.top + 30, 'left': (pos.left + ($(this).width() / 2)) - (tooltip.width() / 2) + 11});
                     $(tooltip).css("display", "block");
 
@@ -75,21 +75,24 @@ Nova nota
                 });
 
         $("button[data-event='highlight']").on("click", function () {
-            var num = $.now(); 
+            var num = $.now();
             $(".note-editable").append('<pre id="codeblock-' + num + '"><code></code></pre>');
 
             $('#codeblock-' + num + ' code').each(function (i, block) {
                 hljs.highlightBlock(block);
             });
-            
+
             $('#codeblock-' + num + ' code').append("Paste your code here");
         });
-        
+
         $("button[data-event='highlight-paint']").on("click", function () {
             $('pre code').each(function (i, block) {
                 block.className = "";
                 hljs.highlightBlock(block);
             });
+        });
+        $("button[data-event='highlight-finish']").on("click", function () {
+            $(".note-editable").append('<p id="tst">...</p>');
         });
 
         //highlight();
@@ -128,6 +131,11 @@ Nova nota
     .pads {
         padding-left: 10%;
         padding-right: 10%;
+        position: relative;
+    }
+    .pads > p {
+        margin: 0px;
+        position: relative;
     }
     .pads > input, .pads > div, .pads > textarea {
         width: 100%;
@@ -165,14 +173,37 @@ Nova nota
             <input id="Titol" name="Titol" type="text">
         </div>
         <div class="pads">
-            <p>Categories</p>
-            <!-- ngTagsInput -->
-            <div class="tagsinput" ng-app="myApp" ng-controller="MyCtrl">
-                <tags-input id="ListadoTags" Name="ListadoTags" ng-model="tags">
-                    <auto-complete  source="loadTags($query)"></auto-complete>
-                </tags-input>
-                <input type="hidden" id="ListadoTagsOculto" name="ListadoTagsOculto" /> 
+            <div style="width: 78%; float: left; position: relative;">
+                <p>Categories</p>
+                <!-- ngTagsInput -->
+                <div class="tagsinput" ng-app="myApp" ng-controller="MyCtrl">
+                    <tags-input id="ListadoTags" Name="ListadoTags" ng-model="tags">
+                        <auto-complete  source="loadTags($query)"></auto-complete>
+                    </tags-input>
+                    <input type="hidden" id="ListadoTagsOculto" name="ListadoTagsOculto" /> 
+                </div>
             </div>
+            <div style="width: 18%; float: right; position: relative;">
+                <p>Públic</p>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" value="1" checked>
+                        Sí
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" value="0">
+                        No
+                    </label>
+                </div>
+                
+<!--                <div>
+                    <input type="radio" name="group1" value="1">Sí<br>
+                    <input type="radio" name="group1" value="0" checked>No 
+                </div>-->
+            </div>
+            <div style="clear: both"></div>
         </div>
         <div class="pads">
             <p>Contingut</p>
