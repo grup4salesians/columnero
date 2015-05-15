@@ -170,7 +170,7 @@ Home
                 $(this).children('i').removeClass('rotate');
             else
                 $(this).children('i').addClass('rotate')
-            
+
 			switch(action) {
 				case 'ordenarTitulo':
 					ordenar($button, '.panel-title');
@@ -260,6 +260,7 @@ Home
                     }
                 });
                 url = 'categories/setpositions/' + categories;
+                console.log(url);
 
                 $.ajax({
                     url: url
