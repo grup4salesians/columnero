@@ -25,7 +25,7 @@ class FavoritosController extends BaseController {
 
         if (count($queryfavoritos) == 0) {
 
-            $Favoritonuevo = new Valoracions();
+            $Favoritonuevo = new valoracions();
             $Favoritonuevo->usuari_id = Auth::user()->id;
             $Favoritonuevo->post_id = $id;
             $Favoritonuevo->favorit = 1;
@@ -36,7 +36,7 @@ class FavoritosController extends BaseController {
     
     public function DeleteFavorito($id)
     {
-        Valoracions::where('post_id','=',$id)->where('usuari_id','=',Auth::user()->id)->delete();
+        valoracions::where('post_id','=',$id)->where('usuari_id','=',Auth::user()->id)->delete();
         return Redirect::to('publiques');
     }
     

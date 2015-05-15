@@ -38,13 +38,7 @@ Perfil
             @endforeach
         </div>
         @endif
-
-        <?php
-        if (!(empty(Input::get('mensaje')))) {
-            $mensaje = Input::get('mensaje')
-            ?>
-            <div class="alert alert-info"><?php echo $mensaje ?></div>
-        <?php } ?>   
+  
         {{ Form::open(array('url' => '/cambiarpass','method' => 'post')) }}
 
         <div id="PerfilUsuari_Dades">
