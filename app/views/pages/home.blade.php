@@ -180,6 +180,14 @@ Home
             url = 'categories/setvisible',
             ids = '',
             mostrar = '';
+            $('body').append('<div class="modal-backdrop" style="z-index: 99999; filter: alpha(opacity=50); opacity: .5; ">' +
+                                '<div class="form-group">' +
+                                    '<div class="col-md-12 text-center">' +
+                                        '<span style="top: 165px; color: #BAACAC; font-size: 65px;" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>');
+
 
             $categories.each(function(index) {
                 if (index === 0) {
@@ -199,6 +207,7 @@ Home
             }).done(function() {
                 //$( this ).addClass( "done" );
                 console.log(url);
+                location.reload();
             });
         })
         .on('click', '#myModal input[type="checkbox"]', function () {
