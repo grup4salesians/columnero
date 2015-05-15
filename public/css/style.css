@@ -464,6 +464,13 @@ html, body, #contingut_home > .row-horizon {
     font-size: 1.25em
 }
 
+/******** ARREGLO BOOTSRAP ******/
+.modal-backdrop {
+    bottom:0;
+}
+/******** FI ARREGLO BOOTSRAP ******/
+
+
 /***************** PACKERY --> PUBLIQUES  ***********************/
 .panel-body{
     white-space: normal;
