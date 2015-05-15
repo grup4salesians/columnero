@@ -166,6 +166,11 @@ Home
         	e.preventDefault();
         	var $button = $(this),
         		action = $(this).attr('id');
+            if ($(this).children('i').hasClass('rotate'))
+                $(this).children('i').removeClass('rotate');
+            else
+                $(this).children('i').addClass('rotate')
+            
 			switch(action) {
 				case 'ordenarTitulo':
 					ordenar($button, '.panel-title');

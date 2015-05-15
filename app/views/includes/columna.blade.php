@@ -7,7 +7,7 @@
 
         <div id="column-{{ $idCategoria }}" data-categoria-id="{{ $idCategoria }}" data-position class="panel-body">
         	@include('includes/columnHomeOptions')
-        	<ul class="list">
+        	<ul class="list" style="margin-top: 15px;">
             <?php
             //Select que coge todos las notas del usuario y el tag
 

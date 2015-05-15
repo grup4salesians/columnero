@@ -50,21 +50,27 @@ label[for^="chk-"] {
 #busqueda_home{
     min-width:400px;
     max-width:750px;
-    margin: auto;
+    margin: -0 -15px auto -15px;
     margin-bottom:15px;
-    border-top-left-radius: 5px;
-    border-top-right-radius:5px;
-    padding-top:1px;
+    border-top: solid 1px rgb(210, 98, 78);
+    background-color: rgb(216, 111, 93);
 }
 
 #ordenar_home{
-    width:80%;
-    margin:auto;
-    background-color: #FFF;
-    height:100px;
-    padding:5px;
-    border-radius:5px;
-    border: solid 1px rgb(152, 152, 152);
+    padding: 10px 15px;
+}
+
+.fa-c {
+    font-size: 1.4em;
+}
+.rotate {
+    -ms-transform: rotate(7deg); /* IE 9 */
+    -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+
+#busqueda_home button i {
+    /*transition: all .1s ease;*/
 }
 
 
@@ -125,6 +131,10 @@ html, body, #contingut_home > .row-horizon {
 }
 .fa.fa-1x {
     font-size: 1.25em
+}
+
+.panel-body {
+    padding: 0 15px !important;
 }
 
 .panel-body > ul {
@@ -251,41 +261,21 @@ body {
 /* =============================================================
    HOME
  ============================================================ */
-#contingut_home{
+#contingut_home {
     height:auto;
     //background-color: rgba(244, 228, 228, 0.34);
     margin: 0 auto;
 }
 
-   #capnota_home{
-                    width:60%;
-                    min-width:500px;
-                    height:auto;
-                    background-color: rgba(250, 210, 153, 0.56);
-                    margin:auto;
-                    text-align:center;
-                }
-
-#busqueda_home{
-    min-width:400px;
-    max-width:750px;
-    margin: auto;
-    margin-bottom:15px;
-    border-top-left-radius: 5px;
-    border-top-right-radius:5px;
-    padding-top:1px;
-}
-
-#ordenar_home{
-    width:80%;
+#capnota_home {
+    width:60%;
+    min-width:500px;
+    height:auto;
+    background-color: rgba(250, 210, 153, 0.56);
     margin:auto;
-    background-color: #FFF;
-    height:100px;
-    padding:5px;
-    border-radius:5px;
-    border: solid 1px rgb(152, 152, 152);
+    text-align:center;
 }
-#eliminarnota{
+#eliminarnota {
     height: 100px;
     text-align:center;
     padding:10px;
@@ -638,8 +628,6 @@ html, body, #contingut_home > .row-horizon {
 }
 @media screen and (max-width: 770px) {
     #ordenar_home{
-        width:90%;
-       height:130px;
     }
     #contingut_home{
         height:auto;
