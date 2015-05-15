@@ -4,26 +4,26 @@ class NotapersonalController extends BaseController {
 
     public function EliminarNota($id) {
         $PostDeleted = 56;
-        $idValoracionsPostBorrar = 0;
+        $idvaloracionsPostBorrar = 0;
 
         if ($id == $PostDeleted) {    //No se borra la de "ESTE POST HA SIDO BORRADO"
-            Valoracions::where('post_id', $PostDeleted)->where('usuari_id', Auth::user()->id)->delete();
+            valoracions::where('post_id', $PostDeleted)->where('usuari_id', Auth::user()->id)->delete();
         } else {
 
             PostCategorie::where('post_id', '=', $id)->delete(); //Borramos las relaciones del post con una o mas categorias
             //Hacemos un select para saber el idvaloracio que vamos a borrar
-            $query = Valoracions::where('post_id', '=', $id)->where('usuari_id', '=', Auth::user()->id)->select('id')->get();
+            $query = valoracions::where('post_id', '=', $id)->where('usuari_id', '=', Auth::user()->id)->select('id')->get();
 
             if (count($query) > 0) {   //Si el usuario que ha creado el propio post, se lo ha puesto como favorito
-                $idValoracionsPostBorrar = $query[0]->id;
+                $idvaloracionsPostBorrar = $query[0]->id;
             }
 
             //Actualizamos a los usuarios que tenían el post como favorito a el post de "este post a sido borrado"
-            Valoracions::where('post_id', '=', $id)->update(array('post_id' => $PostDeleted));
+            valoracions::where('post_id', '=', $id)->update(array('post_id' => $PostDeleted));
 
-            if ($idValoracionsPostBorrar > 0) {
+            if ($idvaloracionsPostBorrar > 0) {
                 //Borramos la valoracio del post que quería eliminar el usuario desde un principio
-                Valoracions::where('id', $idValoracionsPostBorrar)->delete();
+                valoracions::where('id', $idvaloracionsPostBorrar)->delete();
             }
             Post::where('id', '=', $id)->delete(); //Borramos el post
         }
@@ -72,7 +72,7 @@ class NotapersonalController extends BaseController {
             
         } else {
             Post::where('usuari_id', '=', Auth::user()->id)->where('id', '=', $id)->update(array('comentari' => $textonota, 'titol' => $titol, 'privat' => 1));
-             Valoracions::where('post_id', '=', $id)->where('usuari_id','<>',Auth::user()->id)->update(array('post_id' => $PostDeleted));
+             valoracions::where('post_id', '=', $id)->where('usuari_id','<>',Auth::user()->id)->update(array('post_id' => $PostDeleted));
         }
 
 
