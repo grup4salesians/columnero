@@ -175,7 +175,7 @@ Home
 					break;
 			}
         })
-        .on('click', '#myModal', function() {
+        .on('click', '#saveCategories', function() {
             var $categories = $('#myModal input[type="checkbox"]'),
             url = 'categories/setvisible',
             ids = '',
@@ -200,9 +200,20 @@ Home
                 //$( this ).addClass( "done" );
                 console.log(url);
             });
+        })
+        .on('click', '#myModal input[type="checkbox"]', function () {
+            //console.log($(this));
+            if ($(this).is(':checked')) {
+                if ($(this).attr('data-show') != 'null')
+                    $(this).data('show', $(this).attr('data-show'));
+                else
+                    $(this).data('show', 99999999999);
+            } else {
+                $(this).data('show', 'null');
+            }
         });
 
-        var $columnas = $('div[id^=column-]');
+        var $columnas = $('div[id^="column-"]');
         $columnas.each(function(index) {
             //console.log($(this).find('input[class^=search-]').attr('class'));
             //console.log($(this).attr('id'));
