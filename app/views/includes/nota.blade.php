@@ -33,8 +33,6 @@ $queryfavoritos = DB::table('valoracions')
         <?php } else { ?>
             {{$categories}} <div data-id="{{$id}}" title="Treure de preferits" class="favorito NotaFavorito fa fa-star"></div><i style="display:none;color:black;float:right;" class="paco fa fa-spinner fa-pulse fa-fw"></i>
 
-            <div data-id="{{$id}}" title="Afegir a preferits" class="favorito NotaNoFavorito"><i class="fa fa-star"></i></div>
-
         <?php } ?>
     </div>
 </div>
