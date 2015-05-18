@@ -23,7 +23,7 @@ $queryvaloracions = DB::table('posts')
         ->where('valoracions.usuari_id', '=', Auth::user()->id)
         ->where('valoracions.favorit', '=', 1)
         ->select('posts.id', 'posts.titol', 'posts.comentari', 'posts.usuari_id', 'posts.data', 'usuaris.nick', 'posts.data')
-        ->get();
+        ->paginate(9);
 
 if (count($queryvaloracions) == 0) {
     ?>
@@ -77,7 +77,7 @@ if (count($queryvaloracions) == 0) {
                                 ->join('usuaris', 'posts.usuari_id', '=', 'usuaris.id')
                                 ->where('posts.id', $queryfiltro[0]->id)
                                 ->select('usuaris.nick')
-                                ->get();
+                                ->paginate(9);
 
                         $titolNota = $queryfiltro[$i]->titol;
                         $comentariNota = $queryfiltro[$i]->comentari;
@@ -90,7 +90,7 @@ if (count($queryvaloracions) == 0) {
                                 ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
                                 ->where('posts.id', $queryfiltro[$i]->id)
                                 ->select('categories.nom')
-                                ->get();
+                                 ->paginate(9);
 
                         $categories = "";
                         for ($j = 0; $j < count($queryCategories); $j++) {
@@ -105,14 +105,17 @@ if (count($queryvaloracions) == 0) {
                     }
                     ?>
                 </div>
-                <?php
-                echo $queryfiltro->links();
+
+                <div style="width:100%;display:inline-block;text-align:center;padding-bottom:10px;">
+                    <?php echo $queryfiltro->links(); ?>
+                </div>
+            <?php
             }
         } else {
             ?>
             <div class="js-packery" data-packery-options='{"rowHeight":60 ,"itemSelector": ".item", "percentPosition": true }'>
                 <div class="grid-sizer"></div>
-                <?php     
+                <?php
                 for ($i = 0; $i < count($queryvaloracions); $i++) {
 
                     $macuco = DB::table('posts')
@@ -132,10 +135,10 @@ if (count($queryvaloracions) == 0) {
                             ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
                             ->join('valoracions', 'posts.id', '=', 'valoracions.post_id')
                             ->where('posts.id', $queryvaloracions[$i]->id)
-                            ->where('valoracions.usuari_id',Auth::user()->id)
+                            ->where('valoracions.usuari_id', Auth::user()->id)
                             ->where('valoracions.favorit', '=', 1)
                             ->select('categories.nom')
-                            ->paginate(10);
+                            ->get();
                     $categories = "";
                     for ($j = 0; $j < count($queryCategories); $j++) {
                         $categories = $categories . ", " . $queryCategories[$j]->nom;
@@ -149,8 +152,11 @@ if (count($queryvaloracions) == 0) {
                 }
                 ?>
             </div>
-            <?php
-            echo $queryCategories->links();
+
+            <div style="width:100%;display:block;text-align:center;padding-bottom:10px;margin-bottom:20px;">
+            <?php echo $queryvaloracions->links(); ?>
+            </div>
+        <?php
         }
     }
     ?>

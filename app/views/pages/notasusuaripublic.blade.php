@@ -68,7 +68,7 @@ Notas publiques
                 }
                 ?>
             </div>
-            <div style="width:100%;float:left;display:inline-block;">
+             <div style="width:100%;display:inline-block;text-align:center;padding-bottom:10px;">
                 <?php echo $query->links(); ?>
             </div>
         <?php }
