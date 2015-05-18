@@ -11,6 +11,7 @@ $queryfavoritos = DB::table('valoracions')
             {{ $titolNota }}
         </h4>
         <?php if($nick == Auth::user()->nick){ ?>
+        <a style="float:right;margin-right:10px;font-size:20px;cursor:pointer;" data-toggle="modal" data-target="#{{$idModal}}" title="eliminar"><i class="fa fa-trash"></i></a>
             <a style="float:right;margin-right:10px;font-size:20px;position:absolute;right: 0;top: 9px;" title="editar" href="<?php Config::get('constants.BaseUrl');?>editarnota/{{$id}}"><i class="fa fa-pencil-square-o" ></i></a>
 
         <?php }?>
@@ -34,4 +35,17 @@ $queryfavoritos = DB::table('valoracions')
 
         <?php } ?>
     </div>
+</div>
+
+
+<div id="{{$idModal}}" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div id="eliminarnota">
+            <label>Estás segur que vols eliminar aquesta nota? </label>
+      <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+      <a href="<?php Config::get('constants.BaseUrl');?>eliminarnota/{{$idnota}}"><button type="button" class="btn btn-danger">Si</button></a>
+      </div>
+    </div>
+  </div>
 </div>
