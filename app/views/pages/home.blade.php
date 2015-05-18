@@ -51,7 +51,7 @@ Home
                                 //echo "<script>console.log($iColumn);</script>";
                                 echo Form::checkbox('chk-' . $idCategoria, $idCategoria, $visibleNow, array('id' => 'chk-' . $idCategoria, 'data-id' => $idCategoria, 'data-show' => $mostrar));
                                 echo Form::label('chk-' . $idCategoria, $categoria);
-                                echo '<span class="countNotas"></span>';
+                                echo '<span style="margin-left: 6px;" class="count" data-idcol="' . $idCategoria .'""></span>';
                                 echo '<br />';
                                 //echo "<script>console.log('Imprimo $iColumn');</script>";
                                 //echo "<script>console.log('incremento $iColumn <= $dataInColumn');</script>";
@@ -61,7 +61,7 @@ Home
                                 echo '<div class="col-sm-4 col-xs-12 style="float: left;">';
                                 echo Form::checkbox('chk-' . $idCategoria, $idCategoria, $visibleNow, array('id' => 'chk-' . $idCategoria, 'data-id' => $idCategoria, 'data-show' => $mostrar));
                                 echo Form::label('chk-' . $idCategoria, $categoria);
-                                echo '<span class="countNotas"></span>';
+                                echo '<span style="margin-left: 6px;" class="count" data-idcol="' . $idCategoria .'""></span>';
                                 echo '<br />';
                                 $iColumn = 2;
                                 //echo "<script>console.log('cierro, abro div y sigue');</script>";
@@ -73,7 +73,7 @@ Home
                                 //echo "<script>console.log($iColumn);</script>";
                                 echo Form::checkbox('chk-' . $idCategoria, $idCategoria, $visibleNow, array('id' => 'chk-' . $idCategoria, 'data-id' => $idCategoria, 'data-show' => $mostrar));
                                 echo Form::label('chk-' . $idCategoria, $categoria);
-                                echo '<span class="countNotas"></span>';
+                                echo '<span style="margin-left: 6px;" class="count" data-idcol="' . $idCategoria .'""></span>';
                                 echo '<br />';
                                 //echo "<script>console.log('Imprimo $iColumn');</script>";
                                 //echo "<script>console.log('incremento $iColumn <= $dataInColumn');</script>";
@@ -83,7 +83,7 @@ Home
                                 echo '<div class="col-sm-4 col-xs-12 style="float: left;">';
                                 echo Form::checkbox('chk-' . $idCategoria, $idCategoria, $visibleNow, array('id' => 'chk-' . $idCategoria, 'data-id' => $idCategoria, 'data-show' => $mostrar));
                                 echo Form::label('chk-' . $idCategoria, $categoria);
-                                echo '<span class="countNotas"></span>';
+                                echo '<span style="margin-left: 6px;" class="count" data-idcol="' . $idCategoria .'""></span>';
                                 echo '<br />';
                                 $iColumn = 2;
                                 //echo "<script>console.log('cierro, abro div y sigue');</script>";
@@ -179,6 +179,11 @@ Home
         $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
         $(window).on('resize', function () {
             $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
+        });
+
+        $('.countNotas').each(function(){
+            var idcol = $(this).data('idcol');
+            $('.count[data-idcol="'+idcol+'"').append('(' + $(this).data('count') + ')');
         });
 
         $(document).on('click', '.show-ordenar_home', function () {
