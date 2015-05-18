@@ -5,12 +5,12 @@
 <script>
     angular.module('myApp', ['ngTagsInput'])
             .controller('MyCtrl', function ($scope, $http) {
-//        $scope.tags = [
-//            {text: 'just'},
-//            {text: 'some'},
-//            {text: 'cool'},
-//            {text: 'tags'}
-//        ];
+                $(document).on('click', '#newNotaBtn', function() {
+                    categoria = $(this).data('cat-tag');
+                    alert(categoria);
+                $scope.tags = [{text: categoria}];
+                    $scope.tags.push({text: categoria});
+                });
                 $scope.loadTags = function (query) {
                     return $http.get('getCategories/' + query);
                 };

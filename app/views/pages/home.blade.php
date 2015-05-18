@@ -175,6 +175,7 @@ Home
 </div>
 
 <script>
+    var categoria;
     $(function () {
         $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
         $(window).on('resize', function () {
@@ -270,6 +271,13 @@ Home
                 $(this).prop('checked', false);
                 $(this).data('show', 'null');
             });
+        })
+        .on('click', '#newNotaBtn', function() {
+            categoria = $(this).data('cat-tag');
+            angular.module('myApp', ['ngTagsInput'])
+            .controller('MyCtrl', function ($scope, $http) {
+                $scope.tags.push({text: categoria});
+            }); 
         });
 
         var $columnas = $('div[id^="column-"]');
