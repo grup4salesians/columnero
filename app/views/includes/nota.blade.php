@@ -10,7 +10,11 @@ $queryfavoritos = DB::table('valoracions')
         <h4 class="panel-title">
             {{ $titolNota }}
         </h4>
-            <a style="float:right;margin-right:10px;font-size:20px;position:absolute;right: 0;top: 9px;" title="editar" class="fa fa-pencil-square-o" href="<?php Config::get('constants.BaseUrl');?>editarnota/{{$id}}"></a>
+        <?php if($nick == Auth::user()->nick){ ?>
+                        <a style="float:right;margin-right:10px;font-size:20px;position:absolute;right: 0;top: 9px;" title="editar" class="fa fa-pencil-square-o" href="<?php Config::get('constants.BaseUrl');?>editarnota/{{$id}}"></a>
+
+        <?php }?>
+
     </div>
     <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
         <div class="panel-body">
