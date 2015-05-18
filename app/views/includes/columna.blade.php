@@ -42,7 +42,9 @@
                 $nick = $query[$i]->nick;
                 $data = $query[$i]->data;
                 $id = $query[$i]->id;
-                        
+                $idModal = "Modal_".$i;    
+                $idnota = $id;
+                
                 $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
                         ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
                         ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
