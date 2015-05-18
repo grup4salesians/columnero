@@ -470,7 +470,24 @@ html, body, #contingut_home > .row-horizon {
 }
 /******** FI ARREGLO BOOTSRAP ******/
 
+/*********** FAVORITO **********/
 
+.NotaFavorito,.NotaNoFavorito{
+    text-decoration:none;
+    float:right;
+    margin-right:5px;
+    font-size:20px;
+    cursor: pointer;
+}
+
+.NotaFavorito{
+    color: gold;
+}
+
+.NotaNoFavorito{
+    color:#86D2B6;
+}
+/************ FI FAVORITO ************/
 /***************** PACKERY --> PUBLIQUES  ***********************/
 .panel-body{
     white-space: normal;
