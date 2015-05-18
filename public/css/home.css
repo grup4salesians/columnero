@@ -593,6 +593,13 @@ html, body, #contingut_home > .row-horizon {
     height: 50px;
 }
 
+.panel-footer.autor {
+    padding: 0 15px;
+}
+.panel-body {
+    min-height: 60px;
+}
+
 /*********** FAVORITO **********/
 
 .NotaFavorito,.NotaNoFavorito{
