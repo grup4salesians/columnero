@@ -24,8 +24,9 @@ $querycat = DB::table('categories')
             .controller('MyCtrl', function ($scope, $http) {
                 var Categories = <?php echo(json_encode($querycat)); ?>;
                 $scope.tags = Categories;
+                var ruta = "<?php echo asset('getCategories/'); ?>"
                 $scope.loadTags = function (query) {
-                    return $http.get('getCategories/' + query);
+                    return $http.get(ruta + "/" + query);
                 };
             });
 </script>

@@ -84,13 +84,15 @@ if (count($queryvaloracions) == 0) {
                         $nick = $macuco[0]->nick;
                         $id = $queryfiltro[$i]->id;
                         $data = $queryfiltro[$i]->data;
+                        $idModal = "Modal_" . $i;
+                        $idnota = $id;
 
                         $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
                                 ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
                                 ->join('categories', 'postscategories.categoria_id', '=', 'categories.id')
                                 ->where('posts.id', $queryfiltro[$i]->id)
                                 ->select('categories.nom')
-                                 ->paginate(9);
+                                ->paginate(9);
 
                         $categories = "";
                         for ($j = 0; $j < count($queryCategories); $j++) {
@@ -109,7 +111,7 @@ if (count($queryvaloracions) == 0) {
                 <div style="width:100%;display:inline-block;text-align:center;padding-bottom:10px;">
                     <?php echo $queryfiltro->links(); ?>
                 </div>
-            <?php
+                <?php
             }
         } else {
             ?>
@@ -129,6 +131,8 @@ if (count($queryvaloracions) == 0) {
                     $nick = $macuco[0]->nick;
                     $id = $queryvaloracions[$i]->id;
                     $data = $queryvaloracions[$i]->data;
+                    $idModal = "Modal_" . $i;
+                    $idnota = $id;
 
                     $queryCategories = DB::table('posts')   //Select que coge todos los tags de esa nota, porque una nota puede estar compuesta por mas de un tag
                             ->join('postscategories', 'posts.id', '=', 'postscategories.post_id')
@@ -154,9 +158,9 @@ if (count($queryvaloracions) == 0) {
             </div>
 
             <div style="width:100%;display:block;text-align:center;padding-bottom:10px;margin-bottom:20px;">
-            <?php echo $queryvaloracions->links(); ?>
+                <?php echo $queryvaloracions->links(); ?>
             </div>
-        <?php
+            <?php
         }
     }
     ?>
