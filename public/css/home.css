@@ -124,10 +124,23 @@ html, body, #contingut_home > .row-horizon {
 #show-ordenar_home {
     float: right;
     color: #545454;
-    
+    margin-top: 7px;
+    transition: all .2s ease;
 }
 #show-ordenar_home:hover {
     cursor: pointer;
+    color: #FFF7F7;
+}
+#newNotaBtn{
+    float: right;
+    color: #545454;
+    margin-right: 15px;
+    margin-top: 7px;
+    transition: all .2s ease;
+}
+#newNotaBtn:hover{
+    cursor: pointer;
+    color: #FFF7F7;
 }
 .fa.fa-1x {
     font-size: 1.25em
@@ -599,6 +612,7 @@ html, body, #contingut_home > .row-horizon {
 .panel-body {
     min-height: 60px;
 }
+
 
 /*********** FAVORITO **********/
 

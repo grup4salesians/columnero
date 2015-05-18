@@ -1,7 +1,8 @@
 <div class="col-xs-12 col-sm-6 col-md-4 selector">
     <div class="panel columna panel-primary" data-column-id="{{ $idCategoria }}">
         <div class="panel-heading">
-            <i id="show-ordenar_home" class="fa fa-cog fa-1x show-ordenar_home"  data-column-id="{{ $idCategoria }}"></i>
+            <i title="Filtres" id="show-ordenar_home" class="fa fa-cog fa-1x show-ordenar_home"  data-column-id="{{ $idCategoria }}"></i>
+        	<i title="Nova nota" id="newNotaBtn" class="fa fa-plus fa-1x" data-toggle="modal" data-target="#modalNewNota"></i>
             {{ $categoria }}
         </div>
 
