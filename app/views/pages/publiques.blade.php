@@ -134,9 +134,33 @@ Home
 </div>
 <script>
 $(function () {
-    $('#show-ordenar_home').on('click', function () {
-        $('#busqueda_home').stop().slideToggle();
+    $(".favorito").click(function () {
+        var url="",PonerQuitar=0;
+        var ItemSelected = $(this);
+        if($(this).hasClass("NotaNoFavorito")){
+            url = "afegir/" + ItemSelected.data("id");
+            PonerQuitar = 1;
+        }
+        else{
+            url = "treure/" + ItemSelected.data("id");
+         }
+        
+        $.ajax({
+            url: url
+        }).success(function () {
+            PonerQuitarColorFavorito(PonerQuitar,ItemSelected);
+        });
     });
+
+    function PonerQuitarColorFavorito(PonerQuitar,Item){
+        if (PonerQuitar){
+            Item.removeClass("NotaNoFavorito").addClass("NotaFavorito"); 
+        }
+        else{
+            Item.removeClass("NotaFavorito").addClass("NotaNoFavorito"); 
+        }
+        
+    }
 });
 </script>
 @stop
