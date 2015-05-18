@@ -11,7 +11,7 @@ $queryfavoritos = DB::table('valoracions')
             {{ $titolNota }}
         </h4>
         <?php if($nick == Auth::user()->nick){ ?>
-        <a style="float:right;margin-right:10px;font-size:20px;cursor:pointer;" data-toggle="modal" data-target="#{{$idModal}}" title="eliminar"><i class="fa fa-trash"></i></a>
+            <a style="float:right;margin-right:10px;font-size:20px;position:absolute;right: 30px;top: 7px;" data-toggle="modal" data-target="#{{$idModal}}" title="eliminar"><i class="fa fa-trash"></i></a>
             <a style="float:right;margin-right:10px;font-size:20px;position:absolute;right: 0;top: 9px;" title="editar" href="<?php Config::get('constants.BaseUrl');?>editarnota/{{$id}}"><i class="fa fa-pencil-square-o" ></i></a>
 
         <?php }?>
