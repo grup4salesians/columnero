@@ -92,6 +92,9 @@ Home
                     ?>
                 </div>
                 <div class="modal-footer">
+                    <button id="marcarTot" type="button" class="btn btn-default" style="float:left;">Marcar tot</button>
+                    <button id="desmarcarTot" type="button" class="btn btn-default" style="float:left;">Desmarcar tot</button>
+
                     <button type="button" class="btn btn-default" data-dismiss="modal">Tancar</button>
                     <button id="saveCategories" type="button" class="btn btn-primary">Guardar canvis</button>
                 </div>
@@ -162,70 +165,85 @@ Home
             //console.log(search);
             $(search).stop().slideToggle();
         })
-                .on('click', "#busqueda_home button", function sortTitle(e) {
-                    e.preventDefault();
-                    var $button = $(this),
-                            action = $(this).attr('id');
-                    if ($(this).children('i').hasClass('rotate'))
-                        $(this).children('i').removeClass('rotate');
-                    else
-                        $(this).children('i').addClass('rotate')
+        .on('click', "#busqueda_home button", function sortTitle(e) {
+            e.preventDefault();
+            var $button = $(this),
+                    action = $(this).attr('id');
+            if ($(this).children('i').hasClass('rotate'))
+                $(this).children('i').removeClass('rotate');
+            else
+                $(this).children('i').addClass('rotate')
 
-                    switch (action) {
-                        case 'ordenarTitulo':
-                            ordenar($button, '.panel-title');
-                            break;
-                        case 'ordenarFecha':
-                            ordenar($button, '.panel-title', 'date');
-                            break;
-                    }
-                })
-                .on('click', '#saveCategories', function () {
-                    var $categories = $('#myModal input[type="checkbox"]'),
-                            url = 'categories/setvisible',
-                            ids = '',
-                            mostrar = '';
-                    $('body').append('<div class="modal-backdrop" style="z-index: 99999; filter: alpha(opacity=50); opacity: .5; ">' +
-                            '<div class="form-group">' +
-                            '<div class="col-md-12 text-center">' +
-                            '<span style="top: 165px; color: #BAACAC; font-size: 65px;" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>' +
-                            '</div>' +
-                            '</div>' +
-                            '</div>');
+            switch (action) {
+                case 'ordenarTitulo':
+                    ordenar($button, '.panel-title');
+                    break;
+                case 'ordenarFecha':
+                    ordenar($button, '.panel-title', 'date');
+                    break;
+            }
+        })
+        .on('click', '#saveCategories', function () {
+            var $categories = $('#myModal input[type="checkbox"]'),
+                    url = 'categories/setvisible',
+                    ids = '',
+                    mostrar = '';
+            $('body').append('<div class="modal-backdrop" style="z-index: 99999; filter: alpha(opacity=50); opacity: .5; ">' +
+                    '<div class="form-group">' +
+                    '<div class="col-md-12 text-center">' +
+                    '<span style="top: 165px; color: #BAACAC; font-size: 65px;" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>');
 
 
-                    $categories.each(function (index) {
-                        if (index === 0) {
-                            ids = $(this).data('id');
-                            mostrar = $(this).data('show');
-                        } else {
-                            ids += '|' + $(this).data('id');
-                            mostrar += '|' + $(this).data('show');
-                        }
-                        console.log(ids + ' ' + mostrar);
-                    });
-                    url = url + '/' + ids + '/' + mostrar;
+            $categories.each(function (index) {
+                if (index === 0) {
+                    ids = $(this).data('id');
+                    mostrar = $(this).data('show');
+                } else {
+                    ids += '|' + $(this).data('id');
+                    mostrar += '|' + $(this).data('show');
+                }
+                console.log(ids + ' ' + mostrar);
+            });
+            url = url + '/' + ids + '/' + mostrar;
 
-                    $.ajax({
-                        url: url
-                                //context: document.body
-                    }).done(function () {
-                        //$( this ).addClass( "done" );
-                        console.log(url);
-                        location.reload();
-                    });
-                })
-                .on('click', '#myModal input[type="checkbox"]', function () {
-                    //console.log($(this));
-                    if ($(this).is(':checked')) {
-                        if ($(this).attr('data-show') != 'null')
-                            $(this).data('show', $(this).attr('data-show'));
-                        else
-                            $(this).data('show', 99999999999);
-                    } else {
-                        $(this).data('show', 'null');
-                    }
-                });
+            $.ajax({
+                url: url
+                        //context: document.body
+            }).done(function () {
+                //$( this ).addClass( "done" );
+                console.log(url);
+                location.reload();
+            });
+        })
+        .on('click', '#myModal input[type="checkbox"]', function () {
+            //console.log($(this));
+            if ($(this).is(':checked')) {
+                if ($(this).attr('data-show') != 'null')
+                    $(this).data('show', $(this).attr('data-show'));
+                else
+                    $(this).data('show', 99999999999);
+            } else {
+                $(this).data('show', 'null');
+            }
+        })
+        .on('click', '#marcarTot', function() {
+            $('#myModal input[type="checkbox"]').each(function() {
+                $(this).prop('checked', true);
+                if ($(this).attr('data-show') != 'null')
+                    $(this).data('show', $(this).attr('data-show'));
+                else
+                    $(this).data('show', 99999999999);
+            });
+        })
+        .on('click', '#desmarcarTot', function() {
+            $('#myModal input[type="checkbox"]').each(function() { 
+                $(this).prop('checked', false);
+                $(this).data('show', 'null');
+            });
+        });
 
         var $columnas = $('div[id^="column-"]');
         $columnas.each(function (index) {
