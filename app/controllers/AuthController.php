@@ -50,6 +50,6 @@ class AuthController extends BaseController {
     public function logOut()
     {
         Auth::logout();
-        return Redirect::to('login')->with('mensaje_error', 'Tu sesión ha sido cerrada.');
+        return Redirect::to('login')->with('mensaje_error', "S'ha tancat la teva sessió.");
     }
 }
