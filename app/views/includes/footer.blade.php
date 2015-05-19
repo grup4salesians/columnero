@@ -31,6 +31,8 @@ $(function () {
         }).success(function () {
             cargando.css('display','none');
             PonerQuitarColorFavorito(PonerQuitar,ItemSelected);
+            ItemSelected.parent().parent().parent().hide();
+            $(".js-packery").packery().packery();
         });
     });
 
