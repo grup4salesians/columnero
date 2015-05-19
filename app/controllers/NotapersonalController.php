@@ -3,7 +3,7 @@
 class NotapersonalController extends BaseController {
 
     public function EliminarNota($id) {
-        $PostDeleted = 56;
+        $PostDeleted = Config::get('confignotas.idNotaDeleted');
         $idvaloracionsPostBorrar = 0;
 
         if ($id == $PostDeleted) {    //No se borra la de "ESTE POST HA SIDO BORRADO"
