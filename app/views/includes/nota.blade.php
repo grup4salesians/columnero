@@ -28,11 +28,10 @@ $queryfavoritos = DB::table('valoracions')
     <div class="panel-footer" style="min-height:49px;">
         <div class="categories" style="float: left;">{{$categories}}</div>
         <?php if (count($queryfavoritos) == 0) { ?>
-
-            {{$categories}} <div data-id="{{$id}}" title="Afegir a preferits" class="favorito NotaNoFavorito fa fa-star"></div><i style="display:none;color:black;float:right;" class="paco fa fa-spinner fa-pulse fa-fw"></i>
+            <div data-id="{{$id}}" title="Afegir a preferits" class="favorito NotaNoFavorito fa fa-star"></div><i style="display:none;color:black;float:right;" class="paco fa fa-spinner fa-pulse fa-fw"></i>
 
         <?php } else { ?>
-            {{$categories}} <div data-id="{{$id}}" title="Treure de preferits" class="favorito NotaFavorito fa fa-star"></div><i style="display:none;color:black;float:right;" class="paco fa fa-spinner fa-pulse fa-fw"></i>
+            <div data-id="{{$id}}" title="Treure de preferits" class="favorito NotaFavorito fa fa-star"></div><i style="display:none;color:black;float:right;" class="paco fa fa-spinner fa-pulse fa-fw"></i>
 
         <?php } ?>
     </div>

@@ -5,15 +5,20 @@
 <script>
     angular.module('myApp', ['ngTagsInput'])
             .controller('MyCtrl', function ($scope, $http) {
+                //$scope.tags = [{text: categoria}];
                 $(document).on('click', '#newNotaBtn', function() {
                     categoria = $(this).data('cat-tag');
-                    alert(categoria);
-                $scope.tags = [{text: categoria}];
-                    $scope.tags.push({text: categoria});
+                    $scope.tags = [{text: categoria}];
+                    $('div.tags').click();
+                    setTimeout(function() {
+                        $('#Titol').focus();
+
+                    }, 500);
                 });
                 $scope.loadTags = function (query) {
                     return $http.get('getCategories/' + query);
                 };
+
             });
 </script>
 <!-- ----------- -->
