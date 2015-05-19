@@ -152,6 +152,10 @@ Nova nota
     #tooltip-highlight, #tooltip-highlight-paint {
         transition: opacity 0.2s ease-in-out;
     }
+    tags-input .host {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 </style>
 <div id="contingut_home" class="contingut_home">
     <div class="contingut">
@@ -174,7 +178,7 @@ Nova nota
         </div>
         <div class="pads">
             <div style="width: 78%; float: left; position: relative;">
-                <p>Categories</p>
+                <p style="margin: 0px;">Categories</p>
                 <!-- ngTagsInput -->
                 <div class="tagsinput" ng-app="myApp" ng-controller="MyCtrl">
                     <tags-input id="ListadoTags" Name="ListadoTags" ng-model="tags">
@@ -184,16 +188,16 @@ Nova nota
                 </div>
             </div>
             <div style="width: 18%; float: right; position: relative;">
-                <p>Públic</p>
+                <p style="margin: 0px;">Públic</p>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="optionsRadios" value="1" checked>
+                        {{ Form::radio('optionsRadios', 0, true, ['style' => 'margin-top: 8px;']) }}
                         Sí
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="optionsRadios" value="0">
+                        {{ Form::radio('optionsRadios', 1, false, ['class' => 'margin-top: 8px;']) }}
                         No
                     </label>
                 </div>

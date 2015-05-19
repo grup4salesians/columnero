@@ -36,8 +36,8 @@
                     <div class="col-md-12">
                         <div class="navbar-collapse collapse ">
                             <ul id="menu-top" class="nav navbar-nav navbar-right">
-                                <li><a id="novanota" href="registro">Registrarse</a></li>
-                                <li><a href="login">Login</a></li>
+                                <li><a id="novanota" href="registro">Registrar-se</a></li>
+                                <li><a href="login">Iniciar sessió</a></li>
                             </ul>
                         </div>
                     </div>
