@@ -43,7 +43,7 @@
                 $nick = $query[$i]->nick;
                 $data = $query[$i]->data;
                 $id = $query[$i]->id;
-                $idModal = "Modal_".$i;    
+                $idModal = "Modal_".$id;    
                 $idnota = $id;
 
                 
