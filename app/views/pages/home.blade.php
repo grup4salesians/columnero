@@ -238,12 +238,15 @@ Home
             url = url + '/' + ids + '/' + mostrar;
 
             $.ajax({
-                url: url
+                url: url,
+                error: function() {
+                    location.reload();
+                },
+                success: function() {
+                    //console.log(url);
+                    location.reload();
+                }
                         //context: document.body
-            }).done(function () {
-                //$( this ).addClass( "done" );
-                console.log(url);
-                location.reload();
             });
         })
         .on('click', '#myModal input[type="checkbox"]', function () {
