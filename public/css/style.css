@@ -467,6 +467,7 @@ html, body, #contingut_home > .row-horizon {
 /******** ARREGLO BOOTSRAP ******/
 .modal-backdrop {
     bottom:0;
+    position:fixed!important;
 }
 /******** FI ARREGLO BOOTSRAP ******/
 

@@ -42,7 +42,7 @@ $queryfavoritos = DB::table('valoracions')
   <div class="modal-dialog modal-sm" style="width: 374px!important;">
     <div class="modal-content">
         <div id="eliminarnota">
-            <label>Estás segur que vols eliminar aquesta nota? </label>
+            <label>Estás segur que vols eliminar aquesta nota? </label><br>
       <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
       <a href="<?php Config::get('constants.BaseUrl');?>eliminarnota/{{$idnota}}"><button type="button" class="btn btn-danger">Si</button></a>
       </div>
