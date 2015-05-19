@@ -40,7 +40,7 @@ $queryfavoritos = DB::table('valoracions')
 
 
 <div id="{{$idModal}}" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
+  <div class="modal-dialog modal-sm" style="width: 374px!important;">
     <div class="modal-content">
         <div id="eliminarnota">
             <label>Estás segur que vols eliminar aquesta nota? </label>
