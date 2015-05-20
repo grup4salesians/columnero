@@ -184,7 +184,7 @@ Home
 
         $('.countNotas').each(function(){
             var idcol = $(this).data('idcol');
-            $('.count[data-idcol="'+idcol+'"').append('(' + $(this).data('count') + ')');
+            $('.count[data-idcol="'+idcol+'"]').append('(' + $(this).data('count') + ')');
         });
 
         $(document).on('click', '.show-ordenar_home', function () {
