@@ -177,6 +177,7 @@ Home
 <script>
     var categoria;
     $(function () {
+        $('#index').css('background-color', '#F0677C!important');
         $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
         $(window).on('resize', function () {
             $('#contingut_home').height($(window).height() - $('.header').height() - $('.footer').height());
