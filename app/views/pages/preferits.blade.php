@@ -37,7 +37,7 @@ if (count($queryvaloracions) == 0) {
     <div class="col-md-4 col-sm-8 col-xs-12" style="padding-top: 16%;">
         <div class="dashboard-div-wrapper bk-clr-two">
             <i class="fa fa-star" style="font-size:30px;"></i>
-            <h5 class="linkAlert">No tens cap favorit!</h5>
+            <h5 class="linkAlert">Encara no tens cap preferit!</h5>
         </div>
     </div>
     <div class="col-md-4 col-sm-2 col-xs-0">
