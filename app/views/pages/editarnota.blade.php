@@ -115,9 +115,10 @@ $querycat = DB::table('categories')
             $("#BtnSubmitEditarNota").click(function () {
                 var textoFinal = "";
                 $("#ListadoTags").find("span").each(function () {
-                    textoFinal = textoFinal + "|" + $(this).text();
-                });
-                textoFinal = textoFinal.substr(1);
+                if ($(this).text() !== "Add a tag") {
+                    textoFinal = textoFinal + $(this).text() + "|";
+                }
+            });
                 $("#ListadoTagsOculto").val(textoFinal);
             });
         });

@@ -55,9 +55,11 @@
         $("button[data-event='highlight'], button[data-event='highlight-paint'], button[data-event='highlight-finish']")
                 .on("mouseenter", function () {
                     var pos = $(this).offset();
+            
                     var tooltip = $("#tooltip-" + $(this).data("event"));
 
-                    $(tooltip).css({'top': pos.top + 30, 'left': (pos.left + ($(this).width() / 2)) - (tooltip.width() / 2) + 11});
+                    //$(tooltip).css({'top': pos.top + 30, 'left': (pos.left + ($(this).width() / 2)) - (tooltip.width() / 2) + 11});
+                    $(tooltip).css({'top': pos.top - 56, 'left': pos.left - ($(window).width() * .16) });
                     $(tooltip).css("display", "block");
 
                     setTimeout(function () {
@@ -123,9 +125,7 @@
     });
 </script>
 <!-- --------------------- -->
-<div class="tooltip fade bottom in" role="tooltip" id="tooltip-highlight" style="opacity: 0; display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Start Code Block</div></div>
-<div class="tooltip fade bottom in" role="tooltip" id="tooltip-highlight-paint" style="opacity: 0; display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Format Code</div></div>
-<div class="tooltip fade bottom in" role="tooltip" id="tooltip-highlight-finish" style="opacity: 0; display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Confirm Code Block</div></div>
+
 <style>
     .pads {
         padding-left: 10%;
@@ -153,6 +153,9 @@
     }
 </style>
 <div id="contingut_home" class="contingut_home">
+    <div class="tooltip fade bottom in" role="tooltip" id="tooltip-highlight" style="opacity: 0; display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Start Code Block</div></div>
+    <div class="tooltip fade bottom in" role="tooltip" id="tooltip-highlight-paint" style="opacity: 0; display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Format Code</div></div>
+    <div class="tooltip fade bottom in" role="tooltip" id="tooltip-highlight-finish" style="opacity: 0; display: none;"><div class="tooltip-arrow"></div><div class="tooltip-inner">Confirm Code Block</div></div>
     <div class="contingut">
         @if ($errors->has())
         <div class="alert alert-danger">

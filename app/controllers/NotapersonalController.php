@@ -47,8 +47,7 @@ class NotapersonalController extends BaseController {
         $variables = array(
             'Titol' => Input::get('Titol'),
             'ListadoTags' => Input::get('ListadoTagsOculto'),
-            'TextoNota' => Input::get('TextoNota'),
-            'optionsRadios' => Input::get('optionsRadios')
+            'TextoNota' => Input::get('TextoNota')
         );
         $rules = [
             'Titol' => 'required|min:1',
