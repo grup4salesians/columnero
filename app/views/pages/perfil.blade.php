@@ -24,6 +24,11 @@ Perfil
         margin-left: 0;
     }
 </style>
+<script>
+    $(document).ready(function() {
+        $('.cl-menu-perfil').css('background-color', '#F0677C');
+    });
+</script>
 <div id="contingut_home">
     <div id="Bloque_inside_perfil"><br>
         <div class="row">

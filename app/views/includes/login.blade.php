@@ -1,3 +1,8 @@
+<script>
+    $(document).ready(function() {
+        $('.cl-menu-login').css('background-color', '#F0677C');
+    });
+</script>
 <div class="content-wrapper">
     <div class="container">
         <div class="row">

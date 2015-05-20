@@ -10,6 +10,11 @@ Home
         box-sizing: border-box;
     }
 </style>
+<script>
+    $(document).ready(function() {
+        $('.cl-menu-publiques').css('background-color', '#F0677C');
+    });
+</script>
 <script src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/packery/dist/packery.pkgd.min.js" type="text/javascript"></script>
 
 <div id="contingut_home">

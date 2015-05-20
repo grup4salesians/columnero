@@ -3,6 +3,11 @@
 Registre
 @stop
 @section('content')
+<script>
+    $(document).ready(function() {
+        $('.cl-menu-registre').css('background-color', '#F0677C');
+    });
+</script>
 <div class="body_registre">
      <div class="row" style='width:60%;margin:auto;'>
             <div class="col-md-12">

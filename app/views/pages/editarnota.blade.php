@@ -20,6 +20,10 @@ $querycat = DB::table('categories')
 ?>
 
 <script>
+    $(document).ready(function() {
+        $('#cl-menu-mevesnotes').css('background-color', '#F0677C');
+    });
+    
     angular.module('myApp', ['ngTagsInput'])
             .controller('MyCtrl', function ($scope, $http) {
                 var Categories = <?php echo(json_encode($querycat)); ?>;

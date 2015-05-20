@@ -39,6 +39,8 @@ Nova nota
 
 <script>
     $(document).ready(function () {
+        $('.cl-menu-novanota').css('background-color', '#F0677C');
+        
         /* Initialize text-editor */
         $("#TextoNota").summernote({
             height: 250, // set height for editor

@@ -14,6 +14,11 @@ Preferits
         height:120px;
     }
 </style>
+<script>
+    $(document).ready(function() {
+        $('.cl-menu-preferits').css('background-color', '#F0677C');
+    });
+</script>
 <script src="<?php echo Config::get('constants.BaseUrl'); ?>public/assets/vendor/packery/dist/packery.pkgd.min.js" type="text/javascript"></script>
 
 <?php
