@@ -24,7 +24,7 @@ Route::get('registro', 'RegistreController@showFormulari'); // Nos mostrará el 
 Route::post('registro', 'RegistreController@postRegistre'); // Nos registrará en la pagina a través de la función PostRegistro de HomeController.
 //--------------------
 Route::get('admin', function() {
-    return Redirect::to('http://localhost/columnero/public/admin');
+    return Redirect::to('http://localhost/columnero-admin/public/admin');
 });
 
 
